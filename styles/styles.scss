@@ -5,7 +5,7 @@
   --primary-clr--200: rgb(0, 137, 205);
   --primary-clr-300: rgb(0, 116, 174); // lighter
   --primary-clr--400: rgb(0, 102, 153); // base
-  --primary-clr--500: rgb(0, 59, 133); // darker
+  --primary-clr--500: rgb(0, 89, 133); // darker
   --primary-clr--600: rgb(1, 66, 99);
 
   --primary-RGB: 0, 102, 153;
@@ -36,12 +36,14 @@
     --padding-300: 0.5em;
   }
 
-  @include widerThan768 {
+  @include widerThan640 {
     --padding-400: 1em;
   }
 
   --box-shadow-y: 0 8px 16px -4px rgba(var(--black-RGB), 0.4);
+  --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
+  --box-shadow-neumorphism: 20px 20px 40px #013753, -20px -20px 40px #014d73;
 }
 
 body {
@@ -51,3 +53,4 @@ body {
 @import "../components/Button.scss";
 @import "../components/Nav/Nav.scss";
 @import "../components/Landing/Landing.scss";
+@import "../components/Expertise/Expertise.scss";
