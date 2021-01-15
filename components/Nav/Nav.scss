@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--primary-clr--400);
+  background-color: var(--primary-clr-400);
   color: var(--white);
   height: 7vh;
   max-height: 94px;
@@ -91,7 +91,7 @@
     right: 0;
     width: 80vw;
     height: 93vh;
-    background-color: var(--primary-clr--400);
+    background-color: var(--primary-clr-400);
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
@@ -113,7 +113,7 @@
 
     &--active {
       background-color: var(--white);
-      color: var(--primary-clr--400);
+      color: var(--primary-clr-400);
       border-radius: var(--border-radius);
       width: 15ch;
     }

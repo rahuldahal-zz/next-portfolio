@@ -1,12 +1,11 @@
 .expertise {
-  position: relative;
   margin-top: -10vh;
   padding: var(--padding-400);
   padding-top: 13vh;
   padding-bottom: 13vh;
   min-height: 100vh;
   overflow: hidden;
-  background-color: var(--primary-clr--600);
+  background-color: var(--primary-clr-600);
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
   &__heading {
@@ -32,7 +31,7 @@
 
 .expertiseCard {
   position: relative;
-  background-color: var(--primary-clr--600);
+  background-color: var(--primary-clr-600);
   border-radius: var(--border-radius);
   width: 20.625rem;
   height: 11.562rem;
@@ -46,7 +45,7 @@
     width: 100%;
     margin: 0;
     background-color: var(--white);
-    color: var(--primary-clr--600);
+    color: var(--primary-clr-600);
     text-align: center;
     padding: var(--padding-300);
     border-top-left-radius: var(--border-radius);
@@ -56,8 +55,9 @@
   &__image {
     display: block;
     margin: 0 auto;
-    width: auto;
-    height: 100%;
+    margin-top: 2.625rem;
+    width: 70%;
+    height: 70%;
   }
 
   &__expand {
@@ -71,5 +71,88 @@
     &::before {
       content: "\f078";
     }
+  }
+}
+
+.expertiseExpand {
+  visibility: hidden;
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+
+  &__btn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    border-bottom-right-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-y);
+  }
+
+  &__cover {
+    background-color: var(--primary-clr-600);
+    height: 150px;
+    width: 100vw;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__content {
+    padding: var(--padding-400);
+  }
+
+  &__title {
+    padding: var(--padding-300) var(--padding-400);
+    width: max-content;
+    margin-top: 0;
+    margin-left: 0;
+    background-color: var(--accent-clr-400);
+    color: var(--black);
+    border-bottom-right-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-y);
+  }
+
+  &__projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--active {
+    visibility: visible;
+  }
+}
+
+.expertiseProject {
+  border-radius: var(--border-radius);
+  background-color: var(--primary-clr-300);
+  width: 100%;
+  padding: var(--padding-300);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:nth-child(even) {
+    background-color: var(--primary-clr-500);
+  }
+
+  &__logo {
+    width: 24px;
+    margin-right: 0.5em;
+  }
+
+  &__name {
+    color: var(--white);
+  }
+
+  &__link {
+    color: var(--accent-clr-400);
   }
 }

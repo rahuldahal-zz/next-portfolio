@@ -2,18 +2,18 @@
 
 :root {
   // primary-color
-  --primary-clr--200: rgb(0, 137, 205);
+  --primary-clr-200: rgb(0, 137, 205);
   --primary-clr-300: rgb(0, 116, 174); // lighter
-  --primary-clr--400: rgb(0, 102, 153); // base
-  --primary-clr--500: rgb(0, 89, 133); // darker
-  --primary-clr--600: rgb(1, 66, 99);
+  --primary-clr-400: rgb(0, 102, 153); // base
+  --primary-clr-500: rgb(0, 89, 133); // darker
+  --primary-clr-600: rgb(1, 66, 99);
 
   --primary-RGB: 0, 102, 153;
 
   // accent-color
-  --accent-clr--300: rgb(252, 255, 100); // lighter
-  --accent-clr--400: rgb(251, 255, 46); // base
-  --accent-clr--500: rgb(227, 232, 0); // darker
+  --accent-clr-300: rgb(252, 255, 100); // lighter
+  --accent-clr-400: rgb(251, 255, 46); // base
+  --accent-clr-500: rgb(227, 232, 0); // darker
 
   --accent-RGB: 251, 255, 46;
 
@@ -44,6 +44,11 @@
   --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-neumorphism: 20px 20px 40px #013753, -20px -20px 40px #014d73;
+}
+
+::selection {
+  background-color: var(--accent-clr--400);
+  color: var(--black);
 }
 
 body {

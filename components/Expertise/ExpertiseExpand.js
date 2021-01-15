@@ -1,0 +1,77 @@
+import React from "react";
+import Button from "@components/Button";
+
+export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
+  let title, description, image;
+
+  switch (expertise) {
+    case "MERN":
+      title = "MERN Stack Development";
+      description =
+        "MongoDB Express React and NodeJS, i.e. MERN is a stack of technologies to build full-stack web applications.";
+      image = "/MERNStack.svg";
+      break;
+
+    case "JAM":
+      title = "JAM Stack Development";
+      description = "JAM";
+      image = "/JAMStack.svg";
+      break;
+
+    case "FOSS":
+      title = "OpenSource Contribution";
+      description = "FOSS";
+      image = "/OpenSource.svg";
+      break;
+  }
+
+  return (
+    <div
+      className={
+        expertise
+          ? "expertiseExpand expertiseExpand--active"
+          : "expertiseExpand"
+      }
+    >
+      <Button
+        fill="filled"
+        textContent="back"
+        modifier="expertiseExpand__btn"
+        onClick={(e) => {
+          e.currentTarget.parentElement.classList.remove(
+            "expertiseExpand--active"
+          );
+          setIsExpandPressed(false);
+        }}
+      />
+      <div className="expertiseExpand__cover">
+        <img width="200px" src={image ? image : ""} alt="" />
+      </div>
+      <h5 className="expertiseExpand__title">{title ? title : ""}</h5>
+      <div className="expertiseExpand__content">
+        <p className="expertiseExpand__details">
+          {description ? description : ""}
+        </p>
+        <hr />
+        <h6>Projects</h6>
+        <div className="expertiseExpand__projects">
+          <div className="expertiseProject">
+            <img
+              src="/OpenSource.svg"
+              width="24px"
+              alt=""
+              className="expertiseProject__logo"
+            />
+            <strong className="expertiseProject__name">FootballStats</strong>
+            <a
+              href="https://footballstats.tk"
+              className="expertiseProject__link"
+            >
+              Link
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
