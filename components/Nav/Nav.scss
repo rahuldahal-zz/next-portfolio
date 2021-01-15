@@ -13,7 +13,7 @@
   &__wrap {
     width: 100%;
     height: 100%;
-    padding: var(--padding);
+    padding: var(--padding-400);
     max-width: 1400px;
     display: flex;
     justify-content: space-between;
@@ -31,9 +31,11 @@
 
   &__hamburger {
     position: relative;
+    z-index: 3;
     display: inline-block;
-    width: 30px;
-    height: 3px;
+    width: 6vw;
+    min-width: 30px;
+    height: 0.4vh;
     background-color: var(--white);
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -42,7 +44,7 @@
     &::before,
     &::after {
       content: "";
-      height: 3px;
+      height: 100%;
       width: 100%;
       position: absolute;
       left: 0;
@@ -52,11 +54,11 @@
     }
 
     &::before {
-      top: -6px;
+      top: -0.8vh;
     }
 
     &::after {
-      top: 6px;
+      top: 0.8vh;
       transform-origin: left;
       transform: scaleX(0.8);
     }
@@ -85,7 +87,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 7vh;
+    top: 0;
     right: 0;
     width: 80vw;
     height: 93vh;
@@ -104,7 +106,7 @@
   &__link {
     text-align: center;
     margin: 1em auto;
-    padding: var(--padding);
+    padding: var(--padding-400);
     color: var(--white);
     text-decoration: none;
     text-transform: uppercase;

@@ -1,3 +1,5 @@
+@import "./media";
+
 :root {
   // primary-color
   --primary-clr--200: rgb(0, 137, 205);
@@ -25,7 +27,19 @@
   --white-RGB: 240, 249, 254;
 
   --border-radius: 0.25em;
-  --padding: 0.5em;
+  --padding-400: 0.5em;
+  --padding-300: 0.25em;
+
+  @include widerThan480 {
+    --border-radius: 0.5em;
+    --padding-400: 0.75em;
+    --padding-300: 0.5em;
+  }
+
+  @include widerThan768 {
+    --padding-400: 1em;
+  }
+
   --box-shadow-y: 0 8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
 }
@@ -34,6 +48,6 @@ body {
   overflow-x: hidden;
 }
 
+@import "../components/Button.scss";
 @import "../components/Nav/Nav.scss";
 @import "../components/Landing/Landing.scss";
-@import "../components/Button.scss";

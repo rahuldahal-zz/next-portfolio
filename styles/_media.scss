@@ -1,0 +1,25 @@
+@mixin widerThan640() {
+  @media only screen and (min-width: 641px) {
+    @content;
+  }
+}
+@mixin widerThan480() {
+  @media only screen and (min-width: 481px) {
+    @content;
+  }
+}
+@mixin widerThan768() {
+  @media only screen and (min-width: 769px) {
+    @content;
+  }
+}
+@mixin widerThan1200() {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin widerThan1600() {
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}
