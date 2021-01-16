@@ -49,6 +49,11 @@
     }
   }
 
+  &__subheading {
+    width: max-content;
+    margin-top: 2.2rem;
+  }
+
   &__highlight {
     display: inline-block;
     background-color: var(--accent-clr-400);
@@ -58,30 +63,6 @@
     padding: 0 var(--padding-300);
     width: max-content;
     border-radius: 0.25em;
-  }
-
-  &__subheading {
-    position: relative;
-    width: max-content;
-    min-width: 300px;
-    background-color: rgba(var(--white-RGB), 0.1);
-    color: var(--white);
-    padding: var(--padding-300);
-    padding-left: 0.75rem;
-    margin-left: 0.25rem;
-    margin-top: 2.2rem;
-    border-radius: var(--border-radius);
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: -0.125rem;
-      top: -12.5%;
-      width: 0.5rem;
-      height: 120%;
-      border-radius: var(--border-radius);
-      background-color: var(--accent-clr-400);
-    }
   }
 
   &__cta {

@@ -27,7 +27,13 @@ export default function Expertise() {
           />
         </div>
 
+        <p className="subheading">
+          While using these technologies, I make sure a great{" "}
+          <strong>User Experience</strong> is achieved. Every time.
+        </p>
+
         <Button
+          to="/projects"
           modifier="expertise__projects"
           textContent="Things I have done"
           fill="filled"
@@ -44,6 +50,7 @@ export default function Expertise() {
     return (
       <div className="expertiseCard">
         <h5 className="expertiseCard__title">{title}</h5>
+        <hr />
         <img
           src={image ? image : "https://unsplash.it/200/200"}
           alt="MERN stack logo"

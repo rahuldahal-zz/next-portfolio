@@ -1,0 +1,20 @@
+.subheading {
+  position: relative;
+  background-color: rgba(var(--white-RGB), 0.1);
+  color: var(--white);
+  padding: var(--padding-300);
+  padding-left: 0.75rem;
+  margin-left: var(--padding-300);
+  border-radius: var(--border-radius);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -0.125rem;
+    top: -12.5%;
+    width: 0.5rem;
+    height: 120%;
+    border-radius: var(--border-radius);
+    background-color: var(--accent-clr-400);
+  }
+}

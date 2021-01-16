@@ -44,6 +44,8 @@
   --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-neumorphism: 20px 20px 40px #013753, -20px -20px 40px #014d73;
+
+  --transition-duration: 0.3s;
 }
 
 ::selection {
@@ -55,6 +57,7 @@ body {
   overflow-x: hidden;
 }
 
+@import "./_common.scss";
 @import "../components/Button.scss";
 @import "../components/Nav/Nav.scss";
 @import "../components/Landing/Landing.scss";

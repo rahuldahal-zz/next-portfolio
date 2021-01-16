@@ -29,7 +29,9 @@ export default function Landing() {
         <div className="landing__wrap">
           <div className="landing__heading">{heading}</div>
 
-          <p className="landing__subheading">MERN/JAM stack developer</p>
+          <p className="landing__subheading subheading">
+            MERN/JAM stack developer
+          </p>
 
           <div className="landing__cta">
             <Button to="/contact" fill="filled" textContent="Contact" />

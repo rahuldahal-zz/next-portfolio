@@ -14,13 +14,15 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
 
     case "JAM":
       title = "JAM Stack Development";
-      description = "JAM";
+      description =
+        "JavaScript API and Markup, i.e. JAM is a stack of technologies if used together efficiently, will create fast, powerful, and pre-rendered websites.";
       image = "/JAMStack.svg";
       break;
 
     case "FOSS":
       title = "OpenSource Contribution";
-      description = "FOSS";
+      description =
+        "Contributing to Free and Open Source Software, i.e. FOSS encourages innovation through collaboration with fellow developers around the globe.";
       image = "/OpenSource.svg";
       break;
   }
