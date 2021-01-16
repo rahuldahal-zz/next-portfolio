@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--primary-clr-400);
+  background-image: var(--primary-gradient-horizontal);
   color: var(--white);
   height: 7vh;
   max-height: 94px;
@@ -91,7 +91,7 @@
     right: 0;
     width: 80vw;
     height: 100vh;
-    background-color: var(--primary-clr-400);
+    background: var(--primary-gradient-horizontal-reverse);
     transform-origin: right;
     transform: scaleX(0);
     transition: visibility var(--transition-duration) ease-in-out,

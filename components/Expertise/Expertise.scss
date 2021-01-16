@@ -5,7 +5,7 @@
   padding-bottom: 13vh;
   min-height: 100vh;
   overflow: hidden;
-  background-color: var(--primary-clr-600);
+  background: var(--primary-gradient-vertical-reverse);
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
   &__heading {

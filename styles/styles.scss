@@ -10,12 +10,45 @@
 
   --primary-RGB: 0, 102, 153;
 
+  // gradients
+  --primary-gradient: rgba(0, 102, 153, 1) 0%, rgba(0, 116, 174, 1) 35%,
+    rgba(0, 130, 255, 1) 100%;
+
+  --primary-gradient-horizontal: linear-gradient(
+    90deg,
+    var(--primary-gradient)
+  );
+  --primary-gradient-horizontal-reverse: linear-gradient(
+    270deg,
+    var(--primary-gradient)
+  );
+  --primary-gradient-vertical: linear-gradient(180deg, var(--primary-gradient));
+  --primary-gradient-vertical-reverse: linear-gradient(
+    360deg,
+    var(--primary-gradient)
+  );
+
   // accent-color
   --accent-clr-300: rgb(252, 255, 100); // lighter
   --accent-clr-400: rgb(251, 255, 46); // base
   --accent-clr-500: rgb(227, 232, 0); // darker
 
   --accent-RGB: 251, 255, 46;
+
+  // gradients
+  --accent-gradient: rgba(227, 232, 0, 1) 0%, rgba(251, 255, 46, 1) 35%,
+    rgba(252, 255, 100, 1) 100%;
+
+  --accent-gradient-horizontal: linear-gradient(90deg, var(--accent-gradient));
+  --accent-gradient-horizontal-reverse: linear-gradient(
+    270deg,
+    var(--accent-gradient)
+  );
+  --accent-gradient-vertical: linear-gradient(180deg, var(--accent-gradient));
+  --accent-gradient-vertical-reverse: linear-gradient(
+    360deg,
+    var(--accent-gradient)
+  );
 
   // fonts
   --headingFont: "Roboto";
@@ -43,13 +76,13 @@
   --box-shadow-y: 0 8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
-  --box-shadow-neumorphism: 20px 20px 40px #013753, -20px -20px 40px #014d73;
+  --box-shadow-neumorphism: 7px 7px 14px #006394, -7px -7px 14px #0085c8;
 
   --transition-duration: 0.3s;
 }
 
 ::selection {
-  background-color: var(--accent-clr--400);
+  background-color: var(--accent-clr-400);
   color: var(--black);
 }
 

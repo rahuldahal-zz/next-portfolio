@@ -56,7 +56,7 @@
 
   &__highlight {
     display: inline-block;
-    background-color: var(--accent-clr-400);
+    background-image: var(--accent-gradient-vertical-reverse);
     font-weight: 500;
     color: var(--black);
     margin: 0.25em 0;
