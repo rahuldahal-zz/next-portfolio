@@ -1,0 +1,63 @@
+.footer {
+  margin-top: -15vh;
+  padding: var(--padding-400);
+  padding-top: 20vh;
+  background-color: var(--black);
+  color: var(--white);
+
+  &__title {
+    margin-top: 0;
+  }
+
+  &__socialLinks {
+    margin: 1.5rem 0;
+
+    h6 {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      margin-right: 1rem;
+      background-color: var(--white);
+      color: var(--primary-clr-400);
+      padding: var(--padding-400);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+
+      &::before {
+        content: "#";
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 900;
+        margin-right: 0.5rem;
+      }
+    }
+
+    a[title="Github Profile"] {
+      &::before {
+        content: "\f09b";
+      }
+    }
+
+    a[title="Twitter Profile"] {
+      &:before {
+        content: "\f099";
+      }
+    }
+
+    a[title="Facebook Profile"] {
+      margin-right: 0;
+
+      &::before {
+        content: "\f09a";
+      }
+    }
+  }
+
+  hr {
+    color: var(--white);
+  }
+
+  &__copyright {
+    margin-bottom: 0;
+  }
+}

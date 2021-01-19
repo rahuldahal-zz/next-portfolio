@@ -1,12 +1,14 @@
 import "extended-normalize.css";
 import "@styles/styles.scss";
 import MyHead from "../components/MyHead";
+import Footer from "../components/Footer/Footer";
 
 function Application({ Component, pageProps }) {
   return (
     <>
       <MyHead />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

@@ -10,6 +10,39 @@
   max-height: 94px;
   box-shadow: var(--box-shadow-y);
 
+  &::after,
+  &::before {
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    height: 0.25rem;
+  }
+
+  &::before {
+    width: 100%;
+    background-color: var(--accent-clr-400);
+  }
+
+  &::after {
+    width: 50%;
+    border-radius: var(--border-radius);
+    transform: translateX(-100%);
+    background-color: var(--primary-clr-400);
+  }
+
+  &--loading {
+    &::before,
+    &::after {
+      visibility: visible;
+    }
+
+    &::after {
+      animation: slide 0.7s linear infinite;
+    }
+  }
+
   &__wrap {
     width: 100%;
     height: 100%;
@@ -118,5 +151,11 @@
       border-radius: var(--border-radius);
       width: 15ch;
     }
+  }
+}
+
+@keyframes slide {
+  100% {
+    transform: translateX(150%);
   }
 }
