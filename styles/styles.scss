@@ -52,6 +52,7 @@
 
   // fonts
   --headingFont: "Roboto";
+  --bodyFont: "Roboto";
   --primaryTextColor: var(--black);
 
   --black: rgb(0, 4, 20);
@@ -89,11 +90,14 @@
 
 body {
   overflow-x: hidden;
+  background-color: var(--white);
 }
 
 @import "./_common.scss";
-@import "../components/Button.scss";
-@import "../components/Nav/Nav.scss";
-@import "../components/Landing/Landing.scss";
-@import "../components/Expertise/Expertise.scss";
-@import "../components/Footer/Footer.scss";
+@import "../components/Common/Button/Button.scss";
+@import "../components/Common/Nav/Nav.scss";
+@import "../components/Index/Landing/Landing.scss";
+@import "../components/Index/Expertise/Expertise.scss";
+@import "../components/Common/Footer/Footer.scss";
+@import "../components/About/Header/Header.scss";
+@import "../components/About/Process/Process.scss";

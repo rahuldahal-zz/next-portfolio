@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@components/Button";
+import Button from "@components/Common/Button/Button";
 
 export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
   let title, description, image;

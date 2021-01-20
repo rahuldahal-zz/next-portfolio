@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "@components/Button";
+import Button from "@components/Common/Button/Button";
 import ExpertiseExpand from "./ExpertiseExpand";
 
 export default function Expertise() {

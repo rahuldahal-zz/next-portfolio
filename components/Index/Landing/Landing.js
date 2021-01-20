@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
-import isScreenLargerThan from "../../utils/screenSize";
-import UsabilityIllustration from "../../public/usability_testing.svg";
+import Button from "../../Common/Button/Button";
+import isScreenLargerThan from "../../../utils/screenSize";
+import UsabilityIllustration from "../../../public/usability_testing.svg";
 
 export default function Landing() {
   let tagline = (

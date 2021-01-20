@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "./link";
-import Logo from "../../public/logo.svg";
+import Logo from "../../../public/logo.svg";
 
 export default function Nav({ current }) {
   const [isScreenNarrow, setIsScreenNarrow] = useState(true);

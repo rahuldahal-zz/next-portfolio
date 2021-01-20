@@ -1,0 +1,14 @@
+.aboutProcess {
+  padding: var(--padding-300);
+  padding-bottom: 16vh;
+}
+
+.process {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    width: 24px;
+    margin-right: 0.5em;
+  }
+}
