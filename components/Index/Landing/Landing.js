@@ -25,7 +25,7 @@ export default function Landing() {
 
   return (
     <>
-      <section className="landing">
+      <section className="landing overlay">
         <div className="landing__wrap">
           <div className="landing__heading">{heading}</div>
 

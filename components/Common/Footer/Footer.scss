@@ -1,4 +1,6 @@
 .footer {
+  position: relative;
+  z-index: -1;
   margin-top: -15vh;
   padding: var(--padding-400);
   padding-top: 20vh;

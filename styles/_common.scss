@@ -18,3 +18,19 @@
     background-color: var(--accent-clr-400);
   }
 }
+
+.overlay {
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      rgba(var(--primary-RGB), 0.9),
+      rgba(var(--primary-RGB), 1)
+    );
+  }
+}

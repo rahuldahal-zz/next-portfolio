@@ -31,8 +31,8 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
     <div
       className={
         expertise
-          ? "expertiseExpand expertiseExpand--active"
-          : "expertiseExpand"
+          ? "expertiseExpand overlay expertiseExpand--active"
+          : "expertiseExpand overlay"
       }
     >
       <Button
