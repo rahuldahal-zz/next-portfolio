@@ -2,14 +2,27 @@
   background-color: var(--white);
   padding: var(--padding-300);
   padding-bottom: 13vh;
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+
+  &__contact {
+    background: var(--primary-gradient-vertical);
+    color: var(--white);
+    margin-top: 1rem;
+    border: 0.125rem solid var(--primary-clr-400);
+
+    &::before {
+      content: "\f2b9";
+    }
+  }
 }
 
 .process {
   display: flex;
   align-items: center;
+  margin-bottom: 1em;
 
   &__icon {
-    width: 24px;
-    margin-right: 0.5em;
+    width: 32px;
+    margin-right: 1em;
   }
 }

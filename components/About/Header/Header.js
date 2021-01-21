@@ -20,11 +20,13 @@ export default function Header() {
           <strong>That's Research & Testing!</strong>
         </p>
         <h6>Testing for,</h6>
+
         <mark>Usability</mark>
         <mark>Accessibility</mark>
         <mark>Functionality</mark>
         <span>, as well as</span>
         <mark>Credibility.</mark>
+
         <h6>And that is exactly what I do.</h6>
       </div>
 

@@ -4,6 +4,7 @@
   padding: var(--padding-300);
   padding-bottom: 10vh;
   color: var(--white);
+  overflow-x: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
   &::before {
