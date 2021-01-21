@@ -23,8 +23,8 @@ export default function Header() {
 
         <mark>Usability</mark>
         <mark>Accessibility</mark>
-        <mark>Functionality</mark>
-        <span>, as well as</span>
+        <mark>Functionality,</mark>
+        <span> as well as</span>
         <mark>Credibility.</mark>
 
         <h6>And that is exactly what I do.</h6>
