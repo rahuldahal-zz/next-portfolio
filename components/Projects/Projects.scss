@@ -1,0 +1,87 @@
+.projects {
+  margin-top: 7vh;
+  padding-bottom: 13vh;
+  min-height: 100vh;
+
+  &__wrap {
+    padding: var(--padding-400);
+  }
+}
+
+.project {
+  position: relative;
+  margin-top: 6rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-y);
+
+  @include widerThan768 {
+    &:nth-child(even) .projectBody {
+      flex-direction: row-reverse;
+    }
+    &:nth-child(even) .projectBody .projectDescription {
+      margin: 0;
+      margin-left: 40px;
+    }
+    &:nth-child(odd) .projectBody .projectDescription {
+      margin: 0;
+      margin-right: 40px;
+    }
+  }
+
+  &__name {
+    position: absolute;
+    bottom: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    background: var(--accent-gradient-vertical-reverse);
+    color: var(--black);
+    padding: var(--padding-300);
+    margin: 0;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-y-reverse);
+  }
+
+  &__body {
+    background: var(--primary-gradient-horizontal);
+    padding: var(--padding-400);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+
+    @include widerThan768 {
+      padding: 1rem 2rem;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__description {
+    background-color: var(--white);
+    color: var(--black);
+    padding: var(--padding-400);
+    border-radius: var(--border-radius);
+    line-height: 150%;
+    margin: 0;
+    margin-top: 20px;
+    box-shadow: var(--box-shadow-y);
+  }
+
+  &__repo {
+    color: var(--black);
+    margin-left: 0.5rem;
+
+    &::before {
+      font-family: "Font Awesome 5 Brands";
+      content: "\f09b";
+    }
+  }
+
+  &__url::before {
+    content: "\f35d";
+  }
+}
