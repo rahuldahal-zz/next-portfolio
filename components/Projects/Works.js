@@ -1,31 +1,17 @@
 import Button from "@components/Common/Button/Button";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-export default function FetchedProjects() {
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const [projects, setProjects] = useState([]);
-
-  useEffect(async () => {
-    const res = await fetch("/api/projects");
-    const data = await res.json();
-    setHasLoaded(true);
-    setProjects(data.projects);
-  }, []);
-
+export default function Works({ works }) {
   return (
     <main className="projects">
-      {hasLoaded ? (
-        <Projects projects={projects} />
-      ) : (
-        <h5>Fetching Projects...</h5>
-      )}
+      <Projects works={works} />
     </main>
   );
 
-  function Projects({ projects }) {
+  function Projects({ works }) {
     return (
       <div className="projects__wrap">
-        {projects.map((project) => {
+        {works.map((work) => {
           const {
             name,
             icon,
@@ -34,7 +20,7 @@ export default function FetchedProjects() {
             repo,
             stack,
             screenshots,
-          } = project;
+          } = work;
           return (
             <div className="project" key={name.trim().split(" ").join("")}>
               <h4 className="project__name">{name}</h4>
