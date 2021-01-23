@@ -94,6 +94,11 @@ body {
   transition: background 0.6s ease-out, color 0.8s ease-out;
 }
 
+p {
+  line-height: calc(1.5em + 0.2vw); // ref. smashing magazine
+  margin: calc(1em + 0.5vw) 0;
+}
+
 @import "./_common.scss";
 @import "../components/Common/Button/Button.scss";
 @import "../components/Common/Nav/Nav.scss";

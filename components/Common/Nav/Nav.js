@@ -10,12 +10,15 @@ export default function Nav({ current }) {
 
   useEffect(() => {
     setIsScreenNarrow(matchMedia("(max-width: 768px)").matches);
-    if (localStorage.getItem("theme") === "theme") {
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "dark") {
       document
         .querySelector(".nav__themeToggler")
         .classList.add("nav__themeToggler--dark");
     }
-  }, []);
+  }, [current]);
 
   return (
     <nav className="nav">
