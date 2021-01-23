@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "./link";
 import Logo from "../../../public/logo.svg";
 import Toggle from "../../../public/toggle.svg";
@@ -10,6 +10,11 @@ export default function Nav({ current }) {
 
   useEffect(() => {
     setIsScreenNarrow(matchMedia("(max-width: 768px)").matches);
+    if (localStorage.getItem("theme") === "theme") {
+      document
+        .querySelector(".nav__themeToggler")
+        .classList.add("nav__themeToggler--dark");
+    }
   }, []);
 
   return (
@@ -20,22 +25,34 @@ export default function Nav({ current }) {
         </Link>
 
         <div className="nav__togglers">
-          <Toggle
-            className="nav__themeToggler"
-            onClick={() => document.documentElement.classList.toggle("dark")}
-          />
+          <div
+            className="nav__theme"
+            role="button"
+            tabIndex="0"
+            onClick={() => themeToggleHandler()}
+            onKeyUp={(e) => themeToggleHandler(e)}
+          >
+            <Toggle className="nav__themeToggler" title="Dark Mode Toggler" />
+            <small>Dark Mode</small>
+          </div>
 
           {isScreenNarrow ? (
-            <span
+            <div
               role="button"
               tabIndex="0"
-              className={
-                isHamburgerClicked
-                  ? "nav__hamburger nav__hamburger--active"
-                  : "nav__hamburger"
-              }
+              className="nav__hamburger"
               onClick={() => hamBurgerClickHandler()}
-            ></span>
+              onKeyUp={(e) => hamBurgerClickHandler(e)}
+            >
+              <span
+                className={
+                  isHamburgerClicked
+                    ? "nav__hamburgerToggler nav__hamburgerToggler--active"
+                    : "nav__hamburgerToggler"
+                }
+              ></span>
+              <small>Menu</small>
+            </div>
           ) : (
             ""
           )}
@@ -70,9 +87,33 @@ export default function Nav({ current }) {
     </nav>
   );
 
-  function hamBurgerClickHandler() {
-    isHamburgerClicked
-      ? setIsHamburgerClicked(false)
-      : setIsHamburgerClicked(true);
+  function hamBurgerClickHandler(e) {
+    if (e) {
+      switch (e.key) {
+        case "Enter":
+          setIsHamburgerClicked(true);
+          break;
+        case "Escape":
+          setIsHamburgerClicked(false);
+          break;
+      }
+    } else {
+      isHamburgerClicked
+        ? setIsHamburgerClicked(false)
+        : setIsHamburgerClicked(true);
+    }
+  }
+
+  function themeToggleHandler(e) {
+    const theme = localStorage.getItem("theme");
+    if ((e && e.key === "Enter") || !e) {
+      theme
+        ? localStorage.removeItem("theme")
+        : localStorage.setItem("theme", "dark");
+      document
+        .querySelector(".nav__themeToggler")
+        .classList.toggle("nav__themeToggler--dark");
+      document.documentElement.classList.toggle("dark");
+    }
   }
 }

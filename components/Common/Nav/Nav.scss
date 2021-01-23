@@ -6,7 +6,7 @@
   width: 100%;
   background-image: var(--primary-gradient-horizontal);
   color: var(--white);
-  height: 7vh;
+  height: 10vh;
   max-height: 94px;
   box-shadow: var(--box-shadow-y);
 
@@ -62,7 +62,7 @@
     }
   }
 
-  &__hamburger {
+  &__hamburgerToggler {
     position: relative;
     z-index: 3;
     display: inline-block;
@@ -72,6 +72,7 @@
     background-color: var(--white);
     border-radius: var(--border-radius);
     cursor: pointer;
+    margin-bottom: 1.6vh;
     transition: transform var(--transition-duration) ease-in-out;
 
     &::before,
@@ -155,18 +156,38 @@
 
   &__togglers {
     display: flex;
+    align-items: flex-end;
+  }
+
+  &__theme,
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__theme {
+    margin-right: 1rem;
   }
 
   &__themeToggler {
     height: 1.5rem;
-    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
 
     path {
       fill: var(--accent-clr-400);
     }
     circle {
       fill: var(--black);
+      transition: transform 0.3s ease-out;
+    }
+
+    &--dark {
+      circle {
+        transform: translateX(calc(2 * 6rem));
+      }
     }
   }
 }
