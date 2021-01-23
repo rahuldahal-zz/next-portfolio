@@ -47,7 +47,7 @@
   width: 20.625rem;
   height: 11.562rem;
   margin-bottom: 3rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(var(--white-RGB), 0.8);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

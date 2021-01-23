@@ -17,6 +17,7 @@
   }
 
   &--outline {
+    background: transparent;
     color: var(--white);
     border: 2px solid currentColor;
   }

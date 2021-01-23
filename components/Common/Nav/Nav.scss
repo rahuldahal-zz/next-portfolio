@@ -152,6 +152,23 @@
       width: 15ch;
     }
   }
+
+  &__togglers {
+    display: flex;
+    align-items: center;
+  }
+
+  &__themeToggler {
+    height: 1.5rem;
+    margin-right: 0.5rem;
+
+    path {
+      fill: var(--accent-clr-400);
+    }
+    circle {
+      fill: var(--black);
+    }
+  }
 }
 
 @keyframes slide {

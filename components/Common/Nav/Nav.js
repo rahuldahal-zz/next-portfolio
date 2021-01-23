@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "./link";
 import Logo from "../../../public/logo.svg";
+import Toggle from "../../../public/toggle.svg";
+import Button from "../Button/Button";
 
 export default function Nav({ current }) {
   const [isScreenNarrow, setIsScreenNarrow] = useState(true);
@@ -16,20 +18,28 @@ export default function Nav({ current }) {
         <Link to="/">
           <Logo className="nav__logo" />
         </Link>
-        {isScreenNarrow ? (
-          <span
-            role="button"
-            tabIndex="0"
-            className={
-              isHamburgerClicked
-                ? "nav__hamburger nav__hamburger--active"
-                : "nav__hamburger"
-            }
-            onClick={() => hamBurgerClickHandler()}
-          ></span>
-        ) : (
-          ""
-        )}
+
+        <div className="nav__togglers">
+          <Toggle
+            className="nav__themeToggler"
+            onClick={() => document.documentElement.classList.toggle("dark")}
+          />
+
+          {isScreenNarrow ? (
+            <span
+              role="button"
+              tabIndex="0"
+              className={
+                isHamburgerClicked
+                  ? "nav__hamburger nav__hamburger--active"
+                  : "nav__hamburger"
+              }
+              onClick={() => hamBurgerClickHandler()}
+            ></span>
+          ) : (
+            ""
+          )}
+        </div>
         <div
           className={
             isHamburgerClicked ? "nav__links nav__links--active" : "nav__links"

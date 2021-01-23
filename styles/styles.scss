@@ -11,8 +11,8 @@
   --primary-RGB: 0, 102, 153;
 
   // gradients
-  --primary-gradient: rgba(0, 102, 153, 1) 0%, rgba(0, 116, 174, 1) 35%,
-    rgba(0, 137, 205, 1) 100%;
+  --primary-gradient: var(--primary-clr-400) 0%, var(--primary-clr-300) 35%,
+    var(--primary-clr-200) 100%;
 
   --primary-gradient-horizontal: linear-gradient(
     90deg,
@@ -36,8 +36,8 @@
   --accent-RGB: 251, 255, 46;
 
   // gradients
-  --accent-gradient: rgba(227, 232, 0, 1) 0%, rgba(251, 255, 46, 1) 35%,
-    rgba(252, 255, 100, 1) 100%;
+  --accent-gradient: var(--accent-clr-500) 0%, var(--accent-clr-400) 35%,
+    var(--accent-clr-300) 100%;
 
   --accent-gradient-horizontal: linear-gradient(90deg, var(--accent-gradient));
   --accent-gradient-horizontal-reverse: linear-gradient(
@@ -91,6 +91,7 @@
 body {
   overflow-x: hidden;
   background-color: var(--white);
+  transition: background 0.6s ease-out, color 0.8s ease-out;
 }
 
 @import "./_common.scss";
@@ -102,3 +103,23 @@ body {
 @import "../components/About/Header/Header.scss";
 @import "../components/About/Process/Process.scss";
 @import "../components/Projects/Projects.scss";
+
+.dark {
+  --primary-clr-200: #00334d;
+  --primary-clr-300: #00293d;
+  --primary-clr-400: #001b29;
+  --primary-clr-500: #00141f;
+  --primary-clr-600: #000c13;
+
+  --primary-RGB: 0, 27, 41;
+
+  --accent-clr-300: #ffe600;
+  --accent-clr-400: rgb(241, 245, 0);
+  --accent-clr-500: #e9d200;
+
+  --accent-RGB: 241, 245, 0;
+
+  --white: rgb(206, 206, 206);
+
+  --white-RGB: 206, 206, 206;
+}
