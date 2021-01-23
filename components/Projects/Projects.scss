@@ -84,4 +84,13 @@
   &__url::before {
     content: "\f35d";
   }
+
+  &__previousShot,
+  &__nextShot {
+    opacity: 0.4;
+  }
+
+  &__previousShot {
+    margin-right: 0.5rem;
+  }
 }

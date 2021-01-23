@@ -44,8 +44,16 @@ export default function Works({ works }) {
                 </div>
 
                 <div className="project__screenshots">
-                  <button className="project__previousShot">Previous</button>
-                  <button className="project__nextShot">Next</button>
+                  <Button
+                    textContent="Previous"
+                    fill="filled"
+                    modifier="project__previousShot"
+                  />
+                  <Button
+                    textContent="Next"
+                    fill="filled"
+                    modifier="project__nextShot"
+                  />
                 </div>
               </div>
             </div>
