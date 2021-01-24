@@ -1,7 +1,14 @@
 import React from "react";
 import NextLink from "next/link";
 
-export default function Button({ to, fill, textContent, modifier, onClick }) {
+export default function Button({
+  to,
+  fill,
+  textContent,
+  modifier,
+  type = "button",
+  onClick,
+}) {
   const className = modifier
     ? `btn btn--${fill} ${modifier}`
     : `btn btn--${fill}`;
@@ -11,7 +18,7 @@ export default function Button({ to, fill, textContent, modifier, onClick }) {
       <a className={className}>{textContent}</a>
     </NextLink>
   ) : (
-    <button className={className} onClick={onClick}>
+    <button type={type} className={className} onClick={onClick}>
       {textContent}
     </button>
   );

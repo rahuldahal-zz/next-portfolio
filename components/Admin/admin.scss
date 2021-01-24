@@ -1,0 +1,13 @@
+.admin {
+  min-height: 100vh;
+  display: flex;
+  padding-bottom: 13vh;
+
+  &__login {
+    margin: auto;
+
+    button:hover {
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
+import Query from "@components/Admin/Query";
 
 export default function Admin() {
-  const [isAuthenticated, setIsAuthenticated] = useState();
+  const [Token, setToken] = useState(null);
   const password = useRef(null);
-  const errorMessage = useRef(null);
 
-  return isAuthenticated ? <h1>Hey Admin</h1> : <Login />;
+  return (
+    <main className="admin">{Token ? <Query token={Token} /> : <Login />}</main>
+  );
 
   function Login() {
     return (
@@ -13,7 +15,7 @@ export default function Admin() {
         <form
           action="/api/admin"
           method="POST"
-          className="admin__form"
+          className="admin__login"
           onSubmit={(e) => formSubmitHandler(e)}
         >
           <label htmlFor="password">Password</label>
@@ -26,7 +28,6 @@ export default function Admin() {
           />
           <button type="submit">Login</button>
         </form>
-        <p ref={errorMessage} className="admin__errorMessage"></p>
       </>
     );
   }
@@ -39,9 +40,9 @@ export default function Admin() {
         body: JSON.stringify({ password: password.current.value }),
       });
       if (res.status === 202) {
-        setIsAuthenticated(true);
-      } else {
-        errorMessage.current.textContent = "Incorrect Password.";
+        const { token } = await res.json();
+        console.log(token);
+        setToken(token);
       }
     } catch (error) {
       console.log(error);

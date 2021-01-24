@@ -96,6 +96,7 @@ body {
   overflow-x: hidden;
   background-color: var(--white);
   transition: background 0.6s ease-out, color 0.8s ease-out;
+  font-display: swap;
 }
 
 p {
@@ -113,3 +114,4 @@ p {
 @import "../components/About/Process/Process.scss";
 @import "../components/Projects/Projects.scss";
 @import "./dark";
+@import "../components/Admin/admin.scss";
