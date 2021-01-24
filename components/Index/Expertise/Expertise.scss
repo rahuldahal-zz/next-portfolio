@@ -6,21 +6,11 @@
   padding-bottom: 13vh;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url("/tech.png");
-  // background: url("https://i.imgur.com/6pSM7ng.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--white);
   clip-path: var(--clip-path);
 
-  &::before {
-    background: linear-gradient(
-      rgba(var(--primary-RGB), 0.6),
-      rgba(var(--primary-RGB), 1)
-    );
-  }
-
   &__heading {
-    color: var(--white);
+    color: var(--black);
   }
 
   &__cards {
@@ -39,6 +29,11 @@
       content: "\f0ae";
     }
   }
+
+  .subheading {
+    color: var(--primary-clr-400);
+    background-color: rgba(var(--black-RGB), 0.1);
+  }
 }
 
 .expertiseCard {
@@ -47,12 +42,13 @@
   width: 100%;
   height: 11.562rem;
   margin-bottom: 3rem;
-  background: rgba(var(--white-RGB), 0.8);
+  background: var(--white);
+  box-shadow: var(--box-shadow-neumorphism);
 
   &__title {
     width: 100%;
     margin: 0;
-    color: var(--primary-clr-600);
+    color: var(--primary-clr-400);
     text-align: center;
     padding: var(--padding-300);
     border-top-left-radius: var(--border-radius);
@@ -104,17 +100,13 @@
   left: 0;
   width: 100vw;
   height: 110vh;
-  background-image: url("/tech.png");
-  // background: url("https://i.imgur.com/6pSM7ng.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
   transition: visibility var(--transition-duration) ease-in-out,
     transform var(--transition-duration) ease-in-out;
 
   &::before {
     background-image: linear-gradient(
       rgba(var(--primary-RGB), 1),
-      rgba(var(--primary-RGB), 0.6)
+      rgba(var(--primary-RGB), 0.9)
     );
   }
 
@@ -178,6 +170,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__illustration {
+    position: absolute;
+    z-index: -2;
+    bottom: 10vh;
+    right: -25%;
+    height: 60%;
   }
 
   &--active {

@@ -7,7 +7,7 @@ export default function Expertise() {
 
   return (
     <>
-      <section className="expertise overlay">
+      <section className="expertise">
         <h3 className="expertise__heading">Things I Do</h3>
         <div className="expertise__cards">
           <Card

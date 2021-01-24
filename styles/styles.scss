@@ -57,8 +57,8 @@
 
   --black: rgb(0, 4, 20);
   --black-RGB: 0, 4, 20;
-  --white: rgb(240, 249, 254);
-  --white-RGB: 240, 249, 254;
+  --white: rgb(224, 232, 241);
+  --white-RGB: 224, 232, 241;
 
   --border-radius: 0.25em;
   --border-size: 0.12em;
@@ -78,7 +78,7 @@
   --box-shadow-y: 0 8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
-  --box-shadow-neumorphism: 7px 7px 14px #006394, -7px -7px 14px #0085c8;
+  --box-shadow-neumorphism: 11px 11px 22px #ced5de, -11px -11px 22px #f2fbff;
 
   --clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
 
@@ -126,7 +126,13 @@ p {
 
   --accent-RGB: 215, 198, 0;
 
-  --white: #dfdfdf;
+  --white: rgb(203, 211, 219);
 
-  --white-RGB: 233, 233, 233;
+  --white-RGB: 203, 211, 219;
+
+  --black: rgb(34, 34, 36);
+
+  --black-RGB: 34, 34, 36;
+
+  --box-shadow-neumorphism: 11px 11px 22px #91969e, -11px -11px 22px #dff2fa;
 }

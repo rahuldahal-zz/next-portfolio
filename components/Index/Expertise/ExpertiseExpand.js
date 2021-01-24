@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@components/Common/Button/Button";
+import CodingIllustration from "../../../public/guyCoding.svg";
 
 export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
   let title, description, image;
@@ -74,6 +75,7 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
           </div>
         </div>
       </div>
+      <CodingIllustration className="expertiseExpand__illustration" />
     </div>
   );
 }
