@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Button from "@components/Common/Button/Button";
 import ExpertiseExpand from "./ExpertiseExpand";
+import MERNStack from "../../../public/MERNStack.svg";
+import JAMStack from "../../../public/JAMStack.svg";
+import OpenSource from "../../../public/OpenSource.svg";
 
 export default function Expertise() {
   const [isExpandPressed, setIsExpandPressed] = useState({});
@@ -13,17 +16,17 @@ export default function Expertise() {
           <Card
             expertise="MERN"
             title="MERN Stack Development"
-            image="/MERNStack.svg"
+            Image={MERNStack}
           />
           <Card
             expertise="JAM"
             title="JAM Stack Development"
-            image="/JAMStack.svg"
+            Image={JAMStack}
           />
           <Card
             expertise="FOSS"
             title="OpenSource Contribution"
-            image="/OpenSource.svg"
+            Image={OpenSource}
           />
         </div>
 
@@ -46,16 +49,11 @@ export default function Expertise() {
     </>
   );
 
-  function Card({ expertise, title, image }) {
+  function Card({ expertise, title, Image }) {
     return (
       <div className="expertiseCard">
         <h5 className="expertiseCard__title">{title}</h5>
-        <hr />
-        <img
-          src={image ? image : "https://unsplash.it/200/200"}
-          alt="MERN stack logo"
-          className="expertiseCard__image"
-        />
+        <Image className="expertiseCard__image" />
         <Button
           modifier="expertiseCard__expand"
           fill="filled"

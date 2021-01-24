@@ -1,0 +1,15 @@
+.aboutProcess {
+  background-color: var(--primary-clr-600);
+  color: rgba(var(--white-RGB), 0.8);
+
+  &__contact {
+    background: var(--accent-gradient-vertical);
+    color: var(--black);
+  }
+}
+
+.process {
+  &__icon {
+    fill: var(--theme);
+  }
+}

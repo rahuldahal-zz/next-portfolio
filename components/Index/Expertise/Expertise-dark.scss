@@ -1,0 +1,20 @@
+.expertise {
+  background: var(--primary-clr-600);
+
+  &__heading {
+    color: var(--white);
+  }
+
+  .subheading {
+    background-color: rgba(var(--white-RGB), 0.1);
+    color: var(--white);
+  }
+}
+
+.expertiseCard {
+  background: var(--primary-clr-600);
+
+  &__title {
+    color: var(--white);
+  }
+}

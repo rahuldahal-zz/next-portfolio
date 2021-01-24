@@ -1,0 +1,30 @@
+.dark {
+  --primary-clr-200: #00334d;
+  --primary-clr-300: #00293d;
+  --primary-clr-400: #001b29;
+  --primary-clr-500: #00141f;
+  --primary-clr-600: #000c13;
+
+  --primary-RGB: 0, 27, 41;
+
+  --accent-clr-300: #dfcc02;
+  --accent-clr-400: #d7c600;
+  --accent-clr-500: #c2b201;
+
+  --accent-RGB: 215, 198, 0;
+
+  --white: rgb(203, 211, 219);
+
+  --white-RGB: 203, 211, 219;
+
+  // --black: rgb(34, 34, 36);
+
+  // --black-RGB: 34, 34, 36;
+
+  --box-shadow-neumorphism: 11px 11px 22px #000000, -11px -11px 22px #1d2a2e;
+
+  --theme: var(--white);
+
+  @import "../components/Index/Expertise/Expertise-dark.scss";
+  @import "../components/About/Process/Process-dark.scss";
+}

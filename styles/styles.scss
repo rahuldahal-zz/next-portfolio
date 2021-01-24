@@ -55,8 +55,8 @@
   --bodyFont: "Atkinson Hyperlegible";
   --primaryTextColor: var(--black);
 
-  --black: rgb(0, 4, 20);
-  --black-RGB: 0, 4, 20;
+  --black: rgb(0, 14, 20);
+  --black-RGB: 0, 14, 20;
   --white: rgb(224, 232, 241);
   --white-RGB: 224, 232, 241;
 
@@ -83,6 +83,8 @@
   --clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
 
   --transition-duration: 0.3s;
+
+  --theme: var(--black);
 }
 
 ::selection {
@@ -110,29 +112,4 @@ p {
 @import "../components/About/Header/Header.scss";
 @import "../components/About/Process/Process.scss";
 @import "../components/Projects/Projects.scss";
-
-.dark {
-  --primary-clr-200: #00334d;
-  --primary-clr-300: #00293d;
-  --primary-clr-400: #001b29;
-  --primary-clr-500: #00141f;
-  --primary-clr-600: #000c13;
-
-  --primary-RGB: 0, 27, 41;
-
-  --accent-clr-300: #dfcc02;
-  --accent-clr-400: #d7c600;
-  --accent-clr-500: #c2b201;
-
-  --accent-RGB: 215, 198, 0;
-
-  --white: rgb(203, 211, 219);
-
-  --white-RGB: 203, 211, 219;
-
-  --black: rgb(34, 34, 36);
-
-  --black-RGB: 34, 34, 36;
-
-  --box-shadow-neumorphism: 11px 11px 22px #91969e, -11px -11px 22px #dff2fa;
-}
+@import "./dark";
