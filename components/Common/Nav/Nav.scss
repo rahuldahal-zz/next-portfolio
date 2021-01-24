@@ -173,20 +173,20 @@
   }
 
   &__themeToggler {
-    height: 1.5rem;
+    width: 2.5rem;
     margin-bottom: 0.25rem;
 
     path {
-      fill: var(--accent-clr-400);
+      fill: var(--white);
     }
     circle {
-      fill: var(--black);
+      fill: var(--accent-clr-400);
       transition: transform 0.3s ease-out;
     }
 
     &--dark {
       circle {
-        transform: translateX(calc(2 * 6rem));
+        transform: translateX(calc(2 * 5rem));
       }
     }
   }

@@ -5,7 +5,7 @@
   padding-bottom: 10vh;
   color: var(--white);
   overflow-x: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+  clip-path: var(--clip-path);
 
   &::before {
     background: linear-gradient(
@@ -35,7 +35,7 @@
       margin-right: 0.5rem;
     }
 
-    h6 {
+    h5 {
       color: var(--accent-clr-400);
     }
   }

@@ -80,6 +80,8 @@
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-neumorphism: 7px 7px 14px #006394, -7px -7px 14px #0085c8;
 
+  --clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+
   --transition-duration: 0.3s;
 }
 
@@ -118,13 +120,13 @@ p {
 
   --primary-RGB: 0, 27, 41;
 
-  --accent-clr-300: #ffe600;
-  --accent-clr-400: rgb(241, 245, 0);
-  --accent-clr-500: #e9d200;
+  --accent-clr-300: #dfcc02;
+  --accent-clr-400: #d7c600;
+  --accent-clr-500: #c2b201;
 
-  --accent-RGB: 241, 245, 0;
+  --accent-RGB: 215, 198, 0;
 
-  --white: rgb(206, 206, 206);
+  --white: #dfdfdf;
 
-  --white-RGB: 206, 206, 206;
+  --white-RGB: 233, 233, 233;
 }

@@ -2,7 +2,7 @@
   background-color: var(--white);
   padding: var(--padding-400);
   padding-bottom: 13vh;
-  clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+  clip-path: var(--clip-path);
 
   &__contact {
     background: var(--primary-gradient-vertical);

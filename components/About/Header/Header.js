@@ -6,7 +6,7 @@ export default function Header() {
     <main className="aboutHeader overlay">
       <div className="aboutHeader__content">
         <h4>What does good User Experience Design mean ?</h4>
-        <h6>Let me set a scenario here,</h6>
+        <h5>Let me set a scenario here,</h5>
         <p>
           You have created a website/app for your new business; with a "cool"
           layout, powerful animations and overall a decent User Interface.
@@ -19,7 +19,7 @@ export default function Header() {
         <p>
           <strong>That's Research & Testing!</strong>
         </p>
-        <h6>Testing for,</h6>
+        <h5>Testing for,</h5>
 
         <mark>Usability</mark>
         <mark>Accessibility</mark>
@@ -27,7 +27,7 @@ export default function Header() {
         <span> as well as</span>
         <mark>Credibility.</mark>
 
-        <h6>And that is exactly what I do.</h6>
+        <h5>And that is exactly what I do.</h5>
       </div>
 
       <UXAnalysis className="aboutHeader__illustration" />
