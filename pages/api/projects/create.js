@@ -7,7 +7,7 @@ import Authenticate from "utils/authMiddleware";
 
 // Faunadb methods
 
-const { Paginate, Get, Create, Update, Collection, Var } = faunadb.query;
+const { Paginate, Ref, Create, Update, Collection, Var } = faunadb.query;
 
 // Faunadb client connection
 const client = new faunadb.Client({ secret: process.env.FAUNA_API_KEY });
@@ -16,6 +16,9 @@ const app = nc();
 
 function getToken(req) {
   const { authorization } = req.headers;
+  if (!authorization) {
+    return null;
+  }
   return authorization.split(" ")[1];
 }
 
@@ -52,20 +55,28 @@ app.post(async (req, res) => {
 });
 
 app.patch(async (req, res) => {
-  const { ref, ...toBeUpdated } = JSON.parse(req.body);
+  const { id, ...toBeUpdated } = req.body;
 
   try {
+    await Authenticate(getToken(req));
+    console.log(id);
+
     await client.query(
-      Update(ref, {
+      Update(Ref(Collection("projects"), id), {
         data: toBeUpdated,
       })
     );
 
     res.status(201).json({
-      message: `created ${name}`,
+      message: { id, toBeUpdated },
     });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong in the server" });
+    console.log(error);
+    if (error === "Invalid Token Received") {
+      res.status(403).json({ message: error });
+    } else {
+      res.status(500).json({ message: "Something went wrong in the server" });
+    }
   }
 });
 

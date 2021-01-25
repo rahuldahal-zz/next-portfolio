@@ -20,15 +20,18 @@ export default function Works({ works }) {
             repo,
             stack,
             screenshots,
-          } = work;
+          } = work.data;
           return (
             <div className="project" key={name.trim().split(" ").join("")}>
               <h4 className="project__name">{name}</h4>
               <div className="project__body">
                 <div className="project__description">
-                  <p className="description">
-                    <span>{name}</span> is a {description}
-                  </p>
+                  <p
+                    className="description"
+                    dangerouslySetInnerHTML={{
+                      __html: `${name} is ${description}`,
+                    }}
+                  />
                   <Button
                     fill="filled"
                     textContent="Visit"

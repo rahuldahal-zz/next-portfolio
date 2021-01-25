@@ -3,7 +3,7 @@ import faunadb from "faunadb";
 
 // Faunadb methods
 
-const { Paginate, Documents, Collection, Get, Ref } = faunadb.query;
+const { Paginate, Documents, Collection, Get, Lambda } = faunadb.query;
 
 // Faunadb client connection
 const client = new faunadb.Client({
@@ -21,9 +21,10 @@ app.get(async (req, res) => {
 
     const projects = [];
 
-    for (const ref of projectRefs) {
-      const project = await client.query(Get(ref));
-      projects.push(project.data);
+    for (const Ref of projectRefs) {
+      // solution from https://stackoverflow.com/a/62020423/11416157
+      const { data, ref } = await client.query(Lambda(Get(Ref)));
+      projects.push({ data, id: ref.id });
     }
 
     res.status(200).json({
