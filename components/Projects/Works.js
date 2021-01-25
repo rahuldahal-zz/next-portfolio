@@ -32,6 +32,7 @@ export default function Works({ works }) {
                       __html: `${name} is ${description}`,
                     }}
                   />
+                  <span className="project__stack">{stack}</span>
                   <Button
                     fill="filled"
                     textContent="Visit"
@@ -47,6 +48,13 @@ export default function Works({ works }) {
                 </div>
 
                 <div className="project__screenshots">
+                  <img
+                    className="project__screenshot"
+                    src="https://unsplash.it/300/200"
+                    alt=""
+                    width="300px"
+                    height="200px"
+                  />
                   <Button
                     textContent="Previous"
                     fill="filled"
