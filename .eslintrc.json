@@ -4,7 +4,11 @@
     "rules": {
       "quotes": [2, "double"],
       "no-console": 1,
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+      "react/prop-types": 0,
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "jsx-a11y/label-has-associated-control": [2, {
+        "depth": 2
+      }]
     } ,
     "extends": [
       "eslint:recommended",
@@ -12,10 +16,10 @@
       "plugin:import/errors",
       "plugin:react/recommended",
       "plugin:jsx-a11y/recommended",
+      "airbnb",
       "prettier",
       "prettier/react",
-      "plugin:react-hooks/recommended",
-      "airbnb"
+      "plugin:react-hooks/recommended"
     ],
     "env": {
       "browser": true,

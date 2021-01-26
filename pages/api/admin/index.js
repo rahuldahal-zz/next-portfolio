@@ -6,7 +6,9 @@ const app = nc();
 app.post((req, res) => {
   const { password } = JSON.parse(req.body);
   if (password === process.env.ADMIN_PASSWORD) {
-    const accessToken = jwt.sign({ user: "admin" }, process.env.JWT_SECRET);
+    const accessToken = jwt.sign({ user: "admin" }, process.env.JWT_SECRET, {
+      expiresIn: "30m",
+    });
     console.log(accessToken);
     return res.status(202).json({ token: accessToken });
   }
