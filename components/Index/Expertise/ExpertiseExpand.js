@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
 import CodingIllustration from "../../../public/guyCoding.svg";
 
-export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
-  let title, description, image;
+export default function ExpertiseExpand({
+  expertise,
+  setIsExpandPressed,
+  projects,
+}) {
+  const [expertiseProjects, setExpertiseProjects] = useState(null);
+
+  let title;
+  let description;
+  let image;
 
   switch (expertise) {
     case "MERN":
@@ -28,6 +36,15 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
       break;
   }
 
+  useEffect(() => {
+    if (expertise) {
+      const works = projects.filter(
+        (project) => project.data.stack === expertise
+      );
+      setExpertiseProjects(works);
+    }
+  }, [expertise]);
+
   return (
     <div
       className={
@@ -50,32 +67,44 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
       <div className="expertiseExpand__cover">
         <img width="200px" src={image ? image : ""} alt="" />
       </div>
-      <h5 className="expertiseExpand__title">{title ? title : ""}</h5>
+      <h5 className="expertiseExpand__title">{title}</h5>
       <div className="expertiseExpand__content">
         <p className="expertiseExpand__details">
           {description ? description : ""}
         </p>
         <hr />
         <h6>Projects</h6>
-        <div className="expertiseExpand__projects">
-          <div className="expertiseProject">
-            <img
-              src="/OpenSource.svg"
-              width="24px"
-              alt=""
-              className="expertiseProject__logo"
-            />
-            <strong className="expertiseProject__name">FootballStats</strong>
-            <a
-              href="https://footballstats.tk"
-              className="expertiseProject__link"
-            >
-              Link
-            </a>
-          </div>
-        </div>
+        {expertiseProjects && <ExpertiseProjects works={expertiseProjects} />}
       </div>
       <CodingIllustration className="expertiseExpand__illustration" />
     </div>
   );
+
+  function ExpertiseProjects({ works }) {
+    return (
+      <div className="expertiseExpand__projects">
+        {works.map((work) => {
+          const { id, data } = work;
+          const { name, url, repo } = data;
+          return (
+            <div className="expertiseProject" key={id}>
+              <img
+                src="/OpenSource.svg"
+                width="24px"
+                alt=""
+                className="expertiseProject__logo"
+              />
+              <strong className="expertiseProject__name">{name}</strong>
+              <a href={url} className="expertiseProject__url">
+                Visit
+              </a>
+              <a href={repo} className="expertiseProject__repo">
+                Repo
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 }
