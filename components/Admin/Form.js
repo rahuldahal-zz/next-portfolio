@@ -36,12 +36,12 @@ export default function Form({ token, queryType, defaultValues }) {
     ] = refs.map((ref) => ref.current.value);
 
     let data = {
-      nameValue,
-      descriptionValue,
-      urlValue,
-      repoValue,
-      stackValue,
-      screenshotsValue,
+      name: nameValue,
+      description: descriptionValue,
+      url: urlValue,
+      repo: repoValue,
+      stack: stackValue,
+      screenshots: screenshotsValue.split(","),
     };
 
     data = queryType === "update" ? { ...data, id: idRef.current.value } : data;
@@ -124,16 +124,15 @@ export default function Form({ token, queryType, defaultValues }) {
         <option value="Other">Other</option>
       </select>
 
-      <label htmlFor="screenshotOne">Screenshot One</label>
+      <label htmlFor="screenshots">Screenshots</label>
       <input
         type="url"
         name="screenshots"
-        id="screenshotOne"
-        placeholder="CDN link"
+        id="screenshots"
+        placeholder="CDN links, separated by comma(s)"
         ref={screenshotsRef}
+        defaultValue={defaultValues ? screenshots.join() : ""}
       />
-
-      <Button fill="fill" textContent="Add More Screenshots" />
       <Button
         type="submit"
         fill="filled"
