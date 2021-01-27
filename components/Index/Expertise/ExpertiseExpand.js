@@ -1,12 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
 import CodingIllustration from "../../../public/guyCoding.svg";
 
-export default function ExpertiseExpand({
-  expertise,
-  setIsExpandPressed,
-  projects,
-}) {
+export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
   const [expertiseProjects, setExpertiseProjects] = useState(null);
 
   let title;
@@ -37,12 +33,16 @@ export default function ExpertiseExpand({
   }
 
   useEffect(() => {
-    if (expertise && projects) {
-      const works = projects.filter(
-        (project) => project.data.stack === expertise
-      );
-      setExpertiseProjects(works);
-    }
+    (async function () {
+      if (expertise) {
+        const res = await fetch("/api/projects");
+        const { projects } = await res.json();
+        const works = projects.filter(
+          (project) => project.data.stack === expertise
+        );
+        setExpertiseProjects(works);
+      }
+    })();
   }, [expertise]);
 
   return (

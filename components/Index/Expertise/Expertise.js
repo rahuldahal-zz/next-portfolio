@@ -4,9 +4,8 @@ import ExpertiseExpand from "./ExpertiseExpand";
 import MERNStack from "../../../public/MERNStack.svg";
 import JAMStack from "../../../public/JAMStack.svg";
 import OpenSource from "../../../public/OpenSource.svg";
-import { server } from "utils/getCurrentEnv";
 
-export default function Expertise({ projects }) {
+export default function Expertise() {
   const [isExpandPressed, setIsExpandPressed] = useState({});
 
   return (
@@ -46,7 +45,6 @@ export default function Expertise({ projects }) {
       <ExpertiseExpand
         expertise={isExpandPressed.expertise}
         setIsExpandPressed={setIsExpandPressed}
-        projects={projects}
       />
     </>
   );

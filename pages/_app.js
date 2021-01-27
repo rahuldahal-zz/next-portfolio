@@ -1,8 +1,8 @@
+import { useEffect, useState, React } from "react";
 import "extended-normalize.css";
 import "@styles/styles.scss";
 import MyHead from "../components/MyHead";
 import Footer from "../components/Common/Footer/Footer";
-import { useEffect, useState } from "react";
 
 function Application({ Component, pageProps }) {
   const [theme, setTheme] = useState(null);
@@ -31,7 +31,7 @@ function Application({ Component, pageProps }) {
   return (
     <>
       <MyHead />
-      {theme ? <Component {...pageProps} /> : ""}
+      <Component {...pageProps} />
       <Footer />
     </>
   );

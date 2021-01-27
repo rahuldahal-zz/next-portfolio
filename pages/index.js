@@ -2,33 +2,13 @@ import React from "react";
 import Nav from "@components/Common/Nav/Nav";
 import Landing from "@components/Index/Landing/Landing";
 import Expertise from "@components/Index/Expertise/Expertise";
-import { server } from "utils/getCurrentEnv";
 
-export default function Home({ projects }) {
+export default function Home() {
   return (
     <>
       <Nav />
       <Landing />
-      <Expertise projects={projects} />
+      <Expertise />
     </>
   );
-}
-export async function getStaticProps() {
-  try {
-    const res = await fetch(`${server}/api/projects`);
-    const { projects } = await res.json();
-
-    return {
-      props: {
-        projects,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-    return {
-      props: {
-        projects: null,
-      },
-    };
-  }
 }

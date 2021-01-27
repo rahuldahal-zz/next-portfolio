@@ -1,10 +1,22 @@
 const CACHE_NAME = "v0.1.0";
+const staticAssets = [
+  "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
+  "/font/woff2/Atkinson-Hyperlegible-Regular-102a.woff2",
+  "/font/woff/Atkinson-Hyperlegible-Italic-102.woff",
+  "/font/woff2/Atkinson-Hyperlegible-Italic-102a.woff2",
+  "/font/woff/Atkinson-Hyperlegible-Bold-102.woff",
+  "/font/woff2/Atkinson-Hyperlegible-Bold-102a.woff2",
+  "https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.woff2",
+  "https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.woff2",
+  "/logo.png",
+  "/logo.svg",
+];
 
 self.addEventListener("install", (event) => {
   console.log("installed");
-  // event.waitUntil(
-  //   caches.open(CACHE_NAME).then((cache) => cache.addAll(staticAssets))
-  // );
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(staticAssets))
+  );
   self.skipWaiting(); // makes the new service-worker take effect immediately
 });
 
