@@ -37,7 +37,7 @@ export default function ExpertiseExpand({
   }
 
   useEffect(() => {
-    if (expertise) {
+    if (expertise && projects) {
       const works = projects.filter(
         (project) => project.data.stack === expertise
       );

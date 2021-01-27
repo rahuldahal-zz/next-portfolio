@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "@components/Common/Nav/Nav";
 import Landing from "@components/Index/Landing/Landing";
 import Expertise from "@components/Index/Expertise/Expertise";
@@ -14,12 +14,21 @@ export default function Home({ projects }) {
   );
 }
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/projects`);
-  const { projects } = await res.json();
+  try {
+    const res = await fetch(`${server}/api/projects`);
+    const { projects } = await res.json();
 
-  return {
-    props: {
-      projects,
-    },
-  };
+    return {
+      props: {
+        projects,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {
+        projects: null,
+      },
+    };
+  }
 }

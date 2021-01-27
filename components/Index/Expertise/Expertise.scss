@@ -1,5 +1,6 @@
 .expertise {
   position: relative;
+  z-index: 2;
   margin-top: -10vh;
   padding: var(--padding-400);
   padding-top: 13vh;
@@ -104,6 +105,24 @@
   transition: visibility var(--transition-duration) ease-in-out,
     transform var(--transition-duration) ease-in-out;
 
+  &::before {
+    background-image: linear-gradient(
+      rgba(var(--primary-RGB), 1),
+      rgba(var(--primary-RGB), 0.9)
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+  }
+
   &__btn {
     position: fixed;
     top: 0;
@@ -172,11 +191,19 @@
     bottom: 10vh;
     right: -25%;
     height: 60%;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity var(--transition-duration) var(--transition-duration)
+      ease-in-out;
   }
 
   &--active {
     visibility: visible;
     transform: translateX(0);
+
+    .expertiseExpand__illustration {
+      opacity: 1;
+    }
   }
 }
 
