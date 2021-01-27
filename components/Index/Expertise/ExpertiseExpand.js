@@ -33,7 +33,7 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
   }
 
   useEffect(() => {
-    (async function () {
+    (async () => {
       if (expertise) {
         const res = await fetch("/api/projects");
         const { projects } = await res.json();

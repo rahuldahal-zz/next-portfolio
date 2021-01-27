@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "./link";
 import Logo from "../../../public/logo.svg";
 import Toggle from "../../../public/toggle.svg";
-import Button from "../Button/Button";
 
 export default function Nav({ current }) {
   const [isScreenNarrow, setIsScreenNarrow] = useState(true);
@@ -22,7 +21,7 @@ export default function Nav({ current }) {
 
   return (
     <nav className="nav">
-      <div className="nav__wrap">
+      <div className="nav__wrap contentsWrap">
         <Link to="/">
           <Logo className="nav__logo" />
         </Link>
@@ -53,38 +52,40 @@ export default function Nav({ current }) {
                     ? "nav__hamburgerToggler nav__hamburgerToggler--active"
                     : "nav__hamburgerToggler"
                 }
-              ></span>
+              />
               <small>Menu</small>
             </div>
           ) : (
             ""
           )}
-        </div>
-        <div
-          className={
-            isHamburgerClicked ? "nav__links nav__links--active" : "nav__links"
-          }
-        >
-          <Link
-            to="/about"
-            textContent="About"
-            isActive={current === "about" ? true : false}
-          />
-          <Link
-            to="/projects"
-            textContent="Projects"
-            isActive={current === "projects" ? true : false}
-          />
-          <Link
-            to="/resume"
-            textContent="Resume"
-            isActive={current === "resume" ? true : false}
-          />
-          <Link
-            to="/blogs"
-            textContent="Blogs"
-            isActive={current === "blogs" ? true : false}
-          />
+          <div
+            className={
+              isHamburgerClicked
+                ? "nav__links nav__links--active"
+                : "nav__links"
+            }
+          >
+            <Link
+              to="/about"
+              textContent="About"
+              isActive={current === "about" ? true : false}
+            />
+            <Link
+              to="/projects"
+              textContent="Projects"
+              isActive={current === "projects" ? true : false}
+            />
+            <Link
+              to="/resume"
+              textContent="Resume"
+              isActive={current === "resume" ? true : false}
+            />
+            <Link
+              to="/blogs"
+              textContent="Blogs"
+              isActive={current === "blogs" ? true : false}
+            />
+          </div>
         </div>
       </div>
     </nav>

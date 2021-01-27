@@ -11,36 +11,38 @@ export default function Expertise() {
   return (
     <>
       <section className="expertise">
-        <h3 className="expertise__heading">Things I Do</h3>
-        <div className="expertise__cards">
-          <Card
-            expertise="MERN"
-            title="MERN Stack Development"
-            Image={MERNStack}
-          />
-          <Card
-            expertise="JAM"
-            title="JAM Stack Development"
-            Image={JAMStack}
-          />
-          <Card
-            expertise="FOSS"
-            title="OpenSource Contribution"
-            Image={OpenSource}
+        <div className="contentsWrap">
+          <h3 className="expertise__heading">Things I Do</h3>
+          <div className="expertise__cards">
+            <Card
+              expertise="MERN"
+              title="MERN Stack Development"
+              Image={MERNStack}
+            />
+            <Card
+              expertise="JAM"
+              title="JAM Stack Development"
+              Image={JAMStack}
+            />
+            <Card
+              expertise="FOSS"
+              title="OpenSource Contribution"
+              Image={OpenSource}
+            />
+          </div>
+
+          <p className="subheading">
+            While using these technologies, I make sure a great{" "}
+            <strong>User Experience</strong> is achieved. Every time.
+          </p>
+
+          <Button
+            to="/projects"
+            modifier="expertise__projects"
+            textContent="Things I have done"
+            fill="filled"
           />
         </div>
-
-        <p className="subheading">
-          While using these technologies, I make sure a great{" "}
-          <strong>User Experience</strong> is achieved. Every time.
-        </p>
-
-        <Button
-          to="/projects"
-          modifier="expertise__projects"
-          textContent="Things I have done"
-          fill="filled"
-        />
       </section>
       <ExpertiseExpand
         expertise={isExpandPressed.expertise}

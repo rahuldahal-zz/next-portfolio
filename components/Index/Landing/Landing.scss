@@ -9,13 +9,7 @@
   clip-path: var(--clip-path);
 
   @include widerThan768 {
-    padding-top: 10vh;
-  }
-
-  &__wrap {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding-top: 7vh;
   }
 
   &__heading,
@@ -33,6 +27,10 @@
       font-weight: 400;
       color: var(--white);
     }
+
+    h2 {
+      font-weight: bold;
+    }
   }
 
   &__subheading {
@@ -49,6 +47,10 @@
     padding: 0 var(--padding-300);
     width: max-content;
     border-radius: 0.25em;
+
+    @include widerThan768 {
+      font-weight: bold;
+    }
   }
 
   &__cta {
@@ -73,8 +75,13 @@
 
     @include widerThan640 {
       right: 0;
-      top: 25.5%;
+      top: 15.5%;
       transform: scale(1.3);
+    }
+
+    @include widerThan1200 {
+      z-index: 1;
+      transform: scale(1);
     }
   }
 }

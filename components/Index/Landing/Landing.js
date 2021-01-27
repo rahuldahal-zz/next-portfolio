@@ -4,7 +4,7 @@ import isScreenLargerThan from "../../../utils/screenSize";
 import UsabilityIllustration from "../../../public/usability_testing.svg";
 
 export default function Landing() {
-  let tagline = (
+  const tagline = (
     <>
       I Improvise <br />
       <span className="landing__highlight">User Experience</span> <br />
@@ -26,7 +26,7 @@ export default function Landing() {
   return (
     <>
       <section className="landing overlay">
-        <div className="landing__wrap">
+        <div className="contentsWrap">
           <div className="landing__heading">{heading}</div>
 
           <p className="landing__subheading subheading">

@@ -10,6 +10,10 @@
   background: var(--white);
   clip-path: var(--clip-path);
 
+  @include widerThan1200 {
+    padding-top: 15vh;
+  }
+
   &__heading {
     color: var(--black);
   }
@@ -20,6 +24,11 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 2rem;
+
+    @include widerThan640 {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
   &__projects {
@@ -34,6 +43,10 @@
   .subheading {
     color: var(--primary-clr-400);
     background-color: rgba(var(--black-RGB), 0.1);
+
+    @include widerThan768 {
+      max-width: 60vw;
+    }
   }
 }
 
@@ -45,6 +58,19 @@
   margin-bottom: 5rem;
   background: var(--white);
   box-shadow: var(--box-shadow-neumorphism);
+
+  @include widerThan480 {
+    max-width: 21.75rem;
+    margin-bottom: 3rem;
+  }
+
+  @include widerThan768 {
+    max-width: 19.875rem;
+  }
+
+  @include widerThan1200 {
+    max-width: 22.875rem;
+  }
 
   &:last-child {
     margin-bottom: 3rem;

@@ -13,8 +13,8 @@
   &__socialLinks {
     margin: 1.5rem 0;
 
-    h6 {
-      margin-bottom: 1rem;
+    h4 {
+      margin-bottom: 2rem;
     }
 
     a {
@@ -55,7 +55,10 @@
   }
 
   hr {
+    display: inline-block;
+    width: 100%;
     color: var(--white);
+    margin-top: 1rem;
   }
 
   &__copyright {
