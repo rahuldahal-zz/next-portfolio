@@ -15,6 +15,19 @@ function Application({ Component, pageProps }) {
     setTheme(true);
   }, []);
 
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then((registration) => {
+          console.log("service worker registration successful", registration);
+        })
+        .catch((err) => {
+          console.warn("service worker registration failed", err.message);
+        });
+    }
+  }, []);
+
   return (
     <>
       <MyHead />
