@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
-import CodingIllustration from "../../../public/guyCoding.svg";
 
-export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
+export default function ExpertiseExpand({ expertise }) {
   const [expertiseProjects, setExpertiseProjects] = useState(null);
+  const [projects, setProjects] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   let title;
   let description;
   let image;
 
   switch (expertise) {
-    case "MERN":
-      title = "MERN Stack Development";
-      description =
-        "MongoDB Express React and NodeJS, i.e. MERN is a stack of technologies to build full-stack web applications.";
-      image = "/MERNStack.svg";
-      break;
-
     case "JAM":
       title = "JAM Stack Development";
       description =
@@ -30,53 +24,65 @@ export default function ExpertiseExpand({ expertise, setIsExpandPressed }) {
         "Contributing to Free and Open Source Software, i.e. FOSS encourages innovation through collaboration with fellow developers around the globe.";
       image = "/OpenSource.svg";
       break;
+
+    default:
+      title = "MERN Stack Development";
+      description =
+        "MongoDB Express React and NodeJS, i.e. MERN is a stack of technologies to build full-stack web applications.";
+      image = "/MERNStack.svg";
+      break;
+  }
+
+  function toggleBodyScroll() {
+    document.body.classList.toggle("hideOverflow");
   }
 
   useEffect(() => {
     (async () => {
-      if (expertise) {
-        const res = await fetch("/api/projects");
-        const { projects } = await res.json();
-        const works = projects.filter(
-          (project) => project.data.stack === expertise
-        );
-        setExpertiseProjects(works);
-      }
+      const res = await fetch("/api/projects");
+      const { projects: all } = await res.json();
+      setProjects(all);
     })();
+  }, []);
+
+  useEffect(() => {
+    if (projects) {
+      const works = projects.filter(
+        (project) => project.data.stack === expertise
+      );
+      setExpertiseProjects(works);
+      setIsExpanded(true);
+      toggleBodyScroll();
+    }
   }, [expertise]);
 
   return (
     <div
       className={
-        expertise
-          ? "expertiseExpand overlay expertiseExpand--active"
-          : "expertiseExpand overlay"
+        isExpanded
+          ? "expertiseExpand expertiseExpand--active"
+          : "expertiseExpand"
       }
     >
       <Button
         fill="filled"
         textContent="back"
         modifier="expertiseExpand__btn"
-        onClick={(e) => {
-          e.currentTarget.parentElement.classList.remove(
-            "expertiseExpand--active"
-          );
-          setIsExpandPressed(false);
+        onClick={() => {
+          setIsExpanded(false);
+          toggleBodyScroll();
         }}
       />
       <div className="expertiseExpand__cover">
-        <img width="200px" src={image ? image : ""} alt="" />
+        <img width="200px" src={image} alt="" />
       </div>
       <h5 className="expertiseExpand__title">{title}</h5>
       <div className="expertiseExpand__content">
-        <p className="expertiseExpand__details">
-          {description ? description : ""}
-        </p>
+        <p className="expertiseExpand__details">{description}</p>
         <hr />
         <h6>Projects</h6>
         {expertiseProjects && <ExpertiseProjects works={expertiseProjects} />}
       </div>
-      <CodingIllustration className="expertiseExpand__illustration" />
     </div>
   );
 
