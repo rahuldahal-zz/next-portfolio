@@ -71,7 +71,7 @@
     position: absolute;
     z-index: -2;
     right: -25%;
-    top: 12.5%;
+    top: -15%;
 
     @include widerThan640 {
       right: 0;
@@ -80,6 +80,7 @@
     }
 
     @include widerThan1200 {
+      width: 55%;
       z-index: 1;
       transform: scale(1);
     }

@@ -85,8 +85,8 @@
   --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
   --box-shadow-neumorphism: 11px 11px 22px #ced5de, -11px -11px 22px #f2fbff;
-  --box-shadow-neumorphism-inset: inset 11px 11px 22px #ced5de,
-    inset -11px -11px 22px #f2fbff;
+  --box-shadow-neumorphism-inset: inset 11px 11px 22px #b9c1cc,
+    inset -11px -11px 22px #fbfeff;
 
   --clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
 
@@ -108,7 +108,11 @@ body {
 }
 
 .hideOverflow {
-  overflow: hidden;
+  overflow-y: hidden;
+
+  @include widerThan1200 {
+    overflow-y: auto;
+  }
 }
 
 p {

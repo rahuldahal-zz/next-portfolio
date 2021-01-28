@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../../Common/Button/Button";
 import isScreenLargerThan from "../../../utils/screenSize";
 import UsabilityIllustration from "../../../public/usability_testing.svg";
+import UsabilityIllustrationDesktop from "../../../public/usability_testing_desktop.svg";
 
 export default function Landing() {
   const tagline = (
@@ -13,6 +14,7 @@ export default function Landing() {
     </>
   );
   const [heading, setHeading] = useState(<h4>{tagline}</h4>);
+  const [illustration, setIllustration] = useState("small");
 
   useEffect(() => {
     if (isScreenLargerThan(481)) {
@@ -20,6 +22,9 @@ export default function Landing() {
     }
     if (isScreenLargerThan(641)) {
       setHeading(<h2>{tagline}</h2>);
+    }
+    if (isScreenLargerThan(1201)) {
+      setIllustration("large");
     }
   }, []);
 
@@ -38,7 +43,11 @@ export default function Landing() {
             <Button to="/projects" fill="outline" textContent="Projects" />
           </div>
 
-          <UsabilityIllustration className="landing__illustration" />
+          {illustration === "large" ? (
+            <UsabilityIllustrationDesktop className="landing__illustration" />
+          ) : (
+            <UsabilityIllustration className="landing__illustration" />
+          )}
         </div>
       </section>
     </>

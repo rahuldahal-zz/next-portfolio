@@ -152,7 +152,7 @@
     position: relative;
     text-align: center;
     margin: 1em auto;
-    padding: var(--padding-400);
+    padding: var(--padding-300);
     color: var(--white);
     text-decoration: none;
     text-transform: uppercase;
@@ -172,7 +172,7 @@
     }
 
     @include widerThan768 {
-      margin: 0 auto;
+      margin: 0 1rem;
 
       &:hover::after {
         transform: scaleX(1);

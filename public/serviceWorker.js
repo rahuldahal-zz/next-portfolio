@@ -6,10 +6,17 @@ const staticAssets = [
   "/font/woff2/Atkinson-Hyperlegible-Italic-102a.woff2",
   "/font/woff/Atkinson-Hyperlegible-Bold-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Bold-102a.woff2",
-  "https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.woff2",
-  "https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.woff2",
   "/logo.png",
   "/logo.svg",
+  "/design.svg",
+  "/development.svg",
+  "/improvisation.svg",
+  "/JAMStack.svg",
+  "/MERNStack.svg",
+  "/OpenSource.svg",
+  "/research.svg",
+  "/testing.svg",
+  "/toggle.svg",
 ];
 
 self.addEventListener("install", (event) => {
