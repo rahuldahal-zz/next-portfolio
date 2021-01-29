@@ -174,7 +174,8 @@
     @include widerThan768 {
       margin: 0 1rem;
 
-      &:hover::after {
+      &:hover::after,
+      &:focus::after {
         transform: scaleX(1);
         transform-origin: left;
       }

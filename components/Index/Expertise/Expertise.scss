@@ -6,16 +6,29 @@
   padding-top: 13vh;
   padding-bottom: 13vh;
   min-height: 100vh;
-  background: var(--white);
   clip-path: var(--clip-path);
 
   @include widerThan1200 {
+    background: var(--primary-gradient-horizontal);
     padding-top: 15vh;
+  }
+
+  &::after,
+  &::before {
+    background: var(--white);
+  }
+
+  &::after {
+    visibility: hidden;
+
+    @include widerThan1200 {
+      visibility: visible;
+    }
   }
 
   &__heading {
     color: var(--black);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   &__cards {
@@ -26,12 +39,23 @@
 
     @include widerThan1200 {
       max-width: 30vw;
+      background: var(--white);
+      padding: var(--padding-400);
+      box-shadow: var(--box-shadow-y);
+      border-radius: var(--border-radius);
+    }
+
+    @include widerThan1600 {
+      max-width: 25vw;
     }
   }
 
   &__projects {
     margin: 0 auto;
     margin-top: 2rem;
+    background: var(--primary-gradient-vertical);
+    color: var(--white);
+    border-color: var(--primary-clr-400);
 
     &::before {
       content: "\f0ae";
@@ -42,14 +66,23 @@
     display: flex;
     justify-content: flex-start;
     position: relative;
+    z-index: 2;
   }
 
   .subheading {
-    color: var(--primary-clr-400);
-    background-color: rgba(var(--black-RGB), 0.1);
+    color: var(--primary-clr-600);
+    background-color: rgba(var(--black-RGB), 0.2);
+
+    &::before {
+      background: var(--primary-clr-400);
+    }
 
     @include widerThan768 {
       max-width: 30vw;
+    }
+
+    @include widerThan1200 {
+      margin-top: 4rem;
     }
   }
 }
@@ -62,15 +95,14 @@
   margin-bottom: 5rem;
   background: var(--white);
   box-shadow: var(--box-shadow-neumorphism);
-  transition: all 0.3s ease-in-out;
-  will-change: transform, box-shadow;
+  transition: box-shadow 0.3s ease-in-out;
+  will-change: box-shadow;
   cursor: pointer;
 
   @include widerThan1200 {
     &--active,
     &:hover,
     &:focus {
-      transform: translateX(1rem);
       box-shadow: var(--box-shadow-neumorphism-inset);
     }
   }
@@ -91,6 +123,10 @@
 
   &:last-child {
     margin-bottom: 3rem;
+
+    @include widerThan1200 {
+      margin-bottom: 0;
+    }
   }
 
   &__title {
@@ -124,6 +160,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    padding: var(--padding-300);
+    background: var(--primary-gradient-vertical-reverse);
+    color: var(--white);
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
     border: 0;
@@ -132,11 +171,10 @@
 
     &::before {
       content: "\f054";
+      margin-right: 0.5rem;
     }
 
     &:hover {
-      transform: translateY(0) scaleX(1.1);
-
       &::after {
         display: none;
       }
@@ -165,12 +203,16 @@
     right: 0;
     background: var(--white);
     left: unset;
-    width: 40vw;
+    width: 30vw;
     height: 100%;
     margin-left: 3rem;
     border-radius: var(--border-radius);
     transform: translateX(0);
-    box-shadow: var(--box-shadow-neumorphism);
+    box-shadow: var(--box-shadow-y);
+  }
+
+  @include widerThan1600 {
+    max-width: 25vw;
   }
 
   &__btn {
@@ -210,7 +252,7 @@
       border-radius: var(--border-radius);
     }
 
-    img {
+    svg {
       height: 80%;
       width: 80%;
       margin: auto;

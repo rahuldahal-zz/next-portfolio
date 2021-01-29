@@ -17,7 +17,7 @@ export default function Expertise() {
 
   return (
     <>
-      <section className="expertise">
+      <section className="expertise stacked overlay">
         <div className="contentsWrap">
           <h3 className="expertise__heading">Things I Do</h3>
           <div className="expertise__columns">
@@ -74,18 +74,14 @@ export default function Expertise() {
           setIsExpandPressed({ expertise });
         }}
         onKeyUp={(e) => {
-          if (e.key === "ENTER") {
+          if (e.key === "Enter") {
             setIsExpandPressed({ expertise });
           }
         }}
       >
         <h5 className="expertiseCard__title">{title}</h5>
         <Image className="expertiseCard__image" />
-        <Button
-          modifier="expertiseCard__expand"
-          fill="filled"
-          textContent="Related Projects"
-        />
+        <span className="btn expertiseCard__expand">Related Projects</span>
       </div>
     );
   }

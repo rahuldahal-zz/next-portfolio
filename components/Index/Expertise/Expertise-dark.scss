@@ -1,20 +1,52 @@
 .expertise {
   background: var(--primary-clr-600);
 
+  &::before {
+    background: var(--primary-clr-500);
+  }
+
   &__heading {
     color: var(--white);
+  }
+
+  &__cards {
+    @include widerThan1200 {
+      background: var(--primary-clr-400);
+    }
   }
 
   .subheading {
     background-color: rgba(var(--white-RGB), 0.1);
     color: var(--white);
+
+    &::before {
+      background-color: var(--white);
+    }
+  }
+
+  &__projects {
+    background: var(--accent-gradient-vertical);
+    color: var(--black);
+    border-color: var(--accent-clr-500);
   }
 }
 
 .expertiseCard {
-  background: var(--primary-clr-600);
+  background: var(--primary-clr-400);
 
   &__title {
+    color: var(--white);
+  }
+}
+
+.expertiseExpand {
+  background: var(--primary-clr-400);
+
+  &__cover {
+    background: var(--primary-clr-400);
+  }
+
+  &__content {
     color: var(--white);
   }
 }

@@ -21,7 +21,15 @@
 
   // --black-RGB: 34, 34, 36;
 
-  --box-shadow-neumorphism: 11px 11px 22px #000000, -11px -11px 22px #1d2a2e;
+  --box-shadow-y: 0 8px 16px -4px rgba(var(--white-RGB), 0.1);
+  --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--white-RGB), 0.1);
+  --box-shadow-x: -8px 0 16px -4px rgba(var(--white-RGB), 0.1);
+
+  --box-shadow-neumorphism: 11px 11px 22px var(--primary-clr-500),
+    -11px -11px 22px var(--primary-clr-300);
+
+  --box-shadow-neumorphism-inset: inset 11px 11px 22px var(--primary-clr-500),
+    inset -11px -11px 22px var(--primary-clr-300);
 
   --theme: var(--white);
 

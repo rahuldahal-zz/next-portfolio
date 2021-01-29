@@ -13,15 +13,17 @@ export default function Landing() {
       Websites.
     </>
   );
-  const [heading, setHeading] = useState(<h4>{tagline}</h4>);
+  const [heading, setHeading] = useState(
+    <h4 className="landing__heading">{tagline}</h4>
+  );
   const [illustration, setIllustration] = useState("small");
 
   useEffect(() => {
     if (isScreenLargerThan(481)) {
-      setHeading(<h3>{tagline}</h3>);
+      setHeading(<h3 className="landing__heading">{tagline}</h3>);
     }
-    if (isScreenLargerThan(641)) {
-      setHeading(<h2>{tagline}</h2>);
+    if (isScreenLargerThan(1400)) {
+      setHeading(<h2 className="landing__heading">{tagline}</h2>);
     }
     if (isScreenLargerThan(1201)) {
       setIllustration("large");
@@ -32,15 +34,17 @@ export default function Landing() {
     <>
       <section className="landing overlay">
         <div className="contentsWrap">
-          <div className="landing__heading">{heading}</div>
+          <div className="headingAndCTA">
+            {heading}
 
-          <p className="landing__subheading subheading">
-            MERN/JAM stack developer
-          </p>
+            <p className="landing__subheading subheading">
+              MERN/JAM stack developer
+            </p>
 
-          <div className="landing__cta">
-            <Button to="/contact" fill="filled" textContent="Contact" />
-            <Button to="/projects" fill="outline" textContent="Projects" />
+            <div className="landing__cta">
+              <Button to="/contact" fill="filled" textContent="Contact" />
+              <Button to="/projects" fill="outline" textContent="Projects" />
+            </div>
           </div>
 
           {illustration === "large" ? (

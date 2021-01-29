@@ -37,7 +37,33 @@
 
 .contentsWrap {
   width: 100%;
-  max-width: 1300px;
+  max-width: 81.25rem;
   margin: 0 auto;
   position: relative;
+
+  @include widerThan1600 {
+    max-width: 100rem;
+  }
+}
+
+.stacked {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65%;
+    width: 100%;
+    z-index: 1;
+    font-size: 1.5rem;
+    background: var(--primary-gradient-horizontal);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-y-reverse);
+
+    @include widerThan1200 {
+      visibility: visible;
+    }
+  }
 }

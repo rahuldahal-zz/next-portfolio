@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
+import MERNStack from "../../../public/MERNStack.svg";
+import JAMStack from "../../../public/JAMStack.svg";
+import OpenSource from "../../../public/OpenSource.svg";
 
 export default function ExpertiseExpand({ expertise }) {
   const [expertiseProjects, setExpertiseProjects] = useState(null);
@@ -8,28 +11,28 @@ export default function ExpertiseExpand({ expertise }) {
 
   let title;
   let description;
-  let image;
+  let Image;
 
   switch (expertise) {
     case "JAM":
       title = "JAM Stack Development";
       description =
         "JavaScript API and Markup, i.e. JAM is a stack of technologies if used together efficiently, will create fast, powerful, and pre-rendered websites.";
-      image = "/JAMStack.svg";
+      Image = JAMStack;
       break;
 
     case "FOSS":
       title = "OpenSource Contribution";
       description =
         "Contributing to Free and Open Source Software, i.e. FOSS encourages innovation through collaboration with fellow developers around the globe.";
-      image = "/OpenSource.svg";
+      Image = OpenSource;
       break;
 
     default:
       title = "MERN Stack Development";
       description =
         "MongoDB Express React and NodeJS, i.e. MERN is a stack of technologies to build full-stack web applications.";
-      image = "/MERNStack.svg";
+      Image = MERNStack;
       break;
   }
 
@@ -74,7 +77,7 @@ export default function ExpertiseExpand({ expertise }) {
         }}
       />
       <div className="expertiseExpand__cover">
-        <img width="200px" src={image} alt="" />
+        <Image />
       </div>
       <h5 className="expertiseExpand__title">{title}</h5>
       <div className="expertiseExpand__content">
