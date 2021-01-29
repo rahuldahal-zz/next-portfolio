@@ -4,10 +4,11 @@ import MERNStack from "../../../public/MERNStack.svg";
 import JAMStack from "../../../public/JAMStack.svg";
 import OpenSource from "../../../public/OpenSource.svg";
 
-export default function ExpertiseExpand({ expertise }) {
+export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
   const [expertiseProjects, setExpertiseProjects] = useState(null);
   const [projects, setProjects] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  // const [initial, setInitial] = useState(true);
 
   let title;
   let description;
@@ -49,7 +50,7 @@ export default function ExpertiseExpand({ expertise }) {
   }, []);
 
   useEffect(() => {
-    if (projects) {
+    if (projects && expertise) {
       const works = projects.filter(
         (project) => project.data.stack === expertise
       );
@@ -57,7 +58,7 @@ export default function ExpertiseExpand({ expertise }) {
       setIsExpanded(true);
       toggleBodyScroll();
     }
-  }, [expertise]);
+  }, [expertise, projects]);
 
   return (
     <div
@@ -73,6 +74,7 @@ export default function ExpertiseExpand({ expertise }) {
         modifier="expertiseExpand__btn"
         onClick={() => {
           setIsExpanded(false);
+          setIsExpertiseFocused({ expertise: null });
           toggleBodyScroll();
         }}
       />

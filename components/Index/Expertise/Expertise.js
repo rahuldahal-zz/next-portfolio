@@ -7,11 +7,11 @@ import OpenSource from "../../../public/OpenSource.svg";
 import isScreenLargerThan from "utils/screenSize";
 
 export default function Expertise() {
-  const [isExpandPressed, setIsExpandPressed] = useState({ expertise: "" });
+  const [isExpertiseFocused, setIsExpertiseFocused] = useState({});
 
   useEffect(() => {
     if (isScreenLargerThan(1200)) {
-      setIsExpandPressed({ expertise: "MERN" });
+      setIsExpertiseFocused({ expertise: "MERN" });
     }
   }, []);
 
@@ -52,7 +52,11 @@ export default function Expertise() {
                 fill="filled"
               />
             </div>
-            <ExpertiseExpand expertise={isExpandPressed.expertise} />
+            <ExpertiseExpand
+              expertise={isExpertiseFocused.expertise}
+              isExpertiseFocused={isExpertiseFocused}
+              setIsExpertiseFocused={setIsExpertiseFocused}
+            />
           </div>
         </div>
       </section>
@@ -63,7 +67,7 @@ export default function Expertise() {
     return (
       <div
         className={
-          expertise === isExpandPressed.expertise
+          expertise === isExpertiseFocused.expertise
             ? "expertiseCard expertiseCard--active"
             : "expertiseCard"
         }
@@ -71,11 +75,11 @@ export default function Expertise() {
         tabIndex="0"
         onClick={(e) => {
           e.currentTarget.classList.add("expertiseCard--active");
-          setIsExpandPressed({ expertise });
+          setIsExpertiseFocused({ expertise });
         }}
         onKeyUp={(e) => {
           if (e.key === "Enter") {
-            setIsExpandPressed({ expertise });
+            setIsExpertiseFocused({ expertise });
           }
         }}
       >
