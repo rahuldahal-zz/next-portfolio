@@ -156,6 +156,7 @@
     color: var(--white);
     text-decoration: none;
     text-transform: uppercase;
+    font-size: 1.1rem;
 
     &::after {
       content: "";
@@ -186,6 +187,11 @@
       color: var(--primary-clr-400);
       border-radius: var(--border-radius);
       width: 15ch;
+
+      &:hover::after,
+      &:focus::after {
+        display: none;
+      }
 
       @include widerThan768 {
         width: 100%;

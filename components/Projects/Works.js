@@ -4,7 +4,9 @@ import React from "react";
 export default function Works({ works }) {
   return (
     <main className="projects">
-      <Projects works={works} />
+      <div className="contentsWrap">
+        <Projects works={works} />
+      </div>
     </main>
   );
 

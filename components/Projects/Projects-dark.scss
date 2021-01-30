@@ -1,0 +1,22 @@
+.projects {
+  background: var(--primary-clr-500);
+}
+
+.project {
+  &__body {
+    background: var(--primary-clr-400);
+  }
+
+  &__screenshots {
+    filter: brightness(0.8) contrast(1.2);
+  }
+
+  &__description {
+    background: var(--primary-clr-300);
+    color: var(--white);
+  }
+
+  &__repo {
+    color: var(--white);
+  }
+}

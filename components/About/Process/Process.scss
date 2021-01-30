@@ -8,6 +8,20 @@
   padding-bottom: 13vh;
   clip-path: var(--clip-path);
 
+  h4 {
+    margin-bottom: 4rem;
+  }
+
+  &__processes {
+    @include widerThan768 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 63.5rem;
+    }
+  }
+
   &__contact {
     background: var(--primary-gradient-vertical);
     color: var(--white);
@@ -23,10 +37,26 @@
 .process {
   display: flex;
   align-items: center;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+  padding: var(--padding-400);
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-neumorphism);
+
+  @include widerThan768 {
+    width: 18.75rem;
+    height: 12.5rem;
+    margin: 0 1em 3em 0;
+    flex-direction: column;
+  }
 
   &__icon {
-    width: 32px;
+    width: 2rem;
     margin-right: 1em;
+
+    @include widerThan768 {
+      width: 6rem;
+      margin-bottom: 2em;
+    }
   }
 }

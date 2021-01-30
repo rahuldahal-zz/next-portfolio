@@ -1,5 +1,5 @@
 .aboutProcess {
-  background-color: var(--primary-clr-600);
+  background-color: var(--primary-clr-500);
   color: rgba(var(--white-RGB), 0.8);
 
   &__contact {
@@ -9,7 +9,10 @@
 }
 
 .process {
+  background: var(--primary-clr-500);
+  color: var(--white);
+
   &__icon {
-    fill: var(--theme);
+    fill: var(--white);
   }
 }

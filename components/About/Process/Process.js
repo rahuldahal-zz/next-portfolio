@@ -10,25 +10,29 @@ import Improvisation from "../../../public/improvisation.svg";
 export default function Process() {
   return (
     <section className="aboutProcess">
-      <h4>This is the method I follow</h4>
-      <Process textContent="Meet up and Project Discussion" Icon={Meetup} />
-      <Process textContent="Research regarding the Project" Icon={Research} />
-      <Process textContent="UI and Prototype design" Icon={Design} />
-      <Process textContent="Development Process" Icon={Development} />
-      <Process
-        textContent="Testing and Submission (beta version)"
-        Icon={Testing}
-      />
-      <Process
-        textContent="Follow up and Improvisation "
-        Icon={Improvisation}
-      />
-      <Button
-        textContent="Contact"
-        to="/contact"
-        fill="filled"
-        modifier="aboutProcess__contact"
-      />
+      <div className="contentsWrap">
+        <h4>This is the method I follow</h4>
+        <div className="aboutProcess__processes">
+          <Process textContent="Meet up and Project Discussion" Icon={Meetup} />
+          <Process
+            textContent="Research regarding the Project"
+            Icon={Research}
+          />
+          <Process textContent="UI and Prototype design" Icon={Design} />
+          <Process textContent="Development Process" Icon={Development} />
+          <Process textContent="Testing and Submission" Icon={Testing} />
+          <Process
+            textContent="Follow up and Improvisation "
+            Icon={Improvisation}
+          />
+        </div>
+        <Button
+          textContent="Contact"
+          to="/contact"
+          fill="filled"
+          modifier="aboutProcess__contact"
+        />
+      </div>
     </section>
   );
 

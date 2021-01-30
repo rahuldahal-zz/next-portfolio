@@ -1,14 +1,28 @@
 .aboutHeader {
   position: relative;
   z-index: 3;
-  margin-top: 7vh;
   padding: var(--padding-400);
+  padding-top: 13vh;
   padding-bottom: 10vh;
   color: var(--white);
   overflow-x: hidden;
   clip-path: var(--clip-path);
 
+  @include widerThan1200 {
+    overflow: unset;
+  }
+
+  .contentsWrap {
+    @include widerThan1024 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   &__content {
+    max-width: 32.5rem;
+
     p,
     mark {
       color: rgba(var(--white-RGB), 0.9);
@@ -20,6 +34,7 @@
       letter-spacing: 1px;
 
       &::after {
+        bottom: 0.5rem;
         background: var(--primary-clr-600);
       }
     }
@@ -38,5 +53,23 @@
     z-index: -2;
     top: 12.5%;
     right: -90%;
+
+    @include widerThan640 {
+      right: -25%;
+    }
+
+    @include widerThan768 {
+      right: -12.5%;
+    }
+
+    @include widerThan1200 {
+      align-self: flex-start;
+      z-index: 1;
+      position: sticky;
+      top: 15vh;
+      right: 0;
+      width: 60vw;
+      height: 100%;
+    }
   }
 }

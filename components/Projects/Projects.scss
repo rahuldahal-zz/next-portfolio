@@ -1,13 +1,21 @@
 .projects {
   position: relative;
   z-index: 2;
-  margin-top: 13vh;
   padding-bottom: 20vh;
+  padding-top: 13vh;
   min-height: 100vh;
+  background: var(--primary-clr-400);
   clip-path: var(--clip-path);
 
   &__wrap {
     padding: var(--padding-400);
+
+    @include widerThan1200 {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
   }
 }
 
@@ -16,19 +24,10 @@
   margin-top: 6rem;
   border-radius: var(--border-radius);
   filter: drop-shadow(0 -12px 24px rgba(var(--black-RGB), 0.2));
+  max-width: 30rem;
 
-  @include widerThan768 {
-    &:nth-child(even) .projectBody {
-      flex-direction: row-reverse;
-    }
-    &:nth-child(even) .projectBody .projectDescription {
-      margin: 0;
-      margin-left: 40px;
-    }
-    &:nth-child(odd) .projectBody .projectDescription {
-      margin: 0;
-      margin-right: 40px;
-    }
+  @include widerThan1200 {
+    margin-right: 3rem;
   }
 
   &__name {
@@ -47,19 +46,13 @@
   }
 
   &__body {
-    background: var(--primary-gradient-horizontal);
+    background: var(--primary-clr-300);
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
     border-radius: var(--border-radius);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-
-    @include widerThan768 {
-      padding: 1rem 2rem;
-      flex-direction: row;
-      align-items: flex-end;
-    }
   }
 
   &__stack {
@@ -109,6 +102,7 @@
   &__screenshots {
     position: relative;
     overflow-y: hidden;
+    max-width: 30rem;
 
     &:hover button {
       opacity: 0.9;

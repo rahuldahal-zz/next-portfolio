@@ -25,8 +25,8 @@
   --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--white-RGB), 0.1);
   --box-shadow-x: -8px 0 16px -4px rgba(var(--white-RGB), 0.1);
 
-  --box-shadow-neumorphism: 11px 11px 22px var(--primary-clr-500),
-    -11px -11px 22px var(--primary-clr-300);
+  --box-shadow-neumorphism: 11px 11px 22px var(--primary-clr-600),
+    -11px -11px 22px var(--primary-clr-400);
 
   --box-shadow-neumorphism-inset: inset 11px 11px 22px var(--primary-clr-500),
     inset -11px -11px 22px var(--primary-clr-300);
@@ -35,4 +35,5 @@
 
   @import "../components/Index/Expertise/Expertise-dark.scss";
   @import "../components/About/Process/Process-dark.scss";
+  @import "../components/Projects/Projects-dark.scss";
 }
