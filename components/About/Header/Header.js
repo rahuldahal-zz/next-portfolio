@@ -1,11 +1,11 @@
+import Button from "@components/Common/Button/Button";
 import React from "react";
-import UXAnalysis from "../../../public/ux_analysis.svg";
 
 export default function Header() {
   return (
-    <main className="aboutHeader overlay">
+    <main className="aboutHeader">
       <div className="contentsWrap">
-        <div className="aboutHeader__content">
+        <div className="aboutHeader__hook">
           <h4>What does good User Experience Design mean ?</h4>
           <h5>Let me set a scenario here,</h5>
           <p>
@@ -55,7 +55,19 @@ export default function Header() {
           <h6>And that is exactly what I do.</h6>
         </div>
 
-        <UXAnalysis className="aboutHeader__illustration" />
+        <div className="aboutHeader__details">
+          <img src="/about_avatar.jpeg" alt="" />
+          <Button
+            textContent="Contact"
+            fill="filled"
+            modifier="aboutHeader__contact"
+          />
+          <Button
+            textContent="Watch Video"
+            fill="outline"
+            modifier="aboutHeader__video"
+          />
+        </div>
       </div>
     </main>
   );

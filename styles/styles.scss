@@ -87,6 +87,8 @@
   --box-shadow-neumorphism: 11px 11px 22px #ced5de, -11px -11px 22px #f2fbff;
   --box-shadow-neumorphism-inset: inset 11px 11px 22px #b9c1cc,
     inset -11px -11px 22px #effbff;
+  --box-shadow-neumorphism-primary: 11px 11px 24px var(--primary-clr-500),
+    -11px -11px 24px var(--primary-clr-300);
 
   --clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
 
