@@ -33,11 +33,13 @@
 
   &__cards {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: flex-start;
 
     @include widerThan1200 {
+      flex-direction: column;
+      justify-content: space-between;
       max-width: 30vw;
       background: var(--white);
       padding: var(--padding-400);
@@ -108,15 +110,24 @@
   }
 
   @include widerThan480 {
-    max-width: 21.75rem;
     margin-bottom: 3rem;
   }
 
+  @include widerThan640 {
+    max-width: 18.75rem;
+    margin-right: 3rem;
+  }
+
   @include widerThan768 {
-    max-width: 19.875rem;
+    max-width: 22.875rem;
+  }
+
+  @include widerThan1024 {
+    max-width: 28.875rem;
   }
 
   @include widerThan1200 {
+    margin-right: 0;
     max-width: 100%;
     height: 6.562rem;
   }

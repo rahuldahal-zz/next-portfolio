@@ -1,4 +1,4 @@
-const CACHE_NAME = "v0.1.0";
+const CACHE_NAME = "v0.2.0";
 const staticAssets = [
   "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Regular-102a.woff2",

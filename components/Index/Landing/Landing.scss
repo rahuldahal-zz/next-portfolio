@@ -4,12 +4,16 @@
   margin-top: 7vh;
   padding: var(--padding-400);
   padding-top: 20vh;
-  min-height: 93vh;
+  min-height: 90vh;
   overflow: hidden;
   clip-path: var(--clip-path);
 
   @include widerThan768 {
     padding-top: 10vh;
+  }
+
+  @include tallerThan960 {
+    min-height: 80vh;
   }
 
   &__heading,

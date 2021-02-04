@@ -219,6 +219,12 @@
     cursor: pointer;
   }
 
+  &__hamburger {
+    @include widerThan768 {
+      display: none;
+    }
+  }
+
   &__theme {
     margin-right: 1rem;
 

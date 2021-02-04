@@ -28,3 +28,9 @@
     @content;
   }
 }
+
+@mixin tallerThan960() {
+  @media only screen and (min-height: 961px) {
+    @content;
+  }
+}

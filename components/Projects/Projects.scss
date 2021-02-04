@@ -33,10 +33,6 @@
   &__name {
     position: absolute;
     bottom: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
     background: var(--accent-gradient-vertical-reverse);
     color: var(--black);
     padding: var(--padding-300);
@@ -113,6 +109,7 @@
   &__nextShot {
     position: absolute;
     top: 50%;
+    width: auto;
     transform: translateY(-50%);
     opacity: 0.4;
     will-change: opacity;
