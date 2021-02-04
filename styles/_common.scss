@@ -67,3 +67,70 @@
     }
   }
 }
+
+.loaderOverlay {
+  position: fixed;
+  z-index: 4;
+  display: flex;
+  top: 10vh;
+  left: 0;
+  height: 90vh;
+  width: 100%;
+  background: var(--primary-clr-400);
+  color: #f4f4f4;
+
+  &__content {
+    position: relative;
+    max-width: 320px;
+    margin: auto;
+
+    blockquote {
+      font-size: 1.4rem;
+    }
+
+    @include widerThan640 {
+      max-width: 520px;
+
+      blockquote {
+        font-size: 2rem;
+      }
+    }
+
+    mark {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: max-content;
+      color: var(--white);
+
+      &::after {
+        background: var(--primary-clr-500);
+      }
+    }
+
+    &::before {
+      content: url(/quote.svg);
+      position: absolute;
+      top: -40%;
+      left: -1rem;
+      width: 6.25rem;
+      display: inline-block;
+      opacity: 0.2;
+      margin-right: 1rem;
+    }
+  }
+
+  &::after {
+    content: "#UXMatters";
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: rgba(var(--white-RGB), 0.8);
+  }
+
+  &--hidden {
+    visibility: hidden;
+  }
+}

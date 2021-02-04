@@ -13,7 +13,7 @@
 
   &::after,
   &::before {
-    visibility: hidden;
+    visibility: visible;
     content: "";
     position: absolute;
     bottom: -0.25rem;
@@ -31,16 +31,17 @@
     border-radius: var(--border-radius);
     transform: translateX(-100%);
     background-color: var(--primary-clr-400);
+    animation: slide 0.7s linear infinite;
   }
 
-  &--loading {
+  &--loaderHidden {
     &::before,
     &::after {
-      visibility: visible;
+      visibility: hidden;
     }
 
     &::after {
-      animation: slide 0.7s linear infinite;
+      animation: none;
     }
   }
 

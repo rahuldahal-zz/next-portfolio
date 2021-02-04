@@ -69,21 +69,25 @@ export default function Nav({ current }) {
               to="/about"
               textContent="About"
               isActive={current === "about" ? true : false}
+              setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link
               to="/projects"
               textContent="Projects"
               isActive={current === "projects" ? true : false}
+              setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link
               to="/resume"
               textContent="Resume"
               isActive={current === "resume" ? true : false}
+              setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link
               to="/blogs"
               textContent="Blogs"
               isActive={current === "blogs" ? true : false}
+              setIsHamburgerClicked={setIsHamburgerClicked}
             />
           </div>
         </div>
