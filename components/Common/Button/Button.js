@@ -15,7 +15,9 @@ export default function Button({
 
   return to ? (
     <NextLink href={to}>
-      <a className={className}>{textContent}</a>
+      <a className={className} onClick={onClick}>
+        {textContent}
+      </a>
     </NextLink>
   ) : (
     <button type={type} className={className} onClick={onClick}>

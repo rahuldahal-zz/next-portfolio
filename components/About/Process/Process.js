@@ -6,6 +6,7 @@ import Meetup from "../../../public/meetup.svg";
 import Research from "../../../public/research.svg";
 import Testing from "../../../public/testing.svg";
 import Improvisation from "../../../public/improvisation.svg";
+import { showLoader } from "utils/loader";
 
 export default function Process() {
   return (
@@ -31,6 +32,7 @@ export default function Process() {
           to="/contact"
           fill="filled"
           modifier="aboutProcess__contact"
+          onClick={() => showLoader()}
         />
       </div>
     </section>

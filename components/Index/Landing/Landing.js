@@ -3,6 +3,7 @@ import Button from "../../Common/Button/Button";
 import isScreenLargerThan from "../../../utils/screenSize";
 import UsabilityIllustration from "../../../public/usability_testing.svg";
 import UsabilityIllustrationDesktop from "../../../public/usability_testing_desktop.svg";
+import { showLoader } from "utils/loader";
 
 export default function Landing() {
   const tagline = (
@@ -42,8 +43,18 @@ export default function Landing() {
             </p>
 
             <div className="landing__cta">
-              <Button to="/contact" fill="filled" textContent="Contact" />
-              <Button to="/projects" fill="outline" textContent="Projects" />
+              <Button
+                to="/contact"
+                fill="filled"
+                textContent="Contact"
+                onClick={() => showLoader()}
+              />
+              <Button
+                to="/projects"
+                fill="outline"
+                textContent="Projects"
+                onClick={() => showLoader()}
+              />
             </div>
           </div>
 

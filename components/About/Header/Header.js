@@ -1,5 +1,6 @@
 import Button from "@components/Common/Button/Button";
 import React from "react";
+import { showLoader } from "utils/loader";
 
 export default function Header() {
   return (
@@ -56,11 +57,12 @@ export default function Header() {
         </div>
 
         <div className="aboutHeader__details">
-          <img src="/about_avatar.jpeg" alt="" />
+          <img src="/about_avatar.jpeg" alt="" width="60vw" height="60vw" />
           <Button
             textContent="Contact"
             fill="filled"
             modifier="aboutHeader__contact"
+            onClick={() => showLoader()}
           />
           <Button
             textContent="Watch Video"

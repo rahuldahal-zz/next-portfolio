@@ -5,6 +5,7 @@ import MERNStack from "../../../public/MERNStack.svg";
 import JAMStack from "../../../public/JAMStack.svg";
 import OpenSource from "../../../public/OpenSource.svg";
 import isScreenLargerThan from "utils/screenSize";
+import { showLoader } from "utils/loader";
 
 export default function Expertise() {
   const [isExpertiseFocused, setIsExpertiseFocused] = useState({});
@@ -50,6 +51,7 @@ export default function Expertise() {
                 modifier="expertise__projects"
                 textContent="Things I have done"
                 fill="filled"
+                onClick={() => showLoader()}
               />
             </div>
             <ExpertiseExpand
