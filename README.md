@@ -1,4 +1,10 @@
-# Portfolio
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bb750fc7-b82e-4206-b812-8ebdd484aa5a/deploy-status)](https://app.netlify.com/sites/pedantic-thompson-c8ff9b/deploys)
+[![Vercel Status](https://vercel-status.herokuapp.com/rahuldahal/next-portfolio)
 
-Portfolio website of myself.
+## Portfolio
+A portfolio website created with React and Next.js
+
+- Implements Server-Side-Rendering
+- Showcases completed projects, contributions and blogs
+
+## Found a bug or want to improvise something ?
+File an issue [here](https://github.com/rahuldahal/next-portfolio/issues)
