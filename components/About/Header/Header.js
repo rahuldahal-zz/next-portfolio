@@ -57,7 +57,7 @@ export default function Header() {
         </div>
 
         <div className="aboutHeader__details">
-          <img src="/about_avatar.jpeg" alt="" width="60vw" height="60vw" />
+          <img src="/thatsme.webp" alt="" width="60vw" height="60vw" />
           <Button
             textContent="Contact"
             fill="filled"

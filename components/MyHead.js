@@ -32,11 +32,6 @@ le."
       />
 
       <link rel="icon" href="/logo.png" />
-      <script
-        src="https://kit.fontawesome.com/2628210dc1.js"
-        crossorigin="anonymous"
-        async
-      ></script>
     </Head>
   );
 }

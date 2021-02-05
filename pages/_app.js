@@ -1,6 +1,7 @@
 import { useEffect, useState, React } from "react";
 import "extended-normalize.css";
 import "@styles/styles.scss";
+import "@fortawesome/fontawesome-free/css/all.css";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import MyHead from "../components/MyHead";
 import Footer from "../components/Common/Footer/Footer";

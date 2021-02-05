@@ -48,6 +48,7 @@
     transform: translateY(0);
 
     &::after {
+      opacity: 1;
       transform: scaleX(1);
     }
   }

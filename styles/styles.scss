@@ -51,9 +51,9 @@
   );
 
   --primary-accent-gradient: linear-gradient(
-    270deg,
-    var(--primary-clr-400),
-    var(--accent-clr-500)
+    360deg,
+    var(--primary-clr-300),
+    var(--accent-clr-300)
   );
 
   // fonts
@@ -81,9 +81,10 @@
     --padding-400: 1em;
   }
 
-  --box-shadow-y: 0 8px 16px -4px rgba(var(--black-RGB), 0.4);
-  --box-shadow-y-reverse: 0 -8px 16px -4px rgba(var(--black-RGB), 0.4);
-  --box-shadow-x: -8px 0 16px -4px rgba(var(--black-RGB), 0.4);
+  --box-shadow-y: 0 12px 24px -4px rgba(var(--black-RGB), 0.2);
+  --box-shadow-y-reverse: 0 -12px 24px -4px rgba(var(--black-RGB), 0.2);
+  --box-shadow-x: -12px 0 24px -4px rgba(var(--black-RGB), 0.2);
+  --box-shadow-x-reverse: 12px 0 24px -4px rgba(var(--black-RGB), 0.2);
   --box-shadow-neumorphism: 11px 11px 22px #ced5de, -11px -11px 22px #f2fbff;
   --box-shadow-neumorphism-inset: inset 11px 11px 22px #b9c1cc,
     inset -11px -11px 22px #effbff;

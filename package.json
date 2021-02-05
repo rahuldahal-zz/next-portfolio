@@ -9,6 +9,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "extended-normalize.css": "^2.4.0",
     "faunadb": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
