@@ -2,6 +2,10 @@
   background: var(--primary-clr-600);
 
   &::before {
+    background: var(--primary-clr-600);
+  }
+
+  &::after {
     background: var(--primary-clr-500);
   }
 
