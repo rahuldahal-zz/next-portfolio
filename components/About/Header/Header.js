@@ -60,9 +60,9 @@ export default function Header() {
           <img src="/thatsme.webp" alt="" width="60vw" height="60vw" />
           <Button
             textContent="Contact"
+            to="/#contact"
             fill="filled"
             modifier="aboutHeader__contact"
-            onClick={() => showLoader()}
           />
           <Button
             textContent="Watch Video"

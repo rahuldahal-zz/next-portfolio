@@ -43,12 +43,7 @@ export default function Landing() {
             </p>
 
             <div className="landing__cta">
-              <Button
-                to="/contact"
-                fill="filled"
-                textContent="Contact"
-                onClick={() => showLoader()}
-              />
+              <Button to="/#contact" fill="filled" textContent="Contact" />
               <Button
                 to="/projects"
                 fill="outline"

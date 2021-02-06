@@ -3,22 +3,87 @@
   margin-top: -15vh;
   padding: var(--padding-400);
   padding-top: 20vh;
-  background-color: var(--black);
+  background-color: var(--primary-clr-500);
   color: var(--white);
+
+  &::after {
+    height: 55%;
+    background: var(--padding-400);
+  }
 
   &__title {
     margin-top: 0;
+    max-width: 36.5rem;
+  }
+
+  &__columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    gap: 2rem;
+    top: 2rem;
+  }
+
+  .contact {
+    background: var(--white);
+    padding: var(--padding-400);
+    border-radius: var(--border-radius);
+    color: var(--black);
+    box-shadow: var(--box-shadow-y-reverse);
+
+    &__field {
+      margin-bottom: 1rem;
+      position: relative;
+
+      label {
+        position: absolute;
+        background: var(--white);
+        color: var(--primary-clr-600);
+        opacity: 0.6;
+        padding: 0 var(--padding-300);
+        top: 0.75rem;
+        left: 0.25rem;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        background: transparent;
+        will-change: padding;
+        transition: padding 0.3s ease-in-out;
+      }
+
+      &--focused {
+        label {
+          opacity: 1;
+          transform: translateY(-1.25rem);
+        }
+        input,
+        textarea {
+          padding-top: 1rem;
+        }
+      }
+    }
+
+    &__submit {
+      &::before {
+        content: "\f1d8";
+      }
+    }
   }
 
   &__socialLinks {
-    margin: 1.5rem 0;
-
-    h4 {
+    h5 {
       margin-bottom: 2rem;
     }
 
     a {
-      margin-right: 1rem;
+      display: block;
+      margin-bottom: 1rem;
       background-color: var(--white);
       color: var(--primary-clr-400);
       padding: var(--padding-400);
@@ -46,7 +111,7 @@
     }
 
     a[title="Facebook Profile"] {
-      margin-right: 0;
+      margin-bottom: 0;
 
       &::before {
         content: "\f09a";
@@ -63,5 +128,6 @@
 
   &__copyright {
     margin-bottom: 0;
+    margin-top: 4rem;
   }
 }

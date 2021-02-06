@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v0.2.0";
+const CACHE_VERSION = "v0.2.1";
 const staticAssets = [
   "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Regular-102a.woff2",
@@ -7,6 +7,7 @@ const staticAssets = [
   "/font/woff/Atkinson-Hyperlegible-Bold-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Bold-102a.woff2",
   "/logo.png",
+  "/thatsme.webp",
   "/logo.svg",
   "/design.svg",
   "/development.svg",
@@ -58,7 +59,7 @@ self.addEventListener("fetch", (event) => {
           console.log("returning from cache ", pathname);
           return response;
         }
-        if (pathname === "/api/projects") {
+        if (pathname === "/api/projects" || host === "res.cloudinary.com") {
           console.log("about to fetch and cache");
           return caches
             .open(`data-${CACHE_VERSION}`)

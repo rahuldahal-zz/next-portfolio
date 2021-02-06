@@ -29,10 +29,9 @@ export default function Process() {
         </div>
         <Button
           textContent="Contact"
-          to="/contact"
+          to="/#contact"
           fill="filled"
           modifier="aboutProcess__contact"
-          onClick={() => showLoader()}
         />
       </div>
     </section>

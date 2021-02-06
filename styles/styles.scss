@@ -1,5 +1,9 @@
 @import "./media";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   // primary-color
   --primary-clr-200: rgb(0, 137, 205);
