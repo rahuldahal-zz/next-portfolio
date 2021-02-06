@@ -1,0 +1,19 @@
+.footer {
+}
+
+.contact {
+  background: var(--primary-clr-400);
+  color: var(--white);
+
+  &__field {
+    label {
+      background: var(--primary-clr-400);
+      color: var(--white);
+    }
+
+    input,
+    textarea {
+      color: var(--white);
+    }
+  }
+}

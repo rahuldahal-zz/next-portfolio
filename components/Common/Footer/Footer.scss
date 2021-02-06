@@ -3,7 +3,7 @@
   margin-top: -15vh;
   padding: var(--padding-400);
   padding-top: 20vh;
-  background-color: var(--primary-clr-500);
+  background-color: var(--primary-clr-600);
   color: var(--white);
 
   &::after {
@@ -55,6 +55,7 @@
         background: transparent;
         will-change: padding;
         transition: padding 0.3s ease-in-out;
+        border-color: currentColor;
       }
 
       &--focused {

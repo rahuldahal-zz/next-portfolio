@@ -49,6 +49,7 @@
 .stacked {
   &::after {
     content: "";
+    visibility: hidden;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -62,7 +63,7 @@
     border-top-right-radius: var(--border-radius);
     box-shadow: var(--box-shadow-y-reverse);
 
-    @include widerThan1200 {
+    @include widerThan768 {
       visibility: visible;
     }
   }
