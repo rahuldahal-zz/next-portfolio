@@ -107,10 +107,10 @@ export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
               />
               <strong className="expertiseProject__name">{name}</strong>
               <a href={url} className="expertiseProject__url">
-                Visit
+                <small>Visit</small>
               </a>
               <a href={repo} className="expertiseProject__repo">
-                Repo
+                <small>Repo</small>
               </a>
             </div>
           );

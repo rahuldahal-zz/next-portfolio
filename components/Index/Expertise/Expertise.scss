@@ -299,8 +299,8 @@
   &__projects {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   &--active {
@@ -317,26 +317,54 @@
   border-radius: var(--border-radius);
   background-color: var(--accent-clr-500);
   color: var(--black);
-  width: 100%;
+  width: max-content;
   padding: var(--padding-300);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   &:nth-child(even) {
     background-color: var(--accent-clr-300);
   }
 
+  &__logo,
+  &__name,
+  &__url {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+  }
+
   &__logo {
-    width: 24px;
-    margin-right: 0.5em;
+    width: 1.5em;
   }
 
   &__name {
     color: var(--black);
+    margin-right: 2rem;
   }
 
-  &__link {
-    color: var(--primary-clr-400);
+  &__repo,
+  &__url {
+    padding: var(--padding-300);
+    background: var(--primary-clr-600);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+
+    &::before {
+      content: "\f35d";
+      font-size: 1rem;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__repo {
+    &::before {
+      font-family: "Font Awesome 5 Brands";
+      content: "\f09b";
+    }
   }
 }
