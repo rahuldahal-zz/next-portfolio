@@ -87,6 +87,10 @@
     }
 
     &__submit {
+      background: var(--primary-gradient-vertical);
+      color: var(--white);
+      border-color: var(--primary-clr-400);
+
       &::before {
         content: "\f1d8";
       }

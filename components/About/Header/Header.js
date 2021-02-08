@@ -69,7 +69,7 @@ export default function Header() {
           </picture>
           <Button
             textContent="Contact"
-            to="/#contact"
+            to="#contact"
             fill="filled"
             modifier="aboutHeader__contact"
           />

@@ -285,8 +285,8 @@
     width: max-content;
     margin-top: 0;
     margin-left: 0;
-    background-color: var(--accent-clr-400);
-    color: var(--black);
+    background-color: var(--primary-clr-400);
+    color: var(--white);
     font-weight: bold;
     border-bottom-right-radius: var(--border-radius);
     box-shadow: var(--box-shadow-y);
@@ -315,8 +315,8 @@
 
 .expertiseProject {
   border-radius: var(--border-radius);
-  background-color: var(--accent-clr-500);
-  color: var(--black);
+  background-color: var(--primary-clr-500);
+  color: var(--white);
   width: max-content;
   padding: var(--padding-300);
   display: flex;
@@ -340,15 +340,15 @@
   }
 
   &__name {
-    color: var(--black);
+    color: var(--white);
     margin-right: 2rem;
   }
 
   &__repo,
   &__url {
     padding: var(--padding-300);
-    background: var(--primary-clr-600);
-    color: var(--white);
+    background: var(--accent-clr-400);
+    color: var(--black);
     text-decoration: none;
     border-radius: var(--border-radius);
 
