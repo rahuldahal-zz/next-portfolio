@@ -18,13 +18,18 @@
 
   &__columns {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     position: relative;
     z-index: 2;
-    gap: 2rem;
     top: 2rem;
+
+    @include widerThan768 {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
   }
 
   .contact {
@@ -33,7 +38,13 @@
     border-radius: var(--border-radius);
     color: var(--black);
     box-shadow: var(--box-shadow-y-reverse);
-    width: 43.75rem;
+    margin-bottom: 2rem;
+
+    @include widerThan768 {
+      width: 43.75rem;
+      margin-bottom: 0;
+      margin-right: 2rem;
+    }
 
     &__form {
       max-width: 100%;

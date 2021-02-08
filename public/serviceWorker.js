@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v0.2.1";
+const CACHE_VERSION = "v0.3.0";
 const staticAssets = [
   "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Regular-102a.woff2",
@@ -6,18 +6,19 @@ const staticAssets = [
   "/font/woff2/Atkinson-Hyperlegible-Italic-102a.woff2",
   "/font/woff/Atkinson-Hyperlegible-Bold-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Bold-102a.woff2",
-  "/logo.png",
-  "/thatsme.webp",
-  "/logo.svg",
-  "/design.svg",
-  "/development.svg",
-  "/improvisation.svg",
-  "/JAMStack.svg",
-  "/MERNStack.svg",
-  "/OpenSource.svg",
-  "/research.svg",
-  "/testing.svg",
-  "/toggle.svg",
+  "/images/logo.png",
+  "/images/thatsme.webp",
+  "/images/thatsme.png",
+  "/svgs/logo.svg",
+  "/svgs/design.svg",
+  "/svgs/development.svg",
+  "/svgs/improvisation.svg",
+  "/svgs/JAMStack.svg",
+  "/svgs/MERNStack.svg",
+  "/svgs/OpenSource.svg",
+  "/svgs/research.svg",
+  "/svgs/testing.svg",
+  "/svgs/toggle.svg",
 ];
 
 self.addEventListener("install", (event) => {

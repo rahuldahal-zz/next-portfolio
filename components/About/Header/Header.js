@@ -57,7 +57,16 @@ export default function Header() {
         </div>
 
         <div className="aboutHeader__details">
-          <img src="/thatsme.webp" alt="" width="60vw" height="60vw" />
+          <picture width="60vw" height="60vw">
+            <source srcSet="images/thatsme.webp" type="image/webp" />
+            <source srcSet="images/thatsme.jpg" type="image/jpeg" />
+            <img
+              src="images/thatsme.jpg"
+              alt="Rahul Dahal Smiling to the camera"
+              width="60vw"
+              height="60vw"
+            />
+          </picture>
           <Button
             textContent="Contact"
             to="/#contact"
