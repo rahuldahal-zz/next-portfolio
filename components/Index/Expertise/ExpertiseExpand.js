@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
-import MERNStack from "../../../public/MERNStack.svg";
-import JAMStack from "../../../public/JAMStack.svg";
-import OpenSource from "../../../public/OpenSource.svg";
+import MERNStack from "../../../public/svgs/MERNStack.svg";
+import JAMStack from "../../../public/svgs/JAMStack.svg";
+import OpenSource from "../../../public/svgs/OpenSource.svg";
 
 export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
   const [expertiseProjects, setExpertiseProjects] = useState(null);

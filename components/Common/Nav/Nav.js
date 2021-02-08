@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "./link";
-import Logo from "../../../public/logo.svg";
-import Toggle from "../../../public/toggle.svg";
+import Logo from "../../../public/svgs/logo.svg";
+import Toggle from "../../../public/svgs/toggle.svg";
 
 export default function Nav({ current }) {
   const [isScreenNarrow, setIsScreenNarrow] = useState(true);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../Common/Button/Button";
 import isScreenLargerThan from "../../../utils/screenSize";
-import UsabilityIllustration from "../../../public/usability_testing.svg";
-import UsabilityIllustrationDesktop from "../../../public/usability_testing_desktop.svg";
+import UsabilityIllustration from "../../../public/svgs/usability_testing.svg";
+import UsabilityIllustrationDesktop from "../../../public/svgs/usability_testing_desktop.svg";
 import { showLoader } from "utils/loader";
 
 export default function Landing() {

@@ -1,11 +1,11 @@
 import Button from "@components/Common/Button/Button";
 import React from "react";
-import Design from "../../../public/design.svg";
-import Development from "../../../public/development.svg";
-import Meetup from "../../../public/meetup.svg";
-import Research from "../../../public/research.svg";
-import Testing from "../../../public/testing.svg";
-import Improvisation from "../../../public/improvisation.svg";
+import Design from "../../../public/svgs/design.svg";
+import Development from "../../../public/svgs/development.svg";
+import Meetup from "../../../public/svgs/meetup.svg";
+import Research from "../../../public/svgs/research.svg";
+import Testing from "../../../public/svgs/testing.svg";
+import Improvisation from "../../../public/svgs/improvisation.svg";
 import { showLoader } from "utils/loader";
 
 export default function Process() {
@@ -14,15 +14,18 @@ export default function Process() {
       <div className="contentsWrap">
         <h4>This is the method I follow</h4>
         <div className="aboutProcess__processes">
-          <Process textContent="Meet up and Project Discussion" Icon={Meetup} />
-          <Process
+          <ProcessCard
+            textContent="Meet up and Project Discussion"
+            Icon={Meetup}
+          />
+          <ProcessCard
             textContent="Research regarding the Project"
             Icon={Research}
           />
-          <Process textContent="UI and Prototype design" Icon={Design} />
-          <Process textContent="Development Process" Icon={Development} />
-          <Process textContent="Testing and Submission" Icon={Testing} />
-          <Process
+          <ProcessCard textContent="UI and Prototype design" Icon={Design} />
+          <ProcessCard textContent="Development Process" Icon={Development} />
+          <ProcessCard textContent="Testing and Submission" Icon={Testing} />
+          <ProcessCard
             textContent="Follow up and Improvisation "
             Icon={Improvisation}
           />
@@ -37,7 +40,7 @@ export default function Process() {
     </section>
   );
 
-  function Process({ textContent, Icon }) {
+  function ProcessCard({ textContent, Icon }) {
     return (
       <div className="process">
         <Icon className="process__icon" />
