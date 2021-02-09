@@ -4,19 +4,21 @@ import Head from "next/head";
 export default function MyHead() {
   return (
     <Head>
-      <title>Rahul Dahal | Web Developer - Let's build something amazing</title>
+      <title>
+        Rahul Dahal | Web Developer with an eye for improvising User Experience
+      </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#006699" />
       <meta property="og:site_name" content="rahuldahal.com.np" />
       <meta
         property="og:title"
-        content="Rahul Dahal | Web Developer - Let's build something amazing"
+        content="Rahul Dahal | Web Developer with an eye for improvising User Experience"
       />
       <meta property="og:url" content="https://rahuldahal.com.np" />
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="A Web Developer with an aim to improvise User Experience. User Experience Design is an indispensible part of any online product. My focus is to make the User Experience as elegant as possible."
+        content="A Web Developer with an aim to improvise User Experience. My responsibility is to make the user's experience on the app usable, accessible, functional and credible."
       />
       <meta
         property="og:image"
@@ -27,8 +29,7 @@ export default function MyHead() {
       <meta property="og:image:height" content="500" />
       <meta
         name="description"
-        content="A Web Developer with an aim to improvise User Experience. User Experience Design is an indispensible part of any online product. My focus is to make the User Experience as elegant as possib
-le."
+        content="A Web Developer with an aim to improvise User Experience. My responsibility is to make the user's experience on the app usable, accessible, functional and credible."
       />
 
       <link rel="icon" href="/images/logo.png" />

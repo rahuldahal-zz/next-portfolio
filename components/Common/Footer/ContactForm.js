@@ -5,6 +5,39 @@ import isAlpha from "validator/lib/isAlpha";
 import isLength from "validator/lib/isLength";
 import matches from "validator/lib/matches";
 
+export function validate([nameValue, emailValue, messageValue]) {
+  const ALPHA_NUMERIC_AND_SPACE = /^[a-z0-9\s]+$/i;
+  const errorsArray = [];
+
+  if (!isEmail(emailValue)) {
+    errorsArray.push({
+      field: "email",
+      message: "Email is not of valid format",
+    });
+  }
+  if (!isAlpha(nameValue, "en-US", { ignore: " -" })) {
+    errorsArray.push({
+      field: "name",
+      message: "Name can only contain alphabets",
+    });
+  }
+  if (matches(messageValue, ALPHA_NUMERIC_AND_SPACE)) {
+    if (!isLength(messageValue, { min: 1, max: 250 })) {
+      errorsArray.push({
+        field: "message",
+        message: "Message exceeds 250 characters",
+      });
+    }
+  } else {
+    errorsArray.push({
+      field: "message",
+      message: "Message can only contain alphabets, numbers and spaces",
+    });
+  }
+
+  return errorsArray;
+}
+
 export default function ContactForm() {
   const [isValid, setIsValid] = useState(false);
   const [fieldFocused, setFieldFocused] = useState(null);
@@ -14,7 +47,6 @@ export default function ContactForm() {
   const message = useRef(null);
 
   const refs = { name, email, message };
-  const errors = [];
 
   function onFieldBlurHandler(e) {
     if (e.currentTarget.value === "") {
@@ -30,42 +62,37 @@ export default function ContactForm() {
     return "contact__field";
   }
 
-  function validate([nameValue, emailValue, messageValue]) {
-    const ALPHA_NUMERIC_AND_SPACE = /^[a-z0-9\s]+$/i;
+  async function submitToServer([nameValue, emailValue, messageValue]) {
+    const response = await fetch("/api/messenger", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: nameValue,
+        email: emailValue,
+        message: messageValue,
+      }),
+    });
 
-    if (!isEmail(emailValue)) {
-      errors.push({ field: email, message: "Email is not of valid format" });
-    }
-    if (!isAlpha(nameValue, "en-US", { ignore: " -" })) {
-      errors.push({ field: name, message: "Name can only contain alphabets" });
-    }
-    if (matches(messageValue, ALPHA_NUMERIC_AND_SPACE)) {
-      if (!isLength(messageValue, { min: 1, max: 250 })) {
-        errors.push({
-          field: message,
-          message: "Message exceeds 250 characters",
-        });
-      }
-    } else {
-      errors.push({
-        field: message,
-        message: "Message can only contain alphabets, numbers and spaces",
-      });
-    }
+    return response.status;
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault();
-    errors.length = 0; // clearing previous error(s)
     const refsValue = Object.values(refs).map((ref) => ref.current.value);
     const [nameValue, emailValue, messageValue] = refsValue;
     if (!nameValue || !emailValue || !messageValue) {
       errors.push({ field: "", message: "please fill out all the fields" });
     } else {
-      validate(refsValue);
+      const errors = validate(refsValue);
       if (errors.length === 0) {
-        console.log("The form data is valid");
         setIsValid(true);
+        const status = await submitToServer(refsValue);
+        console.log(status);
+
+        // TODO: based on the status, handle the query
       }
     }
   }
