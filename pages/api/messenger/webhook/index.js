@@ -125,7 +125,7 @@ function handlePostback(senderPsid, receivedPostback) {
 }
 
 // Sends response messages via the Send API
-async function callSendAPI(senderPsid, response) {
+export async function callSendAPI(senderPsid, response) {
   // The page access token we have generated in your app settings
   const token = process.env.MESSENGER_PLATFORM_TOKEN;
 
@@ -153,6 +153,8 @@ async function callSendAPI(senderPsid, response) {
     });
 
     const { status } = req;
+    const data = await req.json();
+    console.log(data);
     console.log("The messenger API responded with", status);
   } catch (error) {
     console.error("Unable to send message:", error);
