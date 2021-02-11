@@ -9,6 +9,32 @@ export function validate([nameValue, emailValue, messageValue]) {
   const ALPHA_NUMERIC_AND_SPACE = /^[a-z0-9\s]+$/i;
   const errorsArray = [];
 
+  if (nameValue === "") {
+    errorsArray.push({
+      field: "name",
+      message: "You must fill out your name",
+    });
+  }
+
+  if (emailValue === "") {
+    errorsArray.push({
+      field: "email",
+      message: "You must fill out your email",
+    });
+  }
+
+  if (messageValue === "") {
+    errorsArray.push({
+      field: "message",
+      message: "State briefly about your requirements",
+    });
+  }
+
+  // return immediately with the array
+  if (!nameValue || !emailValue || !messageValue) {
+    return errorsArray;
+  }
+
   if (!isEmail(emailValue)) {
     errorsArray.push({
       field: "email",
@@ -48,6 +74,17 @@ export default function ContactForm() {
 
   const refs = { name, email, message };
 
+  function setFieldError(field, errorMessage, unset = false) {
+    const { dataset } = field;
+    if (unset) {
+      field.classList.remove("errorInInput");
+      dataset.errorMessage = "";
+    } else {
+      field.classList.add("errorInInput");
+      dataset.errorMessage = errorMessage;
+    }
+  }
+
   function onFieldBlurHandler(e) {
     if (e.currentTarget.value === "") {
       setFieldFocused(null);
@@ -79,21 +116,42 @@ export default function ContactForm() {
     return response.status;
   }
 
+  function getErrorInputRefs(errors) {
+    return errors.map((error) => {
+      const { field, message: errorMessage } = error;
+      let toReturn;
+      switch (field) {
+        case "name":
+          toReturn = { element: name.current, errorMessage };
+          break;
+        case "email":
+          toReturn = { element: email.current, errorMessage };
+          break;
+        case "message":
+          toReturn = { element: message.current, errorMessage };
+          break;
+        default:
+          toReturn = {};
+          break;
+      }
+      return toReturn;
+    });
+  }
+
   async function submitHandler(e) {
     e.preventDefault();
     const refsValue = Object.values(refs).map((ref) => ref.current.value);
-    const [nameValue, emailValue, messageValue] = refsValue;
-    if (!nameValue || !emailValue || !messageValue) {
-      errors.push({ field: "", message: "please fill out all the fields" });
+    const errors = validate(refsValue);
+    if (errors.length === 0) {
+      setIsValid(true);
+      const status = await submitToServer(refsValue);
+      console.log(status);
     } else {
-      const errors = validate(refsValue);
-      if (errors.length === 0) {
-        setIsValid(true);
-        const status = await submitToServer(refsValue);
-        console.log(status);
-
-        // TODO: based on the status, handle the query
-      }
+      const errorInputRefs = getErrorInputRefs(errors);
+      errorInputRefs.forEach((ref) => {
+        const { element, errorMessage } = ref;
+        setFieldError(element.parentElement, errorMessage);
+      });
     }
   }
 
@@ -112,7 +170,10 @@ export default function ContactForm() {
             type="text"
             id="name"
             name="name"
-            onFocus={() => setFieldFocused("name")}
+            onFocus={(e) => {
+              setFieldFocused("name");
+              setFieldError(e.currentTarget.parentElement, "", true);
+            }}
             onBlur={(e) => onFieldBlurHandler(e)}
           />
         </div>
@@ -123,7 +184,10 @@ export default function ContactForm() {
             type="email"
             id="email"
             name="email"
-            onFocus={() => setFieldFocused("email")}
+            onFocus={(e) => {
+              setFieldFocused("email");
+              setFieldError(e.currentTarget.parentElement, "", true);
+            }}
             onBlur={(e) => onFieldBlurHandler(e)}
           />
         </div>
@@ -135,7 +199,10 @@ export default function ContactForm() {
             id="message"
             cols="30"
             rows="10"
-            onFocus={() => setFieldFocused("message")}
+            onFocus={(e) => {
+              setFieldFocused("message");
+              setFieldError(e.currentTarget.parentElement, "", true);
+            }}
             onBlur={(e) => onFieldBlurHandler(e)}
           />
         </div>

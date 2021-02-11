@@ -151,4 +151,36 @@
     margin-bottom: 0;
     margin-top: 4rem;
   }
+
+  .errorInInput {
+    animation: error 0.5s ease-in-out;
+
+    &::after {
+      content: attr(data-error-message);
+      display: block;
+      margin-bottom: 1rem;
+      color: var(--error);
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      border-color: var(--error);
+    }
+  }
+
+  @keyframes error {
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(5px);
+    }
+  }
 }
