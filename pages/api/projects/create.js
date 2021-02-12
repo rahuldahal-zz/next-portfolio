@@ -4,6 +4,7 @@
 import nc from "next-connect";
 import faunadb from "faunadb";
 import Authenticate from "utils/authMiddleware";
+import getTokenFromHeader from "utils/getTokenFromHeader";
 
 // Faunadb methods
 
@@ -14,20 +15,12 @@ const client = new faunadb.Client({ secret: process.env.FAUNA_API_KEY });
 
 const app = nc();
 
-function getToken(req) {
-  const { authorization } = req.headers;
-  if (!authorization) {
-    return null;
-  }
-  return authorization.split(" ")[1];
-}
-
 app.post(async (req, res) => {
   console.log(req.body);
   const { name, description, url, repo, stack, screenshots } = req.body;
 
   try {
-    await Authenticate(getToken(req));
+    await Authenticate(getTokenFromHeader(req));
     await client.query(
       Create(Collection("projects"), {
         data: {
@@ -58,7 +51,7 @@ app.patch(async (req, res) => {
   const { id, ...toBeUpdated } = req.body;
 
   try {
-    await Authenticate(getToken(req));
+    await Authenticate(getTokenFromHeader(req));
     console.log(id);
 
     await client.query(
