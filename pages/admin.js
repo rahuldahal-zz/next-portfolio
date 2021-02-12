@@ -1,9 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Query from "@components/Admin/Query";
+import { hideLoader } from "utils/loader";
 
 export default function Admin() {
   const [Token, setToken] = useState(null);
   const password = useRef(null);
+
+  useEffect(() => {
+    hideLoader();
+  }, []);
 
   return (
     <main className="admin">{Token ? <Query token={Token} /> : <Login />}</main>

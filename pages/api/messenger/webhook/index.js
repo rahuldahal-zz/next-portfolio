@@ -135,6 +135,8 @@ export async function callSendAPI(senderPsid, response) {
       id: senderPsid,
     },
     message: response,
+    messaging_type: "MESSAGE_TAG",
+    tag: "ACCOUNT_UPDATE",
   };
 
   // Send the HTTP request to the Messenger Platform

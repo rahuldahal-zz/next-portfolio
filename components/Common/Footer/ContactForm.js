@@ -66,6 +66,7 @@ export function validate([nameValue, emailValue, messageValue]) {
 
 export default function ContactForm() {
   const [isValid, setIsValid] = useState(false);
+  const [isAcceptedByServer, setIsAcceptedByServer] = useState(false);
   const [fieldFocused, setFieldFocused] = useState(null);
 
   const name = useRef(null);
@@ -75,6 +76,7 @@ export default function ContactForm() {
   const refs = { name, email, message };
 
   function setFieldError(field, errorMessage, unset = false) {
+    setIsValid(false);
     const { dataset } = field;
     if (unset) {
       field.classList.remove("errorInInput");

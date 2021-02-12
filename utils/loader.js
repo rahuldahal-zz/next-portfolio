@@ -1,5 +1,6 @@
 export function hideLoader() {
-  document.querySelector(".nav").classList.add("nav--loaderHidden");
+  const nav = document.querySelector(".nav");
+  nav && nav.classList.add("nav--loaderHidden");
   document
     .querySelector(".loaderOverlay")
     .classList.add("loaderOverlay--hidden");
