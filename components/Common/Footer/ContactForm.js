@@ -96,12 +96,15 @@ export default function ContactForm() {
   }
 
   function onFieldFocusHandler(e) {
-    e.currentTarget.parentElement.classList.add("contact__field--focused");
+    const { parentElement } = e.currentTarget;
+    parentElement.classList.add("contact__field--focused");
+    setFieldError({ field: parentElement, unset: true });
   }
 
   function onFieldBlurHandler(e) {
-    if (e.currentTarget.value === "") {
-      e.currentTarget.parentElement.classList.remove("contact__field--focused");
+    const { currentTarget } = e;
+    if (currentTarget.value === "") {
+      currentTarget.parentElement.classList.remove("contact__field--focused");
     }
   }
 

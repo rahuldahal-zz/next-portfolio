@@ -159,6 +159,7 @@
       content: attr(data-error-message);
       display: block;
       margin-bottom: 1rem;
+      margin-left: 0.5rem;
       color: var(--error);
       font-size: 0.9rem;
     }
