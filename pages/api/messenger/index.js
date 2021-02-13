@@ -8,7 +8,7 @@ import getTokenFromHeader from "utils/getTokenFromHeader";
 // Faunadb client connection
 const client = new faunadb.Client({ secret: process.env.FAUNA_API_KEY });
 
-const { Paginate, Documents, Get, Lambda, Collection } = faunadb.query;
+const { Paginate, Documents, Get, Lambda, Collection, Create } = faunadb.query;
 
 const app = nc();
 

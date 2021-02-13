@@ -6,7 +6,7 @@ import isLength from "validator/lib/isLength";
 import matches from "validator/lib/matches";
 
 export function validate([nameValue, emailValue, messageValue]) {
-  const ALPHA_NUMERIC_AND_SPACE = /^[a-z0-9\s]+$/i;
+  const SENTENCE_TOKENS = /^[a-z0-9\s,.?""''!]+$/i;
   const errorsArray = [];
 
   if (nameValue === "") {
@@ -47,7 +47,7 @@ export function validate([nameValue, emailValue, messageValue]) {
       message: "Name can only contain alphabets",
     });
   }
-  if (matches(messageValue, ALPHA_NUMERIC_AND_SPACE)) {
+  if (matches(messageValue, SENTENCE_TOKENS)) {
     if (!isLength(messageValue, { min: 1, max: 250 })) {
       errorsArray.push({
         field: "message",
@@ -65,8 +65,8 @@ export function validate([nameValue, emailValue, messageValue]) {
 }
 
 export default function ContactForm() {
-  const [isValid, setIsValid] = useState(false);
-  const [isAcceptedByServer, setIsAcceptedByServer] = useState(false);
+  const [formState, setFormState] = useState("default");
+  const [resetForm, setResetForm] = useState(false);
   const [fieldFocused, setFieldFocused] = useState(null);
 
   const name = useRef(null);
@@ -75,8 +75,16 @@ export default function ContactForm() {
 
   const refs = { name, email, message };
 
-  function setFieldError(field, errorMessage, unset = false) {
-    setIsValid(false);
+  useEffect(() => {
+    if (resetForm) {
+      document.querySelector(".contact__form").reset();
+      setFieldFocused(null);
+    }
+  }, [resetForm]);
+
+  function setFieldError({ field, errorMessage, unset = false }) {
+    setFormState("default");
+    console.log({ field });
     const { dataset } = field;
     if (unset) {
       field.classList.remove("errorInInput");
@@ -87,18 +95,14 @@ export default function ContactForm() {
     }
   }
 
-  function onFieldBlurHandler(e) {
-    if (e.currentTarget.value === "") {
-      setFieldFocused(null);
-    }
+  function onFieldFocusHandler(e) {
+    e.currentTarget.parentElement.classList.add("contact__field--focused");
   }
 
-  function getFieldClassName(fieldName) {
-    const { current } = refs[fieldName];
-    if ((current && current.value !== "") || fieldFocused === fieldName) {
-      return "contact__field contact__field--focused";
+  function onFieldBlurHandler(e) {
+    if (e.currentTarget.value === "") {
+      e.currentTarget.parentElement.classList.remove("contact__field--focused");
     }
-    return "contact__field";
   }
 
   async function submitToServer([nameValue, emailValue, messageValue]) {
@@ -145,16 +149,49 @@ export default function ContactForm() {
     const refsValue = Object.values(refs).map((ref) => ref.current.value);
     const errors = validate(refsValue);
     if (errors.length === 0) {
-      setIsValid(true);
+      setFormState("valid");
       const status = await submitToServer(refsValue);
-      console.log(status);
+      if (status === 202) {
+        setFormState("submitted");
+        setResetForm(true);
+      }
     } else {
       const errorInputRefs = getErrorInputRefs(errors);
       errorInputRefs.forEach((ref) => {
         const { element, errorMessage } = ref;
-        setFieldError(element.parentElement, errorMessage);
+        setFieldError({ field: element.parentElement, errorMessage });
       });
     }
+  }
+
+  function InputField({ fieldName, type, reference }) {
+    const lowercaseName = fieldName.toLowerCase();
+
+    return (
+      <div className="contact__field">
+        <label htmlFor={lowercaseName}>{fieldName}</label>
+        {type === "textarea" ? (
+          <textarea
+            ref={reference}
+            id={lowercaseName}
+            name={lowercaseName}
+            cols="30"
+            rows="10"
+            onFocus={(e) => onFieldFocusHandler(e)}
+            onBlur={(e) => onFieldBlurHandler(e)}
+          />
+        ) : (
+          <input
+            ref={reference}
+            type={type}
+            id={lowercaseName}
+            name={lowercaseName}
+            onFocus={(e) => onFieldFocusHandler(e)}
+            onBlur={(e) => onFieldBlurHandler(e)}
+          />
+        )}
+      </div>
+    );
   }
 
   return (
@@ -165,53 +202,13 @@ export default function ContactForm() {
         className="contact__form"
         onSubmit={(e) => submitHandler(e)}
       >
-        <div className={getFieldClassName("name")}>
-          <label htmlFor="name">Name</label>
-          <input
-            ref={name}
-            type="text"
-            id="name"
-            name="name"
-            onFocus={(e) => {
-              setFieldFocused("name");
-              setFieldError(e.currentTarget.parentElement, "", true);
-            }}
-            onBlur={(e) => onFieldBlurHandler(e)}
-          />
-        </div>
-        <div className={getFieldClassName("email")}>
-          <label htmlFor="email">Email</label>
-          <input
-            ref={email}
-            type="email"
-            id="email"
-            name="email"
-            onFocus={(e) => {
-              setFieldFocused("email");
-              setFieldError(e.currentTarget.parentElement, "", true);
-            }}
-            onBlur={(e) => onFieldBlurHandler(e)}
-          />
-        </div>
-        <div className={getFieldClassName("message")}>
-          <label htmlFor="message">Message</label>
-          <textarea
-            ref={message}
-            name="message"
-            id="message"
-            cols="30"
-            rows="10"
-            onFocus={(e) => {
-              setFieldFocused("message");
-              setFieldError(e.currentTarget.parentElement, "", true);
-            }}
-            onBlur={(e) => onFieldBlurHandler(e)}
-          />
-        </div>
+        <InputField fieldName="Name" type="text" reference={name} />
+        <InputField fieldName="Email" type="email" reference={email} />
+        <InputField fieldName="Message" type="textarea" reference={message} />
 
         <Button
           type="submit"
-          textContent={isValid ? "Sending..." : "Send"}
+          textContent={formState === "valid" ? "Sending..." : "Send"}
           fill="filled"
           modifier="contact__submit"
         />
