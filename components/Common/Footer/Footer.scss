@@ -39,6 +39,7 @@
     color: var(--black);
     box-shadow: var(--box-shadow-y-reverse);
     margin-bottom: 2rem;
+    width: 100%;
 
     @include widerThan768 {
       width: 43.75rem;
