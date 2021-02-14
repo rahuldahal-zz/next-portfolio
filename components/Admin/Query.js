@@ -7,7 +7,9 @@ export default function Query({ token }) {
   const [activeComponent, setActiveComponent] = useState("createProject");
   const [title, setTitle] = useState("Create New Project");
   const [fetchProjects, setFetchProjects] = useState(false);
+  const [fetchMessages, setFetchMessages] = useState(false);
   const [projects, setProjects] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [defaultValues, setDefaultValues] = useState(null);
   let componentToReturn = null;
 
@@ -20,6 +22,18 @@ export default function Query({ token }) {
         .then((data) => setProjects(data));
     }
   }, [fetchProjects]);
+
+  useEffect(() => {
+    console.log(fetchMessages);
+    if (fetchMessages) {
+      console.log("fetching messages...");
+      fetch(`${server}/api/messenger`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((res) => res.json())
+        .then((data) => setMessages(data));
+    }
+  }, [fetchMessages]);
 
   useEffect(() => {
     switch (activeComponent) {
@@ -65,7 +79,10 @@ export default function Query({ token }) {
           modifier={getNavItemClassFor("getMessages")}
           fill="fill"
           textContent="Get Messages"
-          onClick={() => setActiveComponent("getMessages")}
+          onClick={() => {
+            setFetchMessages(true);
+            setActiveComponent("getMessages");
+          }}
         />
       </nav>
     );
@@ -76,6 +93,14 @@ export default function Query({ token }) {
       <em>Loading projects</em>
     ) : (
       <Projects data={projects} />
+    );
+  }
+
+  function GetMesssages() {
+    return messages.length === 0 ? (
+      <em>Loading messages</em>
+    ) : (
+      <Messages data={messages} />
     );
   }
 
@@ -102,6 +127,9 @@ export default function Query({ token }) {
     case "updateProject":
       componentToReturn = UpdateProject();
       break;
+    case "getMessages":
+      componentToReturn = GetMesssages();
+      break;
     default:
       componentToReturn = CreateProject();
   }
@@ -121,6 +149,17 @@ export default function Query({ token }) {
     setDefaultValues({ ...data, id });
   }
 
+  async function deleteMessageHandler(id) {
+    const res = await fetch("/api/messenger", {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ id }),
+    });
+    console.log(res.status);
+  }
+
   function Projects({ data }) {
     const { projects: fetchedProjects } = data;
     return fetchedProjects.map((project) => (
@@ -136,5 +175,34 @@ export default function Query({ token }) {
         />
       </div>
     ));
+  }
+
+  function Messages({ data }) {
+    const { messages: fetchedMessages } = data;
+    return (
+      <div className="admin__messages">
+        {fetchedMessages.map((fetchedMessage) => {
+          const { name, email, message } = fetchedMessage.data;
+          return (
+            <div className="message" key={fetchedMessage.id}>
+              <h5 className="message__name">{name}</h5>
+              <p className="message__content">{message}</p>
+              <div className="message__actions">
+                <Button
+                  fill="outline"
+                  textContent="Send E-mail"
+                  to={`mailto:${email}`}
+                />
+                <Button
+                  fill="filled"
+                  textContent="Delete"
+                  onClick={() => deleteMessageHandler(fetchedMessage.id)}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }

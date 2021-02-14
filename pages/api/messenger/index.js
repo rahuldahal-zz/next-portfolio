@@ -8,7 +8,16 @@ import getTokenFromHeader from "utils/getTokenFromHeader";
 // Faunadb client connection
 const client = new faunadb.Client({ secret: process.env.FAUNA_API_KEY });
 
-const { Paginate, Documents, Get, Lambda, Collection, Create } = faunadb.query;
+const {
+  Paginate,
+  Documents,
+  Get,
+  Lambda,
+  Collection,
+  Create,
+  Delete,
+  Ref,
+} = faunadb.query;
 
 const app = nc();
 
@@ -25,6 +34,7 @@ app.post(async (req, res) => {
             name,
             email,
             message,
+            date: new Date().toLocaleDateString(),
           },
         })
       );
@@ -60,6 +70,26 @@ app.get(async (req, res) => {
     res.status(200).json({
       messages,
     });
+  } catch (error) {
+    console.log(error);
+    if (error === "Invalid Token Received") {
+      res.status(403).json({ message: error });
+    } else {
+      res.status(500).json({ message: "Something went wrong in the server" });
+    }
+  }
+});
+
+app.delete(async (req, res) => {
+  const { id } = JSON.parse(req.body);
+
+  try {
+    await Authenticate(getTokenFromHeader(req));
+    console.log(id);
+
+    await client.query(Delete(Ref(Collection("messages"), id)));
+
+    res.status(204).end();
   } catch (error) {
     console.log(error);
     if (error === "Invalid Token Received") {

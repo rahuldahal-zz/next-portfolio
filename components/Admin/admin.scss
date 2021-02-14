@@ -40,4 +40,27 @@
     position: relative;
     left: 250px;
   }
+
+  &__messages {
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.message {
+  background: var(--primary-gradient-vertical);
+  color: var(--white);
+  padding: var(--padding-400);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-y);
+
+  &__actions {
+    .btn:first-child {
+      margin-right: 1rem;
+    }
+  }
 }
