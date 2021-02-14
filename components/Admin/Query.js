@@ -1,19 +1,25 @@
 import Button from "@components/Common/Button/Button";
 import React, { useEffect, useState } from "react";
 import { server } from "utils/getCurrentEnv";
+import { useRouter } from "next/router";
 import Form from "./Form";
 
 export default function Query({ token }) {
-  const [activeComponent, setActiveComponent] = useState("createProject");
+  const TAB = useRouter().query.tab;
+  const [activeComponent, setActiveComponent] = useState(
+    TAB || "createProject"
+  );
+  console.log(activeComponent);
   const [title, setTitle] = useState("Create New Project");
-  const [fetchProjects, setFetchProjects] = useState(false);
-  const [fetchMessages, setFetchMessages] = useState(false);
+  const [fetchProjects, setFetchProjects] = useState(!!TAB);
+  const [fetchMessages, setFetchMessages] = useState(!!TAB);
   const [projects, setProjects] = useState([]);
   const [messages, setMessages] = useState([]);
   const [defaultValues, setDefaultValues] = useState(null);
   let componentToReturn = null;
 
   useEffect(() => {
+    console.log(TAB);
     console.log(fetchProjects);
     if (fetchProjects) {
       console.log("fetching...");
@@ -182,11 +188,12 @@ export default function Query({ token }) {
     return (
       <div className="admin__messages">
         {fetchedMessages.map((fetchedMessage) => {
-          const { name, email, message } = fetchedMessage.data;
+          const { name, email, message, date } = fetchedMessage.data;
           return (
             <div className="message" key={fetchedMessage.id}>
               <h5 className="message__name">{name}</h5>
               <p className="message__content">{message}</p>
+              <em className="message__date">{date}</em>
               <div className="message__actions">
                 <Button
                   fill="outline"

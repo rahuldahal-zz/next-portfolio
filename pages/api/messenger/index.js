@@ -25,7 +25,11 @@ app.post(async (req, res) => {
   const { name, email, message } = req.body;
   const errors = validate([name, email, message]);
   if (errors.length === 0) {
-    const messageToSend = `*${name}* has contacted via the website.`;
+    const GetMessagesURL = "https://rahuldahal.com.np/admin/?tab=getMessages";
+    const messageToSend = `
+    *${name}* has contacted via the website.
+    Visit ${GetMessagesURL} for details.
+    `;
     try {
       // store received message in the database
       await client.query(
