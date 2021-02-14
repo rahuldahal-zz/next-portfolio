@@ -9,7 +9,6 @@ export default function Query({ token }) {
   const [activeComponent, setActiveComponent] = useState(
     TAB || "createProject"
   );
-  console.log(activeComponent);
   const [title, setTitle] = useState("Create New Project");
   const [fetchProjects, setFetchProjects] = useState(!!TAB);
   const [fetchMessages, setFetchMessages] = useState(!!TAB);
@@ -19,27 +18,22 @@ export default function Query({ token }) {
   let componentToReturn = null;
 
   useEffect(() => {
-    console.log(TAB);
-    console.log(fetchProjects);
-    if (fetchProjects) {
-      console.log("fetching...");
-      fetch(`${server}/api/projects`)
+    console.log(activeComponent);
+    if (activeComponent === "getProjects") {
+      console.log("fetching projects...");
+      fetch(`${server}/api/projects?updated`)
         .then((res) => res.json())
         .then((data) => setProjects(data));
     }
-  }, [fetchProjects]);
-
-  useEffect(() => {
-    console.log(fetchMessages);
-    if (fetchMessages) {
+    if (activeComponent === "getMessages") {
       console.log("fetching messages...");
-      fetch(`${server}/api/messenger`, {
+      fetch(`${server}/api/messenger?updated`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
         .then((data) => setMessages(data));
     }
-  }, [fetchMessages]);
+  }, [activeComponent]);
 
   useEffect(() => {
     switch (activeComponent) {

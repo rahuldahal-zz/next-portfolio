@@ -1,4 +1,5 @@
-const CACHE_VERSION = "v0.3.0";
+const STATIC_CACHE_VERSION = "v1.0.0";
+const API_CACHE_VERSION = "v1.0.0";
 const staticAssets = [
   "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
   "/font/woff2/Atkinson-Hyperlegible-Regular-102a.woff2",
@@ -25,14 +26,17 @@ self.addEventListener("install", (event) => {
   console.log("installed");
   event.waitUntil(
     caches
-      .open(`static-${CACHE_VERSION}`)
+      .open(`static-${STATIC_CACHE_VERSION}`)
       .then((cache) => cache.addAll(staticAssets))
   );
   self.skipWaiting(); // makes the new service-worker take effect immediately
 });
 
 self.addEventListener("activate", (event) => {
-  const cacheNames = [`static-${CACHE_VERSION}`, `data-${CACHE_VERSION}`];
+  const cacheNames = [
+    `static-${STATIC_CACHE_VERSION}`,
+    `data-${API_CACHE_VERSION}`,
+  ];
   console.log("is activated");
   event.waitUntil(
     caches.keys().then((names) =>
@@ -50,12 +54,16 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;
-  const { host, href, pathname } = new URL(request.url);
+  const { host, href, pathname, search } = new URL(request.url);
 
   return event.respondWith(
     caches
       .match(request)
       .then((response) => {
+        if (search === "?updated") {
+          console.log("Updated data requested...");
+          return fetch(request);
+        }
         if (response) {
           console.log("returning from cache ", pathname);
           return response;
@@ -63,7 +71,7 @@ self.addEventListener("fetch", (event) => {
         if (pathname === "/api/projects" || host === "res.cloudinary.com") {
           console.log("about to fetch and cache");
           return caches
-            .open(`data-${CACHE_VERSION}`)
+            .open(`data-${API_CACHE_VERSION}`)
             .then((cache) =>
               fetch(request)
                 .then((res) => {

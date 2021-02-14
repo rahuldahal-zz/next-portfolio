@@ -17,7 +17,7 @@ const app = nc();
 
 app.post(async (req, res) => {
   console.log(req.body);
-  const { name, description, url, repo, stack, screenshots } = req.body;
+  const { name, description, url, repo, stack, screenshots, logo } = req.body;
 
   try {
     await Authenticate(getTokenFromHeader(req));
@@ -30,6 +30,7 @@ app.post(async (req, res) => {
           repo,
           stack,
           screenshots,
+          logo,
         },
       })
     );

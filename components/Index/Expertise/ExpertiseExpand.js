@@ -96,22 +96,21 @@ export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
       <div className="expertiseExpand__projects">
         {works.map((work) => {
           const { id, data } = work;
-          const { name, url, repo } = data;
+          const { name, url, repo, logo } = data;
           return (
             <div className="expertiseProject" key={id}>
-              <img
-                src="/OpenSource.svg"
-                width="24px"
-                alt=""
-                className="expertiseProject__logo"
-              />
+              <div className="expertiseProject__logo">
+                <img src={logo} width="1.5em" alt="" />
+              </div>
               <strong className="expertiseProject__name">{name}</strong>
-              <a href={url} className="expertiseProject__url">
-                <small>Visit</small>
-              </a>
-              <a href={repo} className="expertiseProject__repo">
-                <small>Repo</small>
-              </a>
+              <div className="expertiseProject__actions">
+                <a href={url} className="expertiseProject__url">
+                  <small>Visit</small>
+                </a>
+                <a href={repo} className="expertiseProject__repo">
+                  <small>Repo</small>
+                </a>
+              </div>
             </div>
           );
         })}

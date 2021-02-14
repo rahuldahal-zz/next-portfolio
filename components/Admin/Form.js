@@ -3,7 +3,7 @@ import Button from "@components/Common/Button/Button";
 import { server } from "utils/getCurrentEnv";
 
 export default function Form({ token, queryType, defaultValues }) {
-  const { id, name, description, url, repo, stack, screenshots } =
+  const { id, name, description, url, repo, stack, screenshots, logo } =
     defaultValues || {};
 
   // form refs
@@ -14,6 +14,7 @@ export default function Form({ token, queryType, defaultValues }) {
   const repoRef = useRef(null);
   const stackRef = useRef(null);
   const screenshotsRef = useRef(null);
+  const logoRef = useRef(null);
 
   const refs = [
     nameRef,
@@ -22,29 +23,49 @@ export default function Form({ token, queryType, defaultValues }) {
     repoRef,
     stackRef,
     screenshotsRef,
+    logoRef,
   ];
 
   async function projectQueryHandler(e) {
     e.preventDefault();
-    const [
-      nameValue,
-      descriptionValue,
-      urlValue,
-      repoValue,
-      stackValue,
-      screenshotsValue,
-    ] = refs.map((ref) => ref.current.value);
+    let data;
 
-    let data = {
-      name: nameValue,
-      description: descriptionValue,
-      url: urlValue,
-      repo: repoValue,
-      stack: stackValue,
-      screenshots: screenshotsValue.split(","),
-    };
+    if (queryType === "create") {
+      const [
+        nameValue,
+        descriptionValue,
+        urlValue,
+        repoValue,
+        stackValue,
+        screenshotsValue,
+        logoValue,
+      ] = refs.map((ref) => ref.current.value);
 
-    data = queryType === "update" ? { ...data, id: idRef.current.value } : data;
+      data = {
+        name: nameValue,
+        description: descriptionValue,
+        url: urlValue,
+        repo: repoValue,
+        stack: stackValue,
+        screenshots: screenshotsValue.split(","),
+        logo: logoValue,
+      };
+    } else if (queryType === "update") {
+      const updatedData = refs.reduce((filtered, ref) => {
+        const { name: fieldName, value } = ref.current;
+        if (fieldName === "screenshots") {
+          if (value !== defaultValues[fieldName].join("")) {
+            filtered[fieldName] = value.split(",");
+          }
+        } else if (value !== defaultValues[fieldName]) {
+          filtered[fieldName] = value;
+        }
+        return filtered;
+      }, {});
+      data = { ...updatedData, id: idRef.current.value };
+    } else {
+      return;
+    }
 
     console.log(data);
 
@@ -121,17 +142,27 @@ export default function Form({ token, queryType, defaultValues }) {
       >
         <option value="MERN">MERN</option>
         <option value="JAM">JAM</option>
-        <option value="Other">Other</option>
+        <option value="FOSS">FOSS</option>
       </select>
 
       <label htmlFor="screenshots">Screenshots</label>
       <input
-        type="url"
+        type="text"
         name="screenshots"
         id="screenshots"
         placeholder="CDN links, separated by comma(s)"
         ref={screenshotsRef}
-        defaultValue={defaultValues ? screenshots.join() : ""}
+        defaultValue={defaultValues ? screenshots.join("") : ""}
+      />
+
+      <label htmlFor="logo">Logo</label>
+      <input
+        type="url"
+        name="logo"
+        id="logo"
+        placeholder="Project Logo"
+        ref={logoRef}
+        defaultValue={defaultValues ? logo : ""}
       />
       <Button
         type="submit"

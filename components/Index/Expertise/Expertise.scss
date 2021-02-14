@@ -318,7 +318,6 @@
   background-color: var(--primary-clr-500);
   color: var(--white);
   width: max-content;
-  padding: var(--padding-300);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -336,7 +335,25 @@
   }
 
   &__logo {
-    width: 1.5em;
+    background: var(--white);
+    padding: var(--padding-300);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border: 2px solid var(--primary-clr-400);
+    border-right: 0;
+    display: flex;
+    align-self: stretch;
+    margin-left: -2px;
+
+    img {
+      margin: auto;
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+
+  &__actions {
+    padding: var(--padding-300);
   }
 
   &__name {
