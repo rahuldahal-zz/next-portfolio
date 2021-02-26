@@ -1,9 +1,8 @@
+import React from "react";
 import Button from "@components/Common/Button/Button";
-import React, { useState } from "react";
+import ProjectDescription from "./ProjectDescription";
 
 export default function Works({ works }) {
-  const [activeWork, setActiveWork] = useState({ work: "", tab: "overview" });
-
   return (
     <main className="projects">
       <div className="contentsWrap">
@@ -12,62 +11,6 @@ export default function Works({ works }) {
     </main>
   );
 
-  function Content({ data }) {
-    return (
-      <p
-        dangerouslySetInnerHTML={{
-          __html: `${data}`,
-        }}
-      />
-    );
-  }
-
-  function getAppropriateProjectContent(
-    workName,
-    { overview, features, learnings }
-  ) {
-    const { work, tab } = activeWork;
-
-    if (!work || work !== workName) {
-      return <Content data={overview} />;
-    }
-    if (tab === "features") {
-      return <Content data={features} />;
-    }
-    if (tab === "learnings") {
-      return <Content data={learnings} />;
-    }
-    return <Content data={overview} />;
-  }
-
-  function getTabClassName(tabName, workName) {
-    const { work, tab } = activeWork;
-    if (tabName === tab && workName === work) {
-      return "project__descriptionTab project__descriptionTab--active";
-    }
-    if (workName !== work && tabName === "overview") {
-      return "project__descriptionTab project__descriptionTab--active";
-    }
-    return "project__descriptionTab";
-  }
-
-  function DescriptionTabs({ work }) {
-    const tabs = ["Overview", "Features", "Learnings"];
-    return (
-      <div className="project__descriptionTabs">
-        {tabs.map((tab) => (
-          <button
-            type="button"
-            className={getTabClassName(tab.toLowerCase(), work)}
-            onClick={() => setActiveWork({ work, tab: tab.toLowerCase() })}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-    );
-  }
-
   function Projects({ works }) {
     return (
       <div className="projects__wrap">
@@ -75,7 +18,9 @@ export default function Works({ works }) {
           const {
             name,
             icon,
-            description,
+            overview,
+            features,
+            learnings,
             url,
             repo,
             stack,
@@ -89,16 +34,9 @@ export default function Works({ works }) {
               </div>
               <div className="project__body">
                 <div className="project__details">
-                  <div className="project__description">
-                    <div className="project__descriptionContent">
-                      {getAppropriateProjectContent(name, {
-                        overview: description,
-                        features: "Features Placeholder",
-                        learnings: "Learnings Placeholder",
-                      })}
-                    </div>
-                    <DescriptionTabs work={name} />
-                  </div>
+                  <ProjectDescription
+                    description={{ name, overview, features, learnings }}
+                  />
                   <div className="project__actions">
                     <Button
                       fill="filled"
