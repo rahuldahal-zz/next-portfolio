@@ -78,9 +78,8 @@ export default function Nav({ current }) {
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link
-              to="/resume"
+              to="https://drive.google.com/file/d/1oqaOzQt2LhcNHn6kpgjtt4ZxmZhRE37t/view?usp=sharing"
               textContent="Resume"
-              isActive={current === "resume" ? true : false}
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link
