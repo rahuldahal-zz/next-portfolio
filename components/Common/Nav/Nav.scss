@@ -200,11 +200,6 @@
       border-radius: var(--border-radius);
       width: 15ch;
 
-      // &:hover::after,
-      // &:focus::after {
-      //   display: none;
-      // }
-
       &::after {
         background: var(--white);
         transform: scaleX(1);

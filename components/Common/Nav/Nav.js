@@ -80,6 +80,7 @@ export default function Nav({ current }) {
             <Link
               to="https://drive.google.com/file/d/1oqaOzQt2LhcNHn6kpgjtt4ZxmZhRE37t/view?usp=sharing"
               textContent="Resume"
+              target="blank"
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link

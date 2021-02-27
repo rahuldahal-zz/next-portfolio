@@ -8,18 +8,25 @@ export default function Link({
   isActive,
   children,
   setIsHamburgerClicked,
+  target,
 }) {
   const className = isActive ? "nav__link nav__link--active" : "nav__link";
+
+  function handleLinkClick() {
+    if (target !== "blank" && to !== "/") {
+      setIsHamburgerClicked && setIsHamburgerClicked(false);
+      showLoader();
+    }
+  }
+
   return (
     <NextLink href={to}>
       <a
         className={!children ? className : ""}
-        onClick={() => {
-          setIsHamburgerClicked && setIsHamburgerClicked(false);
-          showLoader();
-        }}
+        onClick={() => handleLinkClick()}
+        target={target}
       >
-        {textContent ? textContent : children}
+        {textContent || children}
       </a>
     </NextLink>
   );

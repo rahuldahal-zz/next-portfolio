@@ -1,4 +1,4 @@
-const STATIC_CACHE_VERSION = "v1.0.0";
+const STATIC_CACHE_VERSION = "v1.1.0";
 const API_CACHE_VERSION = "v1.0.0";
 const staticAssets = [
   "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
