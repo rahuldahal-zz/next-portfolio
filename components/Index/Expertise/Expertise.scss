@@ -93,7 +93,7 @@
   position: relative;
   border-radius: var(--border-radius);
   width: 100%;
-  height: 11.562rem;
+  height: 12.5rem;
   margin-bottom: 5rem;
   background: var(--white);
   box-shadow: var(--box-shadow-neumorphism);
@@ -129,7 +129,7 @@
   @include widerThan1200 {
     margin-right: 0;
     max-width: 100%;
-    height: 6.562rem;
+    height: 7.5rem;
   }
 
   &:last-child {
@@ -144,15 +144,15 @@
     width: 100%;
     margin: 0;
     margin-bottom: 0.5rem;
-    color: var(--primary-clr-400);
+    color: var(--black);
     text-align: left;
-    font-weight: bold;
     padding: var(--padding-300);
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
     border-bottom: 2px solid currentColor;
 
     @include widerThan1200 {
+      color: var(--primary-clr-400);
       border-bottom: 0;
     }
   }

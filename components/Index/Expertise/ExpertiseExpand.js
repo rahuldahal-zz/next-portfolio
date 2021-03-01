@@ -3,12 +3,14 @@ import Button from "@components/Common/Button/Button";
 import MERNStack from "../../../public/svgs/MERNStack.svg";
 import JAMStack from "../../../public/svgs/JAMStack.svg";
 import OpenSource from "../../../public/svgs/OpenSource.svg";
+import isScreenLargerThan from "utils/screenSize";
 
-export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
+export default function ExpertiseExpand({ focused, setIsExpertiseFocused }) {
+  const { expertise, fromTop } = focused;
+  console.log(fromTop);
   const [expertiseProjects, setExpertiseProjects] = useState(null);
   const [projects, setProjects] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  // const [initial, setInitial] = useState(true);
 
   let title;
   let description;
@@ -37,8 +39,13 @@ export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
       break;
   }
 
-  function toggleBodyScroll() {
-    document.body.classList.toggle("hideOverflow");
+  function scrollToRef() {
+    if (!isScreenLargerThan(1200)) {
+      document.documentElement.scrollTop += fromTop;
+      setTimeout(() => document.body.classList.add("hideOverflow"), 300);
+    } else {
+      document.body.classList.add("hideOverflow");
+    }
   }
 
   useEffect(() => {
@@ -56,7 +63,7 @@ export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
       );
       setExpertiseProjects(works);
       setIsExpanded(true);
-      toggleBodyScroll();
+      scrollToRef();
     }
   }, [expertise, projects]);
 
@@ -75,7 +82,7 @@ export default function ExpertiseExpand({ expertise, setIsExpertiseFocused }) {
         onClick={() => {
           setIsExpanded(false);
           setIsExpertiseFocused({ expertise: null });
-          toggleBodyScroll();
+          document.body.classList.remove("hideOverflow");
         }}
       />
       <div className="expertiseExpand__cover">

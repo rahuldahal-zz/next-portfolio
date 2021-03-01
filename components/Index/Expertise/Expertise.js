@@ -8,10 +8,15 @@ import isScreenLargerThan from "utils/screenSize";
 import { showLoader } from "utils/loader";
 
 export default function Expertise() {
+  const HEADING_CLASS_NAME = "expertise__heading";
+  const [heading, setHeading] = useState(
+    <h4 className={HEADING_CLASS_NAME}>Things I Do</h4>
+  );
   const [isExpertiseFocused, setIsExpertiseFocused] = useState({});
 
   useEffect(() => {
     if (isScreenLargerThan(1200)) {
+      setHeading(<h3 className={HEADING_CLASS_NAME}>Things I Do</h3>);
       setIsExpertiseFocused({ expertise: "MERN" });
     }
   }, []);
@@ -20,7 +25,7 @@ export default function Expertise() {
     <>
       <section className="expertise stacked overlay">
         <div className="contentsWrap">
-          <h3 className="expertise__heading">Things I Do</h3>
+          {heading}
           <div className="expertise__columns">
             <div className="expertise__column">
               <div className="expertise__cards">
@@ -55,8 +60,7 @@ export default function Expertise() {
               />
             </div>
             <ExpertiseExpand
-              expertise={isExpertiseFocused.expertise}
-              isExpertiseFocused={isExpertiseFocused}
+              focused={isExpertiseFocused}
               setIsExpertiseFocused={setIsExpertiseFocused}
             />
           </div>
@@ -64,6 +68,14 @@ export default function Expertise() {
       </section>
     </>
   );
+
+  function handleCardClick(e, expertise) {
+    const { currentTarget } = e;
+    const { y: fromTop } = currentTarget.getBoundingClientRect();
+
+    currentTarget.classList.add("expertiseCard--active");
+    setIsExpertiseFocused({ expertise, fromTop });
+  }
 
   function Card({ expertise, title, Image }) {
     return (
@@ -75,10 +87,7 @@ export default function Expertise() {
         }
         role="button"
         tabIndex="0"
-        onClick={(e) => {
-          e.currentTarget.classList.add("expertiseCard--active");
-          setIsExpertiseFocused({ expertise });
-        }}
+        onClick={(e) => handleCardClick(e, expertise)}
         onKeyUp={(e) => {
           if (e.key === "Enter") {
             setIsExpertiseFocused({ expertise });
