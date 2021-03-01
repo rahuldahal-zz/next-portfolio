@@ -76,7 +76,7 @@ export default function Form({ token, queryType, defaultValues }) {
           fieldName === "features" ||
           fieldName === "learnings"
         ) {
-          if (value !== defaultValues[fieldName].join("")) {
+          if (value !== defaultValues[fieldName].join(",")) {
             filtered[fieldName] = value.split(",");
           }
         } else if (value !== defaultValues[fieldName]) {
@@ -89,20 +89,20 @@ export default function Form({ token, queryType, defaultValues }) {
       return;
     }
 
-    console.log(data);
+    console.log({ data });
 
     try {
-      // const res = await fetch(`${server}/api/projects/create`, {
-      //   method: queryType === "update" ? "PATCH" : "POST",
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      //   body: JSON.stringify(data),
-      // });
-      // const message = await res.json();
-      // console.log(message);
+      const res = await fetch(`${server}/api/projects/create`, {
+        method: queryType === "update" ? "PATCH" : "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+      const message = await res.json();
+      console.log(message);
     } catch (error) {
       console.log(error);
     }

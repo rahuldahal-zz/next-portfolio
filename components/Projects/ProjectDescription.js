@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Content({ data }) {
+function Content({ data, name }) {
   const typeOfData = typeof data;
   if (typeOfData === "string") {
     return (
       <p
         dangerouslySetInnerHTML={{
-          __html: `${data}`,
+          __html: `${name} ${data}`,
         }}
       />
     );
@@ -32,7 +32,7 @@ export default function ProjectDescription({ description }) {
     const { work, tab } = activeWork;
 
     if (!work || work !== workName) {
-      return <Content data={overview} />;
+      return <Content data={overview} name={workName} />;
     }
     if (tab === "features") {
       return <Content data={features} />;
@@ -40,7 +40,7 @@ export default function ProjectDescription({ description }) {
     if (tab === "learnings") {
       return <Content data={learnings} />;
     }
-    return <Content data={overview} />;
+    return <Content data={overview} name={workName} />;
   }
 
   function getTabClassName(tabName, workName) {
@@ -58,8 +58,9 @@ export default function ProjectDescription({ description }) {
     const tabs = ["Overview", "Features", "Learnings"];
     return (
       <div className="project__descriptionTabs">
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <button
+            key={index}
             type="button"
             className={getTabClassName(tab.toLowerCase(), work)}
             onClick={() => setActiveWork({ work, tab: tab.toLowerCase() })}
