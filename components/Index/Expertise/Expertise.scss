@@ -322,6 +322,11 @@
   align-items: center;
   justify-content: flex-start;
 
+  @include widerThan1200 {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   &:nth-child(even) {
     background-color: var(--accent-clr-300);
   }
@@ -363,10 +368,12 @@
 
   &__repo,
   &__url {
+    display: inline-block;
     padding: var(--padding-300);
     background: var(--accent-clr-400);
     color: var(--black);
     text-decoration: none;
+    height: 100%;
     border-radius: var(--border-radius);
 
     &::before {
