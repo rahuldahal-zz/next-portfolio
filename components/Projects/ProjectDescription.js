@@ -15,7 +15,7 @@ function Content({ data, name }) {
   return (
     <ul className="projectList">
       {data.map((elem, index) => (
-        <li key={index}>{elem}</li>
+        <li key={index}> {elem}</li>
       ))}
     </ul>
   );

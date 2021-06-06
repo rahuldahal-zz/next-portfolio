@@ -63,7 +63,6 @@
     justify-content: space-between;
     border-radius: var(--border-radius);
     border-top-left-radius: 0;
-    border-top-right-radius: 0;
 
     @include widerThan1024 {
       flex-direction: row-reverse;
@@ -107,6 +106,23 @@
 
   &__descriptionContent {
     padding: var(--padding-400);
+
+    ul > li {
+      list-style: none;
+
+      &::before {
+        content: "\f058";
+        display: inline-block;
+        margin-right: 0.5rem;
+        color: var(--primary-clr-400);
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
   }
 
   &__descriptionTabs {
