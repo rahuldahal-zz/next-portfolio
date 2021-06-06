@@ -15,7 +15,7 @@ export default function Button({
 
   return to ? (
     <NextLink href={to}>
-      <a className={className} onClick={onClick}>
+      <a className={className} href={to} target="_blank" rel="noreferrer">
         {textContent}
       </a>
     </NextLink>
