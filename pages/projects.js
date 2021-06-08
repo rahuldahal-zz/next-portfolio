@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Nav from "@components/Common/Nav/Nav";
 import Works from "@components/Projects/Works";
+import Footer from "@components/Common/Footer/Footer";
+import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { server } from "@utils/getCurrentEnv";
 import { hideLoader } from "@utils/loader";
 
@@ -13,6 +15,8 @@ export default function Projects({ projects }) {
     <>
       <Nav current="projects" />
       <Works works={projects} />
+      <Footer />
+      <LoaderOverlay />
     </>
   );
 }

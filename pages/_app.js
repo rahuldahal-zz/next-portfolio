@@ -2,9 +2,7 @@ import { useEffect, useState, React } from "react";
 import "extended-normalize.css";
 import "@styles/styles.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
-import LoaderOverlay from "@components/Common/LoaderOverlay";
 import MyHead from "@components/MyHead";
-import Footer from "@components/Common/Footer/Footer";
 
 // This function runs both on the client and the server
 function Application({ Component, pageProps }) {
@@ -32,8 +30,6 @@ function Application({ Component, pageProps }) {
     <>
       <MyHead />
       <Component {...pageProps} />
-      <Footer />
-      <LoaderOverlay />
     </>
   );
 }

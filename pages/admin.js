@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Query from "@components/Admin/Query";
+import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
 
 export default function Admin() {
@@ -11,7 +12,12 @@ export default function Admin() {
   }, []);
 
   return (
-    <main className="admin">{Token ? <Query token={Token} /> : <Login />}</main>
+    <>
+      <main className="admin">
+        {Token ? <Query token={Token} /> : <Login />}
+      </main>{" "}
+      <LoaderOverlay />
+    </>
   );
 
   function Login() {
