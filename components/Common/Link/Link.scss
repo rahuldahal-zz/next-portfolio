@@ -11,6 +11,37 @@
     font-weight: normal;
     padding: 0.75em;
     border-radius: var(--border-radius);
+
+    &::before {
+      content: "#";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-right: 0.5rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -0.125rem;
+      right: -0.125rem;
+      bottom: -0.125rem;
+      left: -0.125rem;
+      background-color: rgba(var(--white-RGB), 0.2);
+      border-radius: var(--border-radius);
+      box-shadow: unset;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(0);
+
+      &::after {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
   }
 
   &--filled {
@@ -24,36 +55,5 @@
     background: transparent;
     color: var(--white);
     border: 2px solid currentColor;
-  }
-
-  &::before {
-    content: "#";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-right: 0.5rem;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: -0.125rem;
-    right: -0.125rem;
-    bottom: -0.125rem;
-    left: -0.125rem;
-    background-color: rgba(var(--white-RGB), 0.2);
-    border-radius: var(--border-radius);
-    box-shadow: unset;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  &:hover,
-  &:focus {
-    transform: translateY(0);
-
-    &::after {
-      opacity: 1;
-      transform: scaleX(1);
-    }
   }
 }
