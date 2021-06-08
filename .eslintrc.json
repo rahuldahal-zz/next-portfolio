@@ -43,7 +43,9 @@
         "alias": {
           "map": [
             ["@components", "./components"],
-            ["@styles", "./styles"]
+            ["@styles", "./styles"],
+            ["@utils", "./utils"],
+            ["@svgs", "./public/svgs"]
           ]
         },
         "node": {

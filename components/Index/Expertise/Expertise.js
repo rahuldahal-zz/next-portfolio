@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Link from "@components/Common/Link/Link";
+import MERNStack from "@svgs/MERNStack.svg";
+import JAMStack from "@svgs/JAMStack.svg";
+import OpenSource from "@svgs/OpenSource.svg";
+import isScreenLargerThan from "@utils/screenSize";
+import { showLoader } from "@utils/loader";
 import ExpertiseExpand from "./ExpertiseExpand";
-import MERNStack from "../../../public/svgs/MERNStack.svg";
-import JAMStack from "../../../public/svgs/JAMStack.svg";
-import OpenSource from "../../../public/svgs/OpenSource.svg";
-import isScreenLargerThan from "utils/screenSize";
-import { showLoader } from "utils/loader";
 
 export default function Expertise() {
   const HEADING_CLASS_NAME = "expertise__heading";

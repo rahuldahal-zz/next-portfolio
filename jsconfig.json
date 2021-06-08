@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
-      "@styles/*": ["styles/*"]
-    }
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"],
+      "@svgs/*": ["public/svgs/*"]
+    },
+    "checkJs": true,
+    "jsx": "react"
   }
 }

@@ -1,11 +1,11 @@
-import Link from "@components/Common/Link/Link";
 import React from "react";
-import Design from "../../../public/svgs/design.svg";
-import Development from "../../../public/svgs/development.svg";
-import Meetup from "../../../public/svgs/meetup.svg";
-import Research from "../../../public/svgs/research.svg";
-import Testing from "../../../public/svgs/testing.svg";
-import Improvisation from "../../../public/svgs/improvisation.svg";
+import Link from "@components/Common/Link/Link";
+import Design from "@svgs/design.svg";
+import Development from "@svgs/development.svg";
+import Meetup from "@svgs/meetup.svg";
+import Research from "@svgs/research.svg";
+import Testing from "@svgs/testing.svg";
+import Improvisation from "@svgs/improvisation.svg";
 
 export default function Process() {
   return (

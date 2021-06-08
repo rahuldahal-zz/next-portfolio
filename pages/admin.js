@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Query from "@components/Admin/Query";
-import { hideLoader } from "utils/loader";
+import { hideLoader } from "@utils/loader";
 
 export default function Admin() {
   const [Token, setToken] = useState(null);
