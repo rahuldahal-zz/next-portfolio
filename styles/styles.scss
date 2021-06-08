@@ -127,6 +127,15 @@ p {
   margin: calc(1em + 0.5vw) 0;
 }
 
+.custom404 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @import "./_common.scss";
 @import "../components/Common/Button/Button.scss";
 @import "../components/Common/Link/Link.scss";
