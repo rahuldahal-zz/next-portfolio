@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
+import Link from "@components/Common/Link/Link";
 import MERNStack from "../../../public/svgs/MERNStack.svg";
 import JAMStack from "../../../public/svgs/JAMStack.svg";
 import OpenSource from "../../../public/svgs/OpenSource.svg";
@@ -111,12 +112,18 @@ export default function ExpertiseExpand({ focused, setIsExpertiseFocused }) {
               </div>
               <strong className="expertiseProject__name">{name}</strong>
               <div className="expertiseProject__actions">
-                <a href={url} className="expertiseProject__url">
-                  <small>Visit</small>
-                </a>
-                <a href={repo} className="expertiseProject__repo">
-                  <small>Repo</small>
-                </a>
+                <Link
+                  to={url}
+                  textContent="Visit"
+                  newTab
+                  className="expertiseProject__url"
+                />
+                <Link
+                  to={repo}
+                  textContent="Repo"
+                  newTab
+                  className="expertiseProject__repo"
+                />
               </div>
             </div>
           );

@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "./ContactForm";
+import Link from "../Link/Link";
 
 export default function Footer() {
   return (
@@ -26,18 +27,24 @@ function SocialLinks() {
   return (
     <div className="footer__socialLinks">
       <h5>Also, connect with me on:</h5>
-      <a href="https://github.com/rahuldahal" title="Github Profile">
-        /rahuldahal
-      </a>
-      <a href="https://twitter.com/raahuldaahal" title="Twitter Profile">
-        /raahuldaahaal
-      </a>
-      <a
-        href="https://facebook.com/mynameisrahuldahal"
+      <Link
+        to="https://github.com/rahuldahal"
+        textContent="/rahuldahal"
+        newTab
+        title="Github Profile"
+      />
+      <Link
+        to="https://twitter.com/raahuldaahal"
+        textContent="/raahuldaahaal"
+        newTab
+        title="Twitter Profile"
+      />
+      <Link
+        to="https://facebook.com/mynameisrahuldahal"
+        textContent="/raahuldaahaal"
+        newTab
         title="Facebook Profile"
-      >
-        /raahuldaahaal
-      </a>
+      />
     </div>
   );
 }

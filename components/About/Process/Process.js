@@ -1,4 +1,4 @@
-import Button from "@components/Common/Button/Button";
+import Link from "@components/Common/Link/Link";
 import React from "react";
 import Design from "../../../public/svgs/design.svg";
 import Development from "../../../public/svgs/development.svg";
@@ -6,7 +6,6 @@ import Meetup from "../../../public/svgs/meetup.svg";
 import Research from "../../../public/svgs/research.svg";
 import Testing from "../../../public/svgs/testing.svg";
 import Improvisation from "../../../public/svgs/improvisation.svg";
-import { showLoader } from "utils/loader";
 
 export default function Process() {
   return (
@@ -30,11 +29,11 @@ export default function Process() {
             Icon={Improvisation}
           />
         </div>
-        <Button
+        <Link
           textContent="Contact"
           to="#contact"
           fill="filled"
-          modifier="aboutProcess__contact"
+          className="aboutProcess__contact"
         />
       </div>
     </section>

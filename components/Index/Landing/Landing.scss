@@ -64,18 +64,18 @@
   &__cta {
     margin-top: 10vh;
 
-    .btn {
+    .link {
       font-size: 1rem;
     }
   }
 
-  &__cta .btn:first-child {
+  &__cta .link:first-child {
     margin-right: 1rem;
     &::before {
       content: "\f2b9";
     }
   }
-  &__cta .btn:last-child::before {
+  &__cta .link:last-child::before {
     content: "\f0ae";
   }
 

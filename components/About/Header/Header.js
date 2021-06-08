@@ -1,6 +1,6 @@
 import Button from "@components/Common/Button/Button";
+import Link from "@components/Common/Link/Link";
 import React from "react";
-import { showLoader } from "utils/loader";
 
 export default function Header() {
   return (
@@ -67,11 +67,11 @@ export default function Header() {
               height="60vw"
             />
           </picture>
-          <Button
+          <Link
             textContent="Contact"
             to="#contact"
             fill="filled"
-            modifier="aboutHeader__contact"
+            className="aboutHeader__contact"
           />
           <Button
             textContent="Watch Video"

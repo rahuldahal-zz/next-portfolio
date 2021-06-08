@@ -215,7 +215,7 @@
     right: 0;
     background: var(--white);
     left: unset;
-    width: 30vw;
+    width: 35vw;
     height: 100%;
     margin-left: 3rem;
     border-radius: var(--border-radius);
@@ -375,13 +375,11 @@
     text-decoration: none;
     height: 100%;
     border-radius: var(--border-radius);
+  }
 
+  &__url {
     &::before {
-      content: "\f35d";
-      font-size: 1rem;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      margin-right: 0.5rem;
+      content: "\f360";
     }
   }
 

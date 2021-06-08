@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../Common/Button/Button";
+import Link from "@components/Common/Link/Link";
 import isScreenLargerThan from "../../../utils/screenSize";
 import UsabilityIllustration from "../../../public/svgs/usability_testing.svg";
 import UsabilityIllustrationDesktop from "../../../public/svgs/usability_testing_desktop.svg";
@@ -43,11 +43,17 @@ export default function Landing() {
             </p>
 
             <div className="landing__cta">
-              <Button to="/#contact" fill="filled" textContent="Contact" />
-              <Button
+              <Link
+                to="/#contact"
+                fill="filled"
+                textContent="Contact"
+                className="contactBtn"
+              />
+              <Link
                 to="/projects"
                 fill="outline"
                 textContent="Projects"
+                className="projectsBtn"
                 onClick={() => showLoader()}
               />
             </div>

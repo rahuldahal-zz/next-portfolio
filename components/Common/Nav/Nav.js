@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import Link from "./link";
+import NavLink from "./NavLink";
+import Link from "../Link/Link";
 import Logo from "../../../public/svgs/logo.svg";
 import Toggle from "../../../public/svgs/toggle.svg";
+import { showLoader } from "utils/loader";
 
 export default function Nav({ current }) {
   const [isScreenNarrow, setIsScreenNarrow] = useState(true);
@@ -22,9 +24,9 @@ export default function Nav({ current }) {
   return (
     <nav className="nav">
       <div className="nav__wrap contentsWrap">
-        <Link to="/">
+        <NavLink to="/">
           <Logo className="nav__logo" />
-        </Link>
+        </NavLink>
 
         <div className="nav__togglers">
           <div
@@ -65,28 +67,29 @@ export default function Nav({ current }) {
                 : "nav__links"
             }
           >
-            <Link
+            <NavLink
               to="/about"
               textContent="About"
-              isActive={current === "about" ? true : false}
+              isActive={current === "about"}
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
-            <Link
+            <NavLink
               to="/projects"
               textContent="Projects"
-              isActive={current === "projects" ? true : false}
+              isActive={current === "projects"}
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
             <Link
               to="https://drive.google.com/file/d/1-yD66LzfZsAe6DDLNwypng3cyPOn_vLE/view?usp=sharing"
               textContent="Resume"
-              target="blank"
+              className="nav__link"
+              newTab
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
-            <Link
+            <NavLink
               to="/blogs"
               textContent="Blogs"
-              isActive={current === "blogs" ? true : false}
+              isActive={current === "blogs"}
               setIsHamburgerClicked={setIsHamburgerClicked}
             />
           </div>

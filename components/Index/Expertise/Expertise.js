@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "@components/Common/Button/Button";
+import Link from "@components/Common/Link/Link";
 import ExpertiseExpand from "./ExpertiseExpand";
 import MERNStack from "../../../public/svgs/MERNStack.svg";
 import JAMStack from "../../../public/svgs/JAMStack.svg";
@@ -51,9 +51,9 @@ export default function Expertise() {
                 <strong>User Experience</strong> is achieved. Every time.
               </p>
 
-              <Button
+              <Link
                 to="/projects"
-                modifier="expertise__projects"
+                className="expertise__projects"
                 textContent="Things I have done"
                 fill="filled"
                 onClick={() => showLoader()}
