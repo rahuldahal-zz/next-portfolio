@@ -71,12 +71,31 @@
 }
 
 .blog {
-  &__coverContainer {
-    box-shadow: inset 2rem 2rem 4rem rgba(0, 0, 0, 0.6);
-  }
+  max-width: 768px;
+  padding: 20vh var(--padding-400);
+
   &__cover {
-    max-height: 40vh;
+    max-height: 60vh;
     object-fit: cover;
     object-position: top;
+  }
+
+  &__title {
+    margin-bottom: 4rem;
+  }
+
+  &__tags > * {
+    display: inline-block;
+    text-transform: lowercase;
+    background: var(--primary-clr-400);
+    color: var(--white);
+    width: max-content;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  &__content {
+    margin-top: 4rem;
   }
 }
