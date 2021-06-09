@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "@components/Common/Link/Link";
+import { showLoader } from "@utils/loader";
 
 export default function BlogCards({ cardDetails }) {
   function getLink(slug) {
@@ -12,7 +13,12 @@ export default function BlogCards({ cardDetails }) {
         const { _id, title, brief, dateAdded, coverImage, slug, tags } =
           article;
         return (
-          <Link to={getLink(slug)} className="blogCard" key={_id}>
+          <Link
+            to={getLink(slug)}
+            className="blogCard"
+            key={_id}
+            onClick={() => showLoader()}
+          >
             <img src={coverImage} alt={title} className="blogCard__cover" />
             <div className="blogCard__content">
               <h4 className="blogCard__title">{title}</h4>
