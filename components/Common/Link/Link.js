@@ -3,13 +3,13 @@ import NextLink from "next/link";
 
 export default function Link({
   to,
-  textContent,
-  fill,
+  textContent = null,
+  fill = null,
   newTab = false,
   className: additionalClassNames,
-  onClick,
-  title,
-  children,
+  onClick = null,
+  title = null,
+  children = null,
 }) {
   function getClassName() {
     const names = ["link", additionalClassNames];
