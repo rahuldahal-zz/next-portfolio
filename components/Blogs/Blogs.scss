@@ -1,12 +1,18 @@
 .blogCards {
   position: relative;
   z-index: 3;
-  padding: var(--padding-400);
-  padding-top: 20vh;
-  padding-bottom: 20vh;
+  padding: 20vh var(--padding-400);
+  background: var(--primary-gradient-horizontal);
+  clip-path: var(--clip-path);
+  color: var(--white);
+
+  &__heading .link {
+    color: var(--white);
+    text-decoration: underline;
+  }
 
   &__content {
-    margin-top: 4rem;
+    margin-top: 8rem;
   }
 }
 
@@ -14,59 +20,66 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 4rem;
-  max-width: 30rem;
   border-radius: 0.5rem;
-  background: var(--primary-gradient-horizontal);
-  color: var(--white);
+  overflow: hidden;
+  background: var(--white);
+  padding: var(--padding-400);
+  color: var(--black);
+  filter: drop-shadow(0 -12px 24px rgba(var(--black-RGB), 0.2));
 
   @include widerThan1200 {
     flex-direction: row;
-    max-width: 100%;
-    gap: 4rem;
-    background: unset;
-    color: var(--black);
-
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-    }
+    max-width: 80vw;
   }
 
-  &::before {
-    // content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 15.625rem;
-    background: rgba(var(--primary-RGB), 0.4);
+  &__title {
+    .link {
+      color: var(--white);
+    }
+
+    @include widerThan1200 {
+      max-width: 80%;
+    }
   }
 
   &__content {
+    width: 100%;
     padding: 1rem;
+    margin-top: 2rem;
+    background: var(--primary-gradient-horizontal);
+    color: var(--white);
+    border-radius: var(--border-radius);
+
+    @include widerThan1200 {
+      margin: auto;
+      margin-left: 4rem;
+    }
   }
 
   &__cover {
-    height: 15.625rem;
     border-radius: 0.5rem;
-    border-bottom-left-radius: 4rem;
+    height: 100%;
     object-fit: cover;
     object-position: top;
-
-    @include widerThan1200 {
-      height: 100%;
-      max-width: 480px;
-    }
   }
 
   &__tags > * {
     display: inline-block;
     text-transform: lowercase;
-    background: var(--accent-clr-400);
-    color: var(--black);
+    background: var(--primary-clr-400);
+    color: var(--white);
     width: max-content;
     padding: 0.25rem;
     border-radius: 0.25rem;
+  }
+
+  &__link {
+    &::before {
+      font-family: "Font Awesome 5 Brands";
+      content: "\f4d5";
+    }
   }
 }
 
