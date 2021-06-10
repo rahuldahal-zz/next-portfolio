@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@components/Common/Button/Button";
+import Link from "@components/Common/Link/Link";
 import ProjectDescription from "./ProjectDescription";
 
 export default function Works({ works }) {
@@ -38,17 +39,19 @@ export default function Works({ works }) {
                     description={{ name, overview, features, learnings }}
                   />
                   <div className="project__actions">
-                    <Button
+                    <Link
                       fill="filled"
                       textContent="Visit"
                       to={url}
-                      modifier="project__url"
+                      newTab
+                      className="project__url"
                     />
-                    <Button
+                    <Link
                       fill="outline"
                       textContent="Github"
                       to={repo}
-                      modifier="project__repo"
+                      newTab
+                      className="project__repo"
                     />
                   </div>
                 </div>
