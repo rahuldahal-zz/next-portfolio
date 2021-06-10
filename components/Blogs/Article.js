@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import marked from "marked";
 import "./prism";
+import isScreenLargerThan from "@utils/screenSize";
 
 marked.setOptions({
   gfm: true,
@@ -30,6 +31,14 @@ const renderer = {
 marked.use({ renderer });
 
 export default function Article({ article }) {
+  const [widerThan1200, setWiderThan1200] = useState(false);
+
+  useEffect(() => {
+    if (isScreenLargerThan(1201)) {
+      setWiderThan1200(true);
+    }
+  }, []);
+
   const {
     _id,
     title,
@@ -51,7 +60,11 @@ export default function Article({ article }) {
     <article className="blog">
       <img src={coverImage} alt="title" className="blog__cover" />
       <div className="blog__contentContainer">
-        <h2 className="blog__title">{title}</h2>
+        {widerThan1200 ? (
+          <h2 className="blog__title">{title}</h2>
+        ) : (
+          <h3 className="blog__title">{title}</h3>
+        )}
         <p className="blog__updated">
           <em>Last Updated: {new Date(dateUpdated).toDateString()}</em>
         </p>

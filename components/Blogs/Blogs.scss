@@ -87,14 +87,29 @@
   max-width: 768px;
   padding: 20vh var(--padding-400);
 
+  &__cover,
+  &__title {
+    border-radius: 0.5rem;
+  }
+
   &__cover {
-    max-height: 60vh;
+    max-height: 40vh;
     object-fit: cover;
     object-position: top;
   }
 
   &__title {
-    margin-bottom: 4rem;
+    position: relative;
+    top: -6rem;
+    left: 0;
+    padding: 0.75rem 1rem;
+    margin-bottom: -3rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--primary-clr-400);
+
+    @include widerThan1200 {
+      left: 6rem;
+    }
   }
 
   &__tags > * {
@@ -104,6 +119,7 @@
     color: var(--white);
     width: max-content;
     margin-right: 1rem;
+    margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 0.25rem;
   }
