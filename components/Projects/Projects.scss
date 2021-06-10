@@ -23,6 +23,10 @@
     margin-top: 12rem;
   }
 
+  @include widerThan1600 {
+    max-width: 1200px;
+  }
+
   &__info {
     display: flex;
     align-items: flex-end;

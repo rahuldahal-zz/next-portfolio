@@ -58,21 +58,23 @@ export default function Article({ article }) {
 
   return (
     <article className="blog">
-      <img src={coverImage} alt="title" className="blog__cover" />
-      <div className="blog__contentContainer">
-        {widerThan1200 ? (
-          <h2 className="blog__title">{title}</h2>
-        ) : (
-          <h3 className="blog__title">{title}</h3>
-        )}
-        <p className="blog__updated">
-          <em>Last Updated: {new Date(dateUpdated).toDateString()}</em>
-        </p>
-        <p className="blog__tags">{blogTags()}</p>
-        <div
-          className="blog__content"
-          dangerouslySetInnerHTML={{ __html: marked(contentMarkdown) }}
-        />
+      <div className="contentsWrap">
+        <img src={coverImage} alt="title" className="blog__cover" />
+        <div className="blog__contentContainer">
+          {widerThan1200 ? (
+            <h2 className="blog__title">{title}</h2>
+          ) : (
+            <h3 className="blog__title">{title}</h3>
+          )}
+          <p className="blog__updated">
+            <em>Last Updated: {new Date(dateUpdated).toDateString()}</em>
+          </p>
+          <p className="blog__tags">{blogTags()}</p>
+          <div
+            className="blog__content"
+            dangerouslySetInnerHTML={{ __html: marked(contentMarkdown) }}
+          />
+        </div>
       </div>
     </article>
   );

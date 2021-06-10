@@ -34,6 +34,10 @@
     max-width: 80vw;
   }
 
+  @include widerThan1600 {
+    max-width: 1200px;
+  }
+
   &__title {
     .link {
       color: var(--white);
@@ -61,6 +65,7 @@
   &__cover {
     border-radius: 0.5rem;
     height: 100%;
+    max-height: 25rem;
     object-fit: cover;
     object-position: top;
   }
@@ -84,8 +89,13 @@
 }
 
 .blog {
-  max-width: 768px;
   padding: 20vh var(--padding-400);
+
+  &__cover,
+  &__content,
+  &__title {
+    max-width: 768px;
+  }
 
   &__cover,
   &__title {
