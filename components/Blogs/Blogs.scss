@@ -72,6 +72,8 @@
 
   &__tags > * {
     display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     text-transform: lowercase;
     background: var(--primary-clr-400);
     color: var(--white);
@@ -124,13 +126,15 @@
 
   &__tags > * {
     display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     text-transform: lowercase;
     background: var(--primary-clr-400);
     color: var(--white);
     width: max-content;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    padding: 0.25rem;
     border-radius: 0.25rem;
   }
 
