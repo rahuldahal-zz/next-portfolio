@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import marked from "marked";
-import "./prism";
 import isScreenLargerThan from "@utils/screenSize";
+
+const prism = require("prismjs");
+const loadLanguages = require("prismjs/components/");
 
 marked.setOptions({
   gfm: true,
+  highlight: function (code, lang) {
+    if (prism.languages[lang]) {
+      return prism.highlight(code, prism.languages[lang], lang);
+    } else {
+      return code;
+    }
+  },
 });
 
 const renderer = {

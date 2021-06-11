@@ -136,6 +136,13 @@ p {
   align-items: center;
 }
 
+pre {
+  background: #cddcec;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
 @import "./_common.scss";
 @import "../components/Common/Button/Button.scss";
 @import "../components/Common/Link/Link.scss";
