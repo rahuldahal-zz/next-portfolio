@@ -375,11 +375,17 @@
     text-decoration: none;
     height: 100%;
     border-radius: var(--border-radius);
+
+    &::before {
+      margin-right: 0.5rem;
+    }
   }
 
   &__url {
     &::before {
-      content: "\f360";
+      font-family: "Font Awesome 5 Free";
+      content: "\f35d";
+      font-weight: 900;
     }
   }
 
