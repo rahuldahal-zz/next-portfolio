@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
 import Link from "@components/Common/Link/Link";
-import MERNStack from "../../../public/svgs/MERNStack.svg";
-import JAMStack from "../../../public/svgs/JAMStack.svg";
-import OpenSource from "../../../public/svgs/OpenSource.svg";
-import isScreenLargerThan from "utils/screenSize";
+import MERNStack from "@svgs/MERNStack.svg";
+import JAMStack from "@svgs/JAMStack.svg";
+import OpenSource from "@svgs/OpenSource.svg";
+import isScreenLargerThan from "@utils/screenSize";
 
 export default function ExpertiseExpand({ focused, setIsExpertiseFocused }) {
   const { expertise, fromTop } = focused;
