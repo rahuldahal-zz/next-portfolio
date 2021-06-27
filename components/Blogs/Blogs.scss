@@ -139,7 +139,38 @@
     border-radius: 0.25rem;
   }
 
+  &__updated {
+    em {
+      margin-right: 1rem;
+    }
+
+    em::before {
+      content: "#";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-right: 0.5rem;
+    }
+
+    em:first-child::before {
+      content: "\f784";
+    }
+
+    em:last-child::before {
+      content: "\f017";
+    }
+  }
+
   &__content {
     margin-top: 4rem;
+
+    h3,
+    h4,
+    h5 {
+      color: var(--primary-clr-600);
+    }
+
+    h3 {
+      margin-top: 4rem;
+    }
   }
 }

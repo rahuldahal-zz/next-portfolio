@@ -18,20 +18,10 @@ marked.setOptions({
 
 const renderer = {
   heading(text, level) {
-    let className = "";
-    switch (level) {
-      case 1:
-        className = "heading note__title";
-        break;
-      case 2:
-        className = "note__subTitle";
-        break;
-    }
-
     const reducedLevel = level + 2; // h1 will be h3
 
     return `
-              <h${reducedLevel} class="${className}">
+              <h${reducedLevel}>
                 ${text}
               </h${reducedLevel}>`;
   },
@@ -61,6 +51,11 @@ export default function Article({ article }) {
     tags,
   } = article;
 
+  function minutesToRead() {
+    const words = contentMarkdown.split(" ").length;
+    return Math.floor(words / 200) || 1;
+  }
+
   function blogTags() {
     return tags.map((tag, index) => <em key={index}>#{tag.name}</em>);
   }
@@ -76,7 +71,8 @@ export default function Article({ article }) {
             <h3 className="blog__title">{title}</h3>
           )}
           <p className="blog__updated">
-            <em>Last Updated: {new Date(dateUpdated).toDateString()}</em>
+            <em>{new Date(dateUpdated || dateAdded).toDateString()}</em>
+            <em>{`${minutesToRead()} min read`}</em>
           </p>
           <p className="blog__tags">{blogTags()}</p>
           <div
