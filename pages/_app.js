@@ -2,7 +2,6 @@ import { useEffect, useState, React } from "react";
 import "extended-normalize.css";
 import "@styles/styles.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
-import MyHead from "@components/MyHead";
 
 // This function runs both on the client and the server
 function Application({ Component, pageProps }) {
@@ -28,7 +27,6 @@ function Application({ Component, pageProps }) {
 
   return (
     <>
-      <MyHead />
       <Component {...pageProps} />
     </>
   );

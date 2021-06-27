@@ -4,14 +4,25 @@ import Article from "@components/Blogs/Article";
 import Footer from "@components/Common/Footer/Footer";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
+import MyHead from "@components/MyHead";
 
 export default function ArticleSlug({ article }) {
   useEffect(() => {
     hideLoader();
   }, []);
 
+  const { title, coverImage, slug, brief } = article;
+
+  const metaTags = {
+    title,
+    url: `https://rahuldahal.com.np/blogs/${slug}`,
+    description: brief,
+    image: coverImage,
+  };
+
   return (
     <>
+      <MyHead {...metaTags} />
       <Nav current="blogs" />
       <Article article={article} />
       <Footer />
@@ -27,11 +38,13 @@ export async function getStaticProps({ params }) {
           _id
           cuid
           title
+          slug
           type
           dateUpdated
           dateAdded
           isFeatured
           contentMarkdown
+          brief
           coverImage
           tags{
             name

@@ -4,18 +4,24 @@ import PublishedBlogs from "@components/Blogs/PublishedBlogs";
 import Footer from "@components/Common/Footer/Footer";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
+import MyHead from "@components/MyHead";
 
 export default function Projects({ blogDetails, handle }) {
   useEffect(() => {
     hideLoader();
   }, []);
 
-  // if(!blogDetails){
-
-  // }
+  const metaTags = {
+    title: "Blogs | Rahul Dahal",
+    url: "https://rahuldahal.com.np/blogs",
+    description:
+      "Learn, Share and Grow. I occasionally post articles mostly related to the JavaScript programming language, its features and quirks",
+    image: "https://rahuldahal.com.np/images/logo.png",
+  };
 
   return (
     <>
+      <MyHead {...metaTags} />
       <Nav current="blogs" />
       <PublishedBlogs blogDetails={blogDetails} handle={handle} />
       <Footer />
