@@ -137,7 +137,7 @@ p {
 }
 
 pre {
-  background: #cddcec;
+  background: var(--primary-clr-600);
   padding: 1rem;
   border-radius: 0.5rem;
   overflow-x: auto;
