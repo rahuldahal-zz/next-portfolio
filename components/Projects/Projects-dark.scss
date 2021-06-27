@@ -20,6 +20,12 @@
     color: var(--white);
   }
 
+  &__descriptionContent {
+    li::before {
+      color: currentColor;
+    }
+  }
+
   &__repo {
     color: var(--white);
   }
