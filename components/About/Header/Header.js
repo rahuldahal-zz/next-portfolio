@@ -7,53 +7,26 @@ export default function Header() {
     <main className="aboutHeader">
       <div className="contentsWrap">
         <div className="aboutHeader__hook">
-          <h4>What does good User Experience Design mean ?</h4>
-          <h5>Let me set a scenario here,</h5>
+          <h4>Developing a great User Experience.</h4>
           <p>
-            You hired a developer to create a website/app for your new business.
+            Application development is not just about making the functionalities
+            &ldquo;work&rdquo;. But, also about delivering a great user
+            experience while interacting with the application.
           </p>
+          <h5>What makes the User Experience great ?</h5>
           <p>
-            The developer promises to provide a modern layout, "cool" animations
-            and overall a decent User Interface.
-          </p>
-          <p>
-            After development, the app looks neat, cool and ready for
-            production.
-          </p>
-          <p>
-            You would then think that's the end of the process. You asked for an
-            app, and you got an app.
-          </p>
-          <h5>But, listen!</h5>
-          <p>
-            Building an application is not just about creating cool layouts and
-            animations. Coming up with the solution to the problems that an user
-            might face throughout the usage of an application is one of the
-            crucial part in the development cycle.
-          </p>
-
-          <p>
-            Research about the end users; their
-            <mark>taste, </mark>
-            <mark>age group, </mark>
-            <mark>gender, </mark>
-            <mark>familiarity with the technology, </mark>
-            <mark> preferred language, </mark>
-            <mark>culture, </mark> etc. must be conducted before starting the
-            actual development of an app.
-          </p>
-
-          <p>
-            Even while developing, the
-            <mark>Usability</mark>
-            <mark>Accessibility</mark>
-            <mark>Functionality,</mark>
+            The usability, accessibility, functionality,
             <span> as well as</span>
-            <mark>Credibility</mark>
-            should be tested, from the perspective of an end user.
+            the credibility of an application makes it&apos;s interaction
+            experience great.
           </p>
 
-          <h6>And that is exactly what I do.</h6>
+          <h5>And that is exactly what I do.</h5>
+          <p>
+            Throughout the development process, I try to come up with the
+            solutions to the problems that an user might face throughout the
+            usage of an application.
+          </p>
         </div>
 
         <div className="aboutHeader__details">
@@ -73,10 +46,12 @@ export default function Header() {
             fill="filled"
             className="aboutHeader__contact"
           />
-          <Button
-            textContent="Watch Video"
+          <Link
+            newTab
+            to="https://github.com/rahuldahal"
+            textContent="Activity Overview"
             fill="outline"
-            modifier="aboutHeader__video"
+            className="aboutHeader__activity"
           />
         </div>
       </div>
