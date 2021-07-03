@@ -196,13 +196,15 @@
     overflow-y: hidden;
     display: flex;
     padding: 1rem;
-
-    @include widerThan1200 {
-      max-width: 30rem;
-    }
+    min-width: 18.75rem;
+    max-width: 30rem;
 
     &:hover button {
       opacity: 0.9;
+    }
+
+    img {
+      object-fit: contain;
     }
   }
 
