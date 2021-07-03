@@ -19,7 +19,7 @@ export default function Works({ works }) {
           const {
             name,
             icon,
-            overview,
+            techstack,
             features,
             learnings,
             url,
@@ -36,7 +36,7 @@ export default function Works({ works }) {
               <div className="project__body">
                 <div className="project__details">
                   <ProjectDescription
-                    description={{ name, overview, features, learnings }}
+                    description={{ name, techstack, features, learnings }}
                   />
                   <div className="project__actions">
                     <Link

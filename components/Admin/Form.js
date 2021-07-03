@@ -6,7 +6,7 @@ export default function Form({ token, queryType, defaultValues }) {
   const {
     id,
     name,
-    overview,
+    techstack,
     url,
     repo,
     stack,
@@ -19,7 +19,7 @@ export default function Form({ token, queryType, defaultValues }) {
   // form refs
   const idRef = useRef(null);
   const nameRef = useRef(null);
-  const overviewRef = useRef(null);
+  const techstackRef = useRef(null);
   const urlRef = useRef(null);
   const repoRef = useRef(null);
   const stackRef = useRef(null);
@@ -30,7 +30,7 @@ export default function Form({ token, queryType, defaultValues }) {
 
   const refs = [
     nameRef,
-    overviewRef,
+    techstackRef,
     urlRef,
     repoRef,
     stackRef,
@@ -47,7 +47,7 @@ export default function Form({ token, queryType, defaultValues }) {
     if (queryType === "create") {
       const [
         nameValue,
-        overviewValue,
+        techstackValue,
         urlValue,
         repoValue,
         stackValue,
@@ -59,14 +59,14 @@ export default function Form({ token, queryType, defaultValues }) {
 
       data = {
         name: nameValue,
-        overview: overviewValue,
+        techstack: techstackValue,
         url: urlValue,
         repo: repoValue,
         stack: stackValue,
         screenshots: screenshotsValue.split(","),
         logo: logoValue,
-        features: featuresValue.split(","),
-        learnings: learningsValue.split(","),
+        features: featuresValue.trim().replace(/\n\n/, "\n").split("\n"),
+        learnings: learningsValue.trim().replace(/\n\n/, "\n").split("\n"),
       };
     } else if (queryType === "update") {
       const updatedData = refs.reduce((filtered, ref) => {
@@ -76,8 +76,8 @@ export default function Form({ token, queryType, defaultValues }) {
           fieldName === "features" ||
           fieldName === "learnings"
         ) {
-          if (value !== defaultValues[fieldName].join(",")) {
-            filtered[fieldName] = value.split(",");
+          if (value !== defaultValues[fieldName].join("\n")) {
+            filtered[fieldName] = value.split("\n");
           }
         } else if (value !== defaultValues[fieldName]) {
           filtered[fieldName] = value;
@@ -90,22 +90,6 @@ export default function Form({ token, queryType, defaultValues }) {
     }
 
     console.log({ data });
-
-    try {
-      const res = await fetch(`${server}/api/projects/create`, {
-        method: queryType === "update" ? "PATCH" : "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      });
-      const message = await res.json();
-      console.log(message);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   return (
@@ -116,8 +100,8 @@ export default function Form({ token, queryType, defaultValues }) {
         ""
       )}
 
-      <div className="overview">
-        <h4>Overview</h4>
+      <div className="techstack">
+        <h4>Tech Stack</h4>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -128,14 +112,14 @@ export default function Form({ token, queryType, defaultValues }) {
           defaultValue={defaultValues ? name : ""}
         />
 
-        <label htmlFor="overview">Overview</label>
+        <label htmlFor="techstack">Tech Stack</label>
         <textarea
-          name="overview"
-          id="overview"
-          cols="30"
-          rows="20"
-          ref={overviewRef}
-          defaultValue={defaultValues ? overview : ""}
+          name="techstack"
+          id="techstack"
+          cols={30}
+          rows={20}
+          ref={techstackRef}
+          defaultValue={defaultValues ? techstack : ""}
         />
 
         <label htmlFor="url">URL</label>
@@ -189,28 +173,24 @@ export default function Form({ token, queryType, defaultValues }) {
           defaultValue={defaultValues ? logo : ""}
         />
       </div>
-      <div className="features">
-        <h4>Features</h4>
-        <label htmlFor="features">Features</label>
-        <input
-          type="text"
-          name="features"
-          id="features"
-          ref={featuresRef}
-          defaultValue={defaultValues ? features : ""}
-        />
-      </div>
-      <div className="learnings">
-        <h4>Learnings</h4>
-        <label htmlFor="learnings">Learnings</label>
-        <input
-          type="text"
-          name="learnings"
-          id="learnings"
-          ref={learningsRef}
-          defaultValue={defaultValues ? learnings : ""}
-        />
-      </div>
+      <label htmlFor="features">Features</label>
+      <textarea
+        name="features"
+        id="features"
+        cols={30}
+        rows={20}
+        ref={featuresRef}
+        defaultValue={defaultValues ? features : ""}
+      />
+      <label htmlFor="learnings">Learnings</label>
+      <textarea
+        name="learnings"
+        id="learnings"
+        cols={30}
+        rows={20}
+        ref={learningsRef}
+        defaultValue={defaultValues ? learnings : ""}
+      />
       <Button
         type="submit"
         fill="filled"

@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 
-function Content({ data, name }) {
-  const typeOfData = typeof data;
-  if (typeOfData === "string") {
-    return (
-      <p
-        dangerouslySetInnerHTML={{
-          __html: `${name} ${data}`,
-        }}
-      />
-    );
-  }
-
+function Content({ data }) {
   return (
     <ul className="projectList">
       {data.map((elem, index) => (
@@ -22,17 +11,17 @@ function Content({ data, name }) {
 }
 
 export default function ProjectDescription({ description }) {
-  const { name, overview, features, learnings } = description;
-  const [activeWork, setActiveWork] = useState({ work: "", tab: "overview" });
+  const { name, techstack, features, learnings } = description;
+  const [activeWork, setActiveWork] = useState({ work: "", tab: "techstack" });
 
   function getAppropriateProjectContent(
     workName,
-    { overview, features, learnings }
+    { techstack, features, learnings }
   ) {
     const { work, tab } = activeWork;
 
     if (!work || work !== workName) {
-      return <Content data={overview} name={workName} />;
+      return <Content data={techstack} name={workName} />;
     }
     if (tab === "features") {
       return <Content data={features} />;
@@ -40,7 +29,7 @@ export default function ProjectDescription({ description }) {
     if (tab === "learnings") {
       return <Content data={learnings} />;
     }
-    return <Content data={overview} name={workName} />;
+    return <Content data={techstack} name={workName} />;
   }
 
   function getTabClassName(tabName, workName) {
@@ -48,14 +37,14 @@ export default function ProjectDescription({ description }) {
     if (tabName === tab && workName === work) {
       return "project__descriptionTab project__descriptionTab--active";
     }
-    if (workName !== work && tabName === "overview") {
+    if (workName !== work && tabName === "techstack") {
       return "project__descriptionTab project__descriptionTab--active";
     }
     return "project__descriptionTab";
   }
 
   function DescriptionTabs({ work }) {
-    const tabs = ["Overview", "Features", "Learnings"];
+    const tabs = ["techstack", "Features", "Learnings"];
     return (
       <div className="project__descriptionTabs">
         {tabs.map((tab, index) => (
@@ -75,7 +64,7 @@ export default function ProjectDescription({ description }) {
     <div className="project__description">
       <div className="project__descriptionContent">
         {getAppropriateProjectContent(name, {
-          overview,
+          techstack,
           features,
           learnings,
         })}
