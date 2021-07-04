@@ -59,7 +59,7 @@ export default function Form({ token, queryType, defaultValues }) {
 
       data = {
         name: nameValue,
-        techstack: techstackValue,
+        techstack: techstackValue.trim().replace(/\n\n/, "\n").split("\n"),
         url: urlValue,
         repo: repoValue,
         stack: stackValue,
@@ -90,6 +90,22 @@ export default function Form({ token, queryType, defaultValues }) {
     }
 
     console.log({ data });
+
+    try {
+      const res = await fetch(`${server}/api/projects/create`, {
+        method: queryType === "update" ? "PATCH" : "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+      const message = await res.json();
+      console.log(message);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
