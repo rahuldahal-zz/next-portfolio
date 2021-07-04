@@ -17,7 +17,17 @@ const app = nc();
 
 app.post(async (req, res) => {
   console.log(req.body);
-  const { name, overview, url, repo, stack, screenshots, logo } = req.body;
+  const {
+    name,
+    techstack,
+    url,
+    repo,
+    stack,
+    features,
+    learnings,
+    screenshots,
+    logo,
+  } = req.body;
 
   try {
     await Authenticate(getTokenFromHeader(req));
@@ -25,7 +35,9 @@ app.post(async (req, res) => {
       Create(Collection("projects"), {
         data: {
           name,
-          overview,
+          techstack,
+          features,
+          learnings,
           url,
           repo,
           stack,
