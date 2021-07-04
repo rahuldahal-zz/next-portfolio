@@ -14,7 +14,7 @@
 
 .project {
   position: relative;
-  margin-top: 6rem;
+  margin-top: 10rem;
   border-radius: var(--border-radius);
   filter: drop-shadow(0 -12px 24px rgba(var(--black-RGB), 0.2));
 
@@ -44,7 +44,6 @@
   }
 
   &__name {
-    width: max-content;
     margin: 0;
   }
 
