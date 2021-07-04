@@ -111,16 +111,18 @@
 
   &__descriptionContent {
     padding: var(--padding-400);
+    width: 100%;
 
     ul {
-      @include widerThan1200 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-      }
+      margin: 0;
+      width: 100%;
+      max-height: 173px;
+      overflow-y: auto;
 
       li {
         list-style: none;
         width: max-content;
+        margin-right: 1rem;
 
         &::before {
           content: "\f058";
