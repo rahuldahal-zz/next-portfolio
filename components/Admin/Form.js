@@ -79,7 +79,8 @@ export default function Form({ token, queryType, defaultValues }) {
         if (
           fieldName === "screenshots" ||
           fieldName === "features" ||
-          fieldName === "learnings"
+          fieldName === "learnings" ||
+          fieldName === "techstack"
         ) {
           if (value !== defaultValues[fieldName].join("\n")) {
             filtered[fieldName] = value.split("\n");
@@ -148,7 +149,7 @@ export default function Form({ token, queryType, defaultValues }) {
           cols={30}
           rows={20}
           ref={techstackRef}
-          defaultValue={defaultValues ? techstack : ""}
+          defaultValue={defaultValues ? techstack.join("\n") : ""}
         />
 
         <label htmlFor="url">URL</label>
@@ -209,7 +210,7 @@ export default function Form({ token, queryType, defaultValues }) {
         cols={30}
         rows={20}
         ref={featuresRef}
-        defaultValue={defaultValues ? features : ""}
+        defaultValue={defaultValues ? features.join("\n") : ""}
       />
       <label htmlFor="learnings">Learnings</label>
       <textarea
@@ -218,7 +219,7 @@ export default function Form({ token, queryType, defaultValues }) {
         cols={30}
         rows={20}
         ref={learningsRef}
-        defaultValue={defaultValues ? learnings : ""}
+        defaultValue={defaultValues ? learnings.join("\n") : ""}
       />
       <Button
         type="submit"
