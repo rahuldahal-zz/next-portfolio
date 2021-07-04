@@ -6,6 +6,7 @@ export default function Form({ token, queryType, defaultValues }) {
   const {
     id,
     name,
+    priority,
     techstack,
     url,
     repo,
@@ -19,6 +20,7 @@ export default function Form({ token, queryType, defaultValues }) {
   // form refs
   const idRef = useRef(null);
   const nameRef = useRef(null);
+  const priorityRef = useRef(null);
   const techstackRef = useRef(null);
   const urlRef = useRef(null);
   const repoRef = useRef(null);
@@ -30,6 +32,7 @@ export default function Form({ token, queryType, defaultValues }) {
 
   const refs = [
     nameRef,
+    priorityRef,
     techstackRef,
     urlRef,
     repoRef,
@@ -47,6 +50,7 @@ export default function Form({ token, queryType, defaultValues }) {
     if (queryType === "create") {
       const [
         nameValue,
+        priorityValue,
         techstackValue,
         urlValue,
         repoValue,
@@ -59,6 +63,7 @@ export default function Form({ token, queryType, defaultValues }) {
 
       data = {
         name: nameValue,
+        priority: priorityValue,
         techstack: techstackValue.trim().replace(/\n\n/, "\n").split("\n"),
         url: urlValue,
         repo: repoValue,
@@ -126,6 +131,14 @@ export default function Form({ token, queryType, defaultValues }) {
           placeholder="Project Name"
           ref={nameRef}
           defaultValue={defaultValues ? name : ""}
+        />
+        <label htmlFor="priority">Priority</label>
+        <input
+          type="number"
+          name="priority"
+          id="priority"
+          ref={priorityRef}
+          defaultValue={defaultValues ? priority : "0"}
         />
 
         <label htmlFor="techstack">Tech Stack</label>
