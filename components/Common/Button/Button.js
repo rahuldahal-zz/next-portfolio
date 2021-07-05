@@ -1,26 +1,17 @@
 import React from "react";
-import NextLink from "next/link";
 
 export default function Button({
-  to,
   fill,
   textContent,
   modifier,
-  type = "button",
-  onClick,
+  onClick = () => {},
 }) {
   const className = modifier
     ? `btn btn--${fill} ${modifier}`
     : `btn btn--${fill}`;
 
-  return to ? (
-    <NextLink href={to}>
-      <a className={className} href={to} target="_blank" rel="noreferrer">
-        {textContent}
-      </a>
-    </NextLink>
-  ) : (
-    <button type={type} className={className} onClick={onClick}>
+  return (
+    <button type="button" className={className} onClick={onClick}>
       {textContent}
     </button>
   );
