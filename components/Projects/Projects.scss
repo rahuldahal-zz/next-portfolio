@@ -92,7 +92,7 @@
     }
   }
 
-  &__description {
+  &__attributes {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,7 +109,7 @@
     }
   }
 
-  &__descriptionContent {
+  &__attributesContent {
     padding: var(--padding-400);
     width: 100%;
 
@@ -140,12 +140,12 @@
     }
   }
 
-  &__descriptionTabs {
+  &__attributesTabs {
     display: flex;
     filter: drop-shadow(0 -0.25rem 0.5rem rgba(0, 0, 0, 0.3));
   }
 
-  &__descriptionTab {
+  &__attributesTab {
     position: relative;
     background: var(--primary-clr-500);
     color: var(--white);
