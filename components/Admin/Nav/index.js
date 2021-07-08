@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import Button from "@components/Common/Button/Button";
 import { server } from "@utils/getCurrentEnv";
 import { useRouter } from "next/router";
-import { GetMesssages, GetProjects, UpdateProject } from "./contents";
+import {
+  CreateProject,
+  GetMesssages,
+  GetProjects,
+  UpdateProject,
+} from "./contents";
 
 export default function Nav({ setStateRefs, token }) {
   const TAB = useRouter().query.tab;
@@ -16,14 +21,13 @@ export default function Nav({ setStateRefs, token }) {
   const { setTitle, setComponentToRender } = setStateRefs;
 
   useEffect(() => {
-    console.log(activeComponent);
     if (activeComponent === "getProjects") {
       console.log("fetching projects...");
       fetch(`${server}/api/projects?updated`)
         .then((res) => res.json())
         .then((data) => {
           setIsLoading(false);
-          setProjects(data);
+          setProjects(data.projects);
         });
     }
     if (activeComponent === "getMessages") {
@@ -34,7 +38,7 @@ export default function Nav({ setStateRefs, token }) {
         .then((res) => res.json())
         .then((data) => {
           setIsLoading(false);
-          setMessages(data);
+          setMessages(data.messages);
         });
     }
   }, [activeComponent]);
@@ -44,18 +48,22 @@ export default function Nav({ setStateRefs, token }) {
       switch (activeComponent) {
         case "getProjects":
           setTitle("Projects Completed");
-          setComponentToRender(
-            <GetProjects
-              projects={projects}
-              setStateRefs={{ setActiveComponent, setDefaultValues }}
-            />
-          );
+          console.log(projects);
+          projects.length > 0 &&
+            setComponentToRender(
+              <GetProjects
+                projects={projects}
+                setStateRefs={{ setActiveComponent, setDefaultValues }}
+              />
+            );
           break;
         case "getMessages":
           setTitle("Messages from Clients");
-          setComponentToRender(
-            <GetMesssages token={token} messages={messages} />
-          );
+          console.log(messages);
+          messages.length > 0 &&
+            setComponentToRender(
+              <GetMesssages token={token} messages={messages} />
+            );
           break;
         case "updateProject":
           setTitle("Update Project");
@@ -65,9 +73,10 @@ export default function Nav({ setStateRefs, token }) {
           break;
         default:
           setTitle("Create New Project");
+          setComponentToRender(<CreateProject token={token} />);
       }
     }
-  }, [isLoading]);
+  }, [isLoading, messages, projects, activeComponent]);
 
   function getNavItemClassFor(item) {
     return item === activeComponent
@@ -82,7 +91,6 @@ export default function Nav({ setStateRefs, token }) {
         fill="fill"
         textContent="Create Project"
         onClick={() => {
-          setIsLoading(true);
           setActiveComponent("createProject");
         }}
       />

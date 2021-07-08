@@ -8,8 +8,6 @@ export default function Query({ token }) {
   );
   const [title, setTitle] = useState("Create New Project");
 
-  useEffect(() => console.log(componentToRender), [componentToRender]);
-
   return (
     <>
       <Nav

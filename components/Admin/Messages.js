@@ -2,9 +2,7 @@ import Button from "@components/Common/Button/Button";
 import Link from "@components/Common/Link/Link";
 import React from "react";
 
-export default function Messages({ data, token }) {
-  const { messages: fetchedMessages } = data;
-
+export default function Messages({ messages, token }) {
   async function deleteMessageHandler(id) {
     const res = await fetch("/api/messenger", {
       method: "DELETE",
@@ -17,7 +15,7 @@ export default function Messages({ data, token }) {
   }
   return (
     <div className="admin__messages">
-      {fetchedMessages.map((fetchedMessage) => {
+      {messages.map((fetchedMessage) => {
         const { name, email, message, date } = fetchedMessage.data;
         return (
           <div className="message" key={fetchedMessage.id}>

@@ -12,7 +12,7 @@ export default function CompletedProjects({
     setDefaultValues({ ...data, id });
   }
 
-  return completedProjects.projects.map((project) => (
+  return completedProjects.map((project) => (
     <div className="admin__project" key={project.id}>
       <h6>{project.data.name}</h6>
       <Button

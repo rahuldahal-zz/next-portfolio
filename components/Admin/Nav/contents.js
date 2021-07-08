@@ -20,7 +20,7 @@ export function GetMesssages({ messages, token }) {
   return messages.length === 0 ? (
     <em>Loading messages</em>
   ) : (
-    <Messages data={messages} token={token} />
+    <Messages messages={messages} token={token} />
   );
 }
 
