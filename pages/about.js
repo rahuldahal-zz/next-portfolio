@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import Nav from "@components/Common/Nav/Nav";
-import Header from "@components/About/Header/Header";
+import About from "@components/About";
 import Footer from "@components/Common/Footer/Footer";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
 import MyHead from "@components/MyHead";
 
-export default function About() {
+export default function AboutPage() {
   useEffect(() => {
     hideLoader();
   }, []);
@@ -24,7 +24,7 @@ export default function About() {
     <>
       <MyHead {...metaTags} />
       <Nav current="about" />
-      <Header />
+      <About />
       <Footer />
       <LoaderOverlay />
     </>

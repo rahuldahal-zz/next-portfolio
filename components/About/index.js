@@ -2,7 +2,7 @@ import Button from "@components/Common/Button/Button";
 import Link from "@components/Common/Link/Link";
 import React from "react";
 
-export default function Header() {
+export default function About() {
   return (
     <main className="aboutHeader">
       <div className="contentsWrap">
