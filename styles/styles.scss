@@ -144,15 +144,15 @@ pre {
 }
 
 @import "./_common.scss";
-@import "../components/Common/Button/Button.scss";
-@import "../components/Common/Link/Link.scss";
-@import "../components/Common/Nav/Nav.scss";
-@import "../components/Landing/Hero/Hero.scss";
-@import "../components/Landing/Expertise/Expertise.scss";
-@import "../components/Common/Footer/Footer.scss";
-@import "../components/About/About.scss";
-@import "../components/Projects/Projects.scss";
-@import "../components/Blogs/Blogs.scss";
+@import "../components/Common/Button/button.scss";
+@import "../components/Common/Link/link.scss";
+@import "../components/Common/Nav/nav.scss";
+@import "../components/Landing/Hero/hero.scss";
+@import "../components/Landing/Expertise/expertise.scss";
+@import "../components/Common/Footer/footer.scss";
+@import "../components/About/about.scss";
+@import "../components/Projects/projects.scss";
+@import "../components/Blogs/blogs.scss";
 @import "./prism.css";
 @import "./dark";
 @import "../components/Admin/admin.scss";
