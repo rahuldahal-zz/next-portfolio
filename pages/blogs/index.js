@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import Nav from "@components/Common/Nav/Nav";
-import PublishedBlogs from "@components/Blogs/PublishedBlogs";
+import Blogs from "@components/Blogs";
 import Footer from "@components/Common/Footer/Footer";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
 import MyHead from "@components/MyHead";
 
-export default function Projects({ blogDetails, handle }) {
+export default function BlogsPage({ blogDetails, handle }) {
   useEffect(() => {
     hideLoader();
   }, []);
@@ -23,7 +23,7 @@ export default function Projects({ blogDetails, handle }) {
     <>
       <MyHead {...metaTags} />
       <Nav current="blogs" />
-      <PublishedBlogs blogDetails={blogDetails} handle={handle} />
+      <Blogs blogDetails={blogDetails} handle={handle} />
       <Footer />
       <LoaderOverlay />
     </>
