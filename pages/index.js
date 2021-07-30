@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import Nav from "@components/Common/Nav/Nav";
-import Landing from "@components/Index/Landing/Landing";
-import Expertise from "@components/Index/Expertise/Expertise";
+import Landing from "@components/Landing";
 import Footer from "@components/Common/Footer/Footer";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
 import MyHead from "@components/MyHead";
 
-export default function Home() {
+export default function LandingPage() {
   useEffect(() => {
     hideLoader();
   }, []);
@@ -26,7 +25,6 @@ export default function Home() {
       <MyHead {...metaTags} />
       <Nav />
       <Landing />
-      <Expertise />
       <Footer />
       <LoaderOverlay />
     </>

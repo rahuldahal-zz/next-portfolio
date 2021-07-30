@@ -5,26 +5,26 @@ import UsabilityIllustration from "@svgs/usability_testing.svg";
 import UsabilityIllustrationDesktop from "@svgs/usability_testing_desktop.svg";
 import { showLoader } from "@utils/loader";
 
-export default function Landing() {
+export default function Hero() {
   const tagline = (
     <>
       I Improvise <br />
-      <span className="landing__highlight">User Experience</span> <br />
+      <span className="hero__highlight">User Experience</span> <br />
       While Developing <br />
       Websites.
     </>
   );
   const [heading, setHeading] = useState(
-    <h4 className="landing__heading">{tagline}</h4>
+    <h4 className="hero__heading">{tagline}</h4>
   );
   const [illustration, setIllustration] = useState("small");
 
   useEffect(() => {
     if (isScreenLargerThan(481)) {
-      setHeading(<h3 className="landing__heading">{tagline}</h3>);
+      setHeading(<h3 className="hero__heading">{tagline}</h3>);
     }
     if (isScreenLargerThan(1400)) {
-      setHeading(<h2 className="landing__heading">{tagline}</h2>);
+      setHeading(<h2 className="hero__heading">{tagline}</h2>);
     }
     if (isScreenLargerThan(1201)) {
       setIllustration("large");
@@ -33,16 +33,16 @@ export default function Landing() {
 
   return (
     <>
-      <section className="landing overlay">
+      <section className="hero overlay">
         <div className="contentsWrap">
           <div className="headingAndCTA">
             {heading}
 
-            <p className="landing__subheading subheading">
+            <p className="hero__subheading subheading">
               MERN/JAM stack developer
             </p>
 
-            <div className="landing__cta">
+            <div className="hero__cta">
               <Link
                 to="/#contact"
                 fill="filled"
@@ -60,9 +60,9 @@ export default function Landing() {
           </div>
 
           {illustration === "large" ? (
-            <UsabilityIllustrationDesktop className="landing__illustration" />
+            <UsabilityIllustrationDesktop className="hero__illustration" />
           ) : (
-            <UsabilityIllustration className="landing__illustration" />
+            <UsabilityIllustration className="hero__illustration" />
           )}
         </div>
       </section>
