@@ -1,4 +1,3 @@
-import Button from "@components/Common/Button/Button";
 import Link from "@components/Common/Link/Link";
 import React from "react";
 
@@ -30,7 +29,7 @@ export default function About() {
         </div>
 
         <div className="aboutHeader__details">
-          <picture width="60vw" height="60vw">
+          <picture>
             <source srcSet="images/thatsme.webp" type="image/webp" />
             <source srcSet="images/thatsme.jpg" type="image/jpeg" />
             <img
