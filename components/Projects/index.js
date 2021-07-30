@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectsList from "./ProjectsList";
 
-export default function Works({ works }) {
+export default function Projects({ works }) {
   return (
     <main className="projects">
       <div className="contentsWrap">

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import Nav from "@components/Common/Nav/Nav";
-import Works from "@components/Projects/Works";
+import Projects from "@components/Projects";
 import Footer from "@components/Common/Footer/Footer";
 import LoaderOverlay from "@components/Common/LoaderOverlay";
 import { server } from "@utils/getCurrentEnv";
 import { hideLoader } from "@utils/loader";
 import MyHead from "@components/MyHead";
 
-export default function Projects({ projects }) {
+export default function ProjectsPage({ projects }) {
   useEffect(() => {
     hideLoader();
   }, []);
@@ -24,7 +24,7 @@ export default function Projects({ projects }) {
     <>
       <MyHead {...metaTags} />
       <Nav current="projects" />
-      <Works works={projects} />
+      <Projects works={projects} />
       <Footer />
       <LoaderOverlay />
     </>
