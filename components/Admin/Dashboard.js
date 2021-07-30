@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Nav from "./Nav";
 import { CreateProject } from "./Nav/contents";
 
-export default function Query({ token }) {
+export default function Dashboard({ token }) {
   const [componentToRender, setComponentToRender] = useState(
     <CreateProject token={token} />
   );
