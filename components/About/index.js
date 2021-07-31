@@ -1,7 +1,14 @@
 import Link from "@components/Link/Link";
+import Picture from "@components/Picture";
 import React from "react";
 
 export default function About() {
+  const source = {
+    webp: "images/thatsme.webp",
+    jpg: "images/thatsme.jpg",
+    default: "images/thatsme.jpg",
+  };
+
   return (
     <main className="aboutHeader">
       <div className="contentsWrap">
@@ -29,16 +36,12 @@ export default function About() {
         </div>
 
         <div className="aboutHeader__details">
-          <picture>
-            <source srcSet="images/thatsme.webp" type="image/webp" />
-            <source srcSet="images/thatsme.jpg" type="image/jpeg" />
-            <img
-              src="images/thatsme.jpg"
-              alt="Rahul Dahal Smiling to the camera"
-              width="60vw"
-              height="60vw"
-            />
-          </picture>
+          <Picture
+            source={source}
+            alt="Rahul Dahal Smiling to the camera"
+            width="60vw"
+            height="60vw"
+          />
           <Link
             textContent="Contact"
             to="#contact"
