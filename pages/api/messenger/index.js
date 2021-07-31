@@ -1,5 +1,5 @@
 import nc from "next-connect";
-import { validate } from "@components/Common/Footer/ContactForm";
+import { validate } from "@components/Footer/ContactForm";
 import faunadb from "faunadb";
 import Authenticate from "utils/authMiddleware";
 import { callSendAPI } from "./webhook/index";
@@ -8,16 +8,8 @@ import getTokenFromHeader from "utils/getTokenFromHeader";
 // Faunadb client connection
 const client = new faunadb.Client({ secret: process.env.FAUNA_API_KEY });
 
-const {
-  Paginate,
-  Documents,
-  Get,
-  Lambda,
-  Collection,
-  Create,
-  Delete,
-  Ref,
-} = faunadb.query;
+const { Paginate, Documents, Get, Lambda, Collection, Create, Delete, Ref } =
+  faunadb.query;
 
 const app = nc();
 

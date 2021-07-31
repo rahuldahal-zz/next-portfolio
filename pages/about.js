@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import Nav from "@components/Common/Nav/Nav";
+import Nav from "@components/Nav/Nav";
 import About from "@components/About";
-import Footer from "@components/Common/Footer/Footer";
-import LoaderOverlay from "@components/Common/LoaderOverlay";
+import Footer from "@components/Footer/Footer";
+import LoaderOverlay from "@components/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
 import MyHead from "@components/MyHead";
 
