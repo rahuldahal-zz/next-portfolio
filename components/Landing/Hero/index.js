@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import Link from "@components/Link/Link";
 import isScreenLargerThan from "@utils/screenSize";
 import UsabilityIllustration from "@svgs/usability_testing.svg";
-import UsabilityIllustrationDesktop from "@svgs/usability_testing_desktop.svg";
 import { showLoader } from "@utils/loader";
+import Picture from "@components/Picture";
 
 export default function Hero() {
+  const source = {
+    png: "images/thatsme.png",
+    default: "images/thatsme.png",
+  };
+
   const tagline = (
     <>
       I Improvise <br />
@@ -60,7 +65,13 @@ export default function Hero() {
           </div>
 
           {illustration === "large" ? (
-            <UsabilityIllustrationDesktop className="hero__illustration" />
+            <Picture
+              className="hero__image"
+              source={source}
+              alt="Rahul Dahal Smiling to the camera"
+              width="500px"
+              height="500px"
+            />
           ) : (
             <UsabilityIllustration className="hero__illustration" />
           )}

@@ -4,6 +4,7 @@
   margin-top: 7vh;
   padding: var(--padding-400);
   padding-top: 20vh;
+  padding-bottom: 5vh;
   min-height: 90vh;
   overflow: hidden;
   clip-path: var(--clip-path);
@@ -22,6 +23,11 @@
     position: relative;
     z-index: 2;
   }
+
+  &__heading {
+    margin-right: 8rem;
+  }
+
   h4,
   h3,
   h2 {
@@ -38,7 +44,7 @@
   .contentsWrap {
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   &__subheading {
@@ -77,6 +83,11 @@
   }
   &__cta .link:last-child::before {
     content: "\f0ae";
+  }
+
+  &__image img {
+    mask: url("/svgs/blob.svg") no-repeat;
+    background: var(--white);
   }
 
   &__illustration {
