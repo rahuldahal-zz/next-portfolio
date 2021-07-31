@@ -1,4 +1,4 @@
-import Link from "@components/Common/Link/Link";
+import Link from "@components/Link/Link";
 import React from "react";
 
 export default function About() {

@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "@components/Common/Button/Button";
-import Link from "@components/Common/Link/Link";
+import Button from "@components/Button/Button";
+import Link from "@components/Link/Link";
 import ProjectAttributes from "./ProjectAttributes";
 
 export default function ProjectsList({ works }) {

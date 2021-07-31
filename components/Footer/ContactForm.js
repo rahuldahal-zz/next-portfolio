@@ -1,4 +1,4 @@
-import Button from "@components/Common/Button/Button";
+import Button from "@components/Button/Button";
 import React, { useEffect, useRef, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import isAlpha from "validator/lib/isAlpha";

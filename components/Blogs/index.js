@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "@components/Common/Link/Link";
+import Link from "@components/Link/Link";
 import BlogCards from "./BlogCards";
 
 export default function Blogs({ blogDetails, handle }) {

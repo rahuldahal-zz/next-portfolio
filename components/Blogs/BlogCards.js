@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "@components/Common/Link/Link";
+import Link from "@components/Link/Link";
 import { showLoader } from "@utils/loader";
 
 export default function BlogCards({ cardDetails }) {

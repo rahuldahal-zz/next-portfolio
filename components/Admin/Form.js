@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Button from "@components/Common/Button/Button";
+import Button from "@components/Button/Button";
 import { server } from "utils/getCurrentEnv";
 
 export default function Form({ token, queryType, defaultValues }) {
