@@ -318,6 +318,7 @@
   background-color: var(--primary-clr-500);
   color: var(--white);
   width: max-content;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -327,8 +328,8 @@
     justify-content: space-between;
   }
 
-  &:nth-child(even) {
-    background-color: var(--accent-clr-300);
+  &:last-child {
+    margin-bottom: 0;
   }
 
   &__logo,
