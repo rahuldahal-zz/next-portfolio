@@ -1,4 +1,5 @@
 import Link from "@components/Link/Link";
+import AnimatedParticles from "@components/Particles";
 import Picture from "@components/Picture";
 import React from "react";
 
@@ -11,6 +12,7 @@ export default function About() {
 
   return (
     <main className="aboutHeader">
+      <AnimatedParticles />
       <div className="contentsWrap">
         <div className="aboutHeader__hook">
           <h4>Developing a great User Experience.</h4>

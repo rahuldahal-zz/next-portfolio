@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "@components/Link/Link";
+import AnimatedParticles from "@components/Particles";
 import BlogCards from "./BlogCards";
 
 export default function Blogs({ blogDetails, handle }) {
   return (
     <main className="blogCards">
+      <AnimatedParticles />
       <div className="contentsWrap">
         <h2 className="blogCards__heading">
           My articles posted on{" "}

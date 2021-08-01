@@ -4,6 +4,7 @@ import isScreenLargerThan from "@utils/screenSize";
 import UsabilityIllustration from "@svgs/usability_testing.svg";
 import { showLoader } from "@utils/loader";
 import Picture from "@components/Picture";
+import AnimatedParticles from "@components/Particles";
 
 export default function Hero() {
   const source = {
@@ -39,6 +40,8 @@ export default function Hero() {
   return (
     <>
       <section className="hero overlay">
+        <AnimatedParticles />
+
         <div className="contentsWrap">
           <div className="headingAndCTA">
             {heading}
