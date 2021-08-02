@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Button({
+  type = "button",
   fill,
   textContent,
   modifier,
@@ -11,7 +12,7 @@ export default function Button({
     : `btn btn--${fill}`;
 
   return (
-    <button type="button" className={className} onClick={onClick}>
+    <button type={type} className={className} onClick={onClick}>
       {textContent}
     </button>
   );
