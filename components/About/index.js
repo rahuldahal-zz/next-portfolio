@@ -1,4 +1,4 @@
-import Link from "@components/Link/Link";
+import Link from "@components/Link";
 import AnimatedParticles from "@components/Particles";
 import Picture from "@components/Picture";
 import React from "react";

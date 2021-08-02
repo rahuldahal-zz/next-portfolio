@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Link from "@components/Link/Link";
+import Link from "@components/Link";
 import isScreenLargerThan from "@utils/screenSize";
 import UsabilityIllustration from "@svgs/usability_testing.svg";
 import { showLoader } from "@utils/loader";

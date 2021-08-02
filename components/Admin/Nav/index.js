@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "@components/Button/Button";
+import Button from "@components/Button";
 import { server } from "@utils/getCurrentEnv";
 import { useRouter } from "next/router";
 import {

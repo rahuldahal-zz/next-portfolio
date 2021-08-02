@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "@components/Link/Link";
+import Link from "@components/Link";
 import AnimatedParticles from "@components/Particles";
 import BlogCards from "./BlogCards";
 

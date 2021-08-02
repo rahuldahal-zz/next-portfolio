@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Nav from "@components/Nav/Nav";
+import Nav from "@components/Nav";
 import Blogs from "@components/Blogs";
-import Footer from "@components/Footer/Footer";
+import Footer from "@components/Footer";
 import LoaderOverlay from "@components/LoaderOverlay";
 import { hideLoader } from "@utils/loader";
 import MyHead from "@components/MyHead";

@@ -1,6 +1,6 @@
 import React from "react";
 import ContactForm from "./ContactForm";
-import Link from "../Link/Link";
+import Link from "../Link";
 
 export default function Footer() {
   return (

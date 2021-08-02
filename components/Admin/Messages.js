@@ -1,5 +1,5 @@
-import Button from "@components/Button/Button";
-import Link from "@components/Link/Link";
+import Button from "@components/Button";
+import Link from "@components/Link";
 import React from "react";
 
 export default function Messages({ messages, token }) {

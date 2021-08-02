@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Toggle from "@svgs/toggle.svg";
 import Logo from "@svgs/logo.svg";
-import Link from "../Link/Link";
+import Link from "../Link";
 import NavLink from "./NavLink";
 
 export default function Nav({ current }) {

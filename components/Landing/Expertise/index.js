@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Link from "@components/Link/Link";
+import Link from "@components/Link";
 import MERNStack from "@svgs/MERNStack.svg";
 import JAMStack from "@svgs/JAMStack.svg";
 import OpenSource from "@svgs/OpenSource.svg";
