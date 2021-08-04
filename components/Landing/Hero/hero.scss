@@ -88,6 +88,13 @@
   &__image img {
     mask: url("/svgs/blob.svg") no-repeat;
     background: var(--white);
+    animation: updown 0.75s ease-in-out alternate infinite;
+  }
+
+  @keyframes updown {
+    100% {
+      transform: translateY(20px);
+    }
   }
 
   &__illustration {
