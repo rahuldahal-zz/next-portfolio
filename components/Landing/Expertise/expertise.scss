@@ -206,6 +206,7 @@
   background: var(--primary-gradient-horizontal);
   transition: visibility var(--transition-duration) ease-in-out,
     transform var(--transition-duration) ease-in-out;
+  overflow-y: auto;
 
   @include widerThan1200 {
     align-self: flex-start; // important for position: sticky
@@ -317,15 +318,27 @@
   border-radius: var(--border-radius);
   background-color: var(--primary-clr-500);
   color: var(--white);
-  width: max-content;
+  width: 100%;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 
   @include widerThan1200 {
     width: 100%;
     justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+    color: var(--black);
+
+    @include widerThan1200 {
+      background: var(--primary-clr-400);
+      color: var(--white);
+    }
   }
 
   &:last-child {
@@ -342,29 +355,32 @@
 
   &__logo {
     background: var(--white);
-    padding: var(--padding-300);
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-    border: 2px solid var(--primary-clr-400);
-    border-right: 0;
+    padding: var(--padding-400);
     display: flex;
     align-self: stretch;
     margin-left: -2px;
+
+    @include widerThan1200 {
+      background: var(--primary-clr-400);
+      padding: var(--padding-300);
+    }
 
     img {
       margin: auto;
       width: 1.5em;
       height: 1.5em;
+
+      @include widerThan1200 {
+        width: 2em;
+        height: 2em;
+      }
     }
   }
 
   &__actions {
-    padding: var(--padding-300);
-  }
-
-  &__name {
-    color: var(--white);
-    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    padding: var(--padding-400);
   }
 
   &__repo,

@@ -93,7 +93,7 @@ export default function ExpertiseExpand({ focused, setIsExpertiseFocused }) {
       <div className="expertiseExpand__content">
         <p className="expertiseExpand__details">{description}</p>
         <hr />
-        <h6>Projects</h6>
+        <h5>Projects</h5>
         {expertiseProjects && <ExpertiseProjects works={expertiseProjects} />}
       </div>
     </div>
@@ -107,10 +107,12 @@ export default function ExpertiseExpand({ focused, setIsExpertiseFocused }) {
           const { name, url, repo, logo } = data;
           return (
             <div className="expertiseProject" key={id}>
-              <div className="expertiseProject__logo">
-                <img src={logo} width="1.5em" alt="" />
+              <div className="expertiseProject__info">
+                <div className="expertiseProject__logo">
+                  <img src={logo} width="1.5em" alt="" />
+                </div>
+                <strong className="expertiseProject__name">{name}</strong>
               </div>
-              <strong className="expertiseProject__name">{name}</strong>
               <div className="expertiseProject__actions">
                 <Link
                   to={url}
