@@ -1,12 +1,6 @@
-const STATIC_CACHE_VERSION = "v1.1.1";
-const API_CACHE_VERSION = "v1.0.1";
+const STATIC_CACHE_VERSION = "v1.2.1";
+const API_CACHE_VERSION = "v1.1.1";
 const staticAssets = [
-  "/font/woff/Atkinson-Hyperlegible-Regular-102.woff",
-  "/font/woff2/Atkinson-Hyperlegible-Regular-102a.woff2",
-  "/font/woff/Atkinson-Hyperlegible-Italic-102.woff",
-  "/font/woff2/Atkinson-Hyperlegible-Italic-102a.woff2",
-  "/font/woff/Atkinson-Hyperlegible-Bold-102.woff",
-  "/font/woff2/Atkinson-Hyperlegible-Bold-102a.woff2",
   "/images/logo.png",
   "/images/thatsme.webp",
   "/images/thatsme.png",
