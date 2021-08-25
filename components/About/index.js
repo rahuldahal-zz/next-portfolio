@@ -15,21 +15,18 @@ export default function About() {
       <AnimatedParticles />
       <div className="contentsWrap">
         <div className="aboutHeader__hook">
-          <h4>Developing a great User Experience.</h4>
+          <h3>Building Software Applications with JavaScript</h3>
           <p>
             Application development is not just about making the functionalities
             &ldquo;work&rdquo;. But, also about delivering a great user
             experience while interacting with the application.
           </p>
-          <h5>What makes the User Experience great ?</h5>
+          <h5>I use JavaScript and its tools to create,</h5>
           <p>
-            The usability, accessibility, functionality,
+            usable, accessible, functional,
             <span> as well as</span>
-            the credibility of an application makes it&apos;s interaction
-            experience great.
+            credible applications
           </p>
-
-          <h5>And that is exactly what I do.</h5>
           <p>
             Throughout the development process, I try to come up with the
             solutions to the problems that an user might face throughout the
