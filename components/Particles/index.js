@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react";
 import Particles from "react-particles-js";
 
 export default function AnimatedParticles() {
-  const [, setIsScreenWide] = useState(false);
+  const [loadParticles, setLoadParticles] = useState(false);
 
   useEffect(() => {
     if (isScreenLargerThan("768")) {
       config.particles.number.value = 50;
-      setIsScreenWide(true);
     }
+    setTimeout(() => setLoadParticles(true), 1000);
   }, []);
 
-  return <Particles params={config} />;
+  return loadParticles ? <Particles params={config} /> : null;
 }
