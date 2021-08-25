@@ -5,9 +5,8 @@ import React from "react";
 
 export default function About() {
   const source = {
-    webp: "images/thatsme.webp",
-    jpg: "images/thatsme.jpg",
-    default: "images/thatsme.jpg",
+    png: "images/thatsme.png",
+    default: "images/thatsme.png",
   };
 
   return (
