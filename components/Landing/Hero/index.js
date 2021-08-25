@@ -14,10 +14,8 @@ export default function Hero() {
 
   const tagline = (
     <>
-      I Improvise <br />
-      <span className="hero__highlight">User Experience</span> <br />
-      While Developing <br />
-      Websites.
+      I Write <span className="hero__highlight">JavaScript</span> <br />
+      To Build Software Applications.
     </>
   );
   const [heading, setHeading] = useState(

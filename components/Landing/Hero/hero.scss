@@ -29,7 +29,7 @@
     font-weight: bold;
 
     @include widerThan1200 {
-      margin-right: 8rem;
+      margin-right: 4rem;
     }
   }
 
@@ -42,7 +42,7 @@
 
   h3,
   h2 {
-    font-weight: bold;
+    font-weight: 900;
   }
 
   .contentsWrap {
@@ -59,7 +59,7 @@
   &__highlight {
     display: inline-block;
     background-image: var(--accent-gradient-vertical-reverse);
-    font-weight: bold;
+    font-weight: 900;
     color: var(--black);
     margin: 0.25em 0;
     padding: 0 var(--padding-300);
