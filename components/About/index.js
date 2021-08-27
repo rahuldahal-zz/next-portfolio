@@ -14,7 +14,7 @@ export default function About() {
       <AnimatedParticles />
       <div className="contentsWrap">
         <div className="aboutHeader__hook">
-          <h3>Building Software Applications with JavaScript</h3>
+          <h3>Building Software Applications with JavaScript.</h3>
           <p>
             Application development is not just about making the functionalities
             &ldquo;work&rdquo;. But, also about delivering a great user
@@ -29,7 +29,8 @@ export default function About() {
           <p>
             Throughout the development process, I try to come up with the
             solutions to the problems that an user might face throughout the
-            usage of an application.
+            usage of an application. Which in turn, helps the end user to have
+            an amazing User Experience.
           </p>
         </div>
 
