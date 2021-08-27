@@ -9,7 +9,7 @@ export default function Blogs({ blogDetails, handle }) {
       <AnimatedParticles />
       <div className="contentsWrap">
         <h2 className="blogCards__heading">
-          My articles posted on{" "}
+          I post articles on{" "}
           <Link
             to={`https://${handle}.hashnode.dev`}
             textContent="Hashnode"
