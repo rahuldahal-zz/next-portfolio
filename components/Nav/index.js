@@ -20,6 +20,38 @@ export default function Nav({ current }) {
     }
   }, [current]);
 
+  function hamBurgerClickHandler(e) {
+    if (e) {
+      switch (e.key) {
+        case "Enter":
+          setIsHamburgerClicked(true);
+          break;
+        case "Escape":
+          setIsHamburgerClicked(false);
+          break;
+      }
+    } else if (isHamburgerClicked) {
+      setIsHamburgerClicked(false);
+    } else {
+      setIsHamburgerClicked(true);
+    }
+  }
+
+  function themeToggleHandler(e) {
+    const theme = localStorage.getItem("theme");
+    if ((e && e.key === "Enter") || !e) {
+      if (theme) {
+        localStorage.removeItem("theme");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+      document
+        .querySelector(".nav__themeToggler")
+        .classList.toggle("nav__themeToggler--dark");
+      document.documentElement.classList.toggle("dark");
+    }
+  }
+
   return (
     <nav className="nav">
       <div className="nav__wrap contentsWrap">
@@ -96,34 +128,4 @@ export default function Nav({ current }) {
       </div>
     </nav>
   );
-
-  function hamBurgerClickHandler(e) {
-    if (e) {
-      switch (e.key) {
-        case "Enter":
-          setIsHamburgerClicked(true);
-          break;
-        case "Escape":
-          setIsHamburgerClicked(false);
-          break;
-      }
-    } else {
-      isHamburgerClicked
-        ? setIsHamburgerClicked(false)
-        : setIsHamburgerClicked(true);
-    }
-  }
-
-  function themeToggleHandler(e) {
-    const theme = localStorage.getItem("theme");
-    if ((e && e.key === "Enter") || !e) {
-      theme
-        ? localStorage.removeItem("theme")
-        : localStorage.setItem("theme", "dark");
-      document
-        .querySelector(".nav__themeToggler")
-        .classList.toggle("nav__themeToggler--dark");
-      document.documentElement.classList.toggle("dark");
-    }
-  }
 }

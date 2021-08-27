@@ -10,8 +10,7 @@ export default function BlogCards({ cardDetails }) {
   return (
     <section className="blogCards__content">
       {cardDetails.map((article, index) => {
-        const { _id, title, brief, dateAdded, coverImage, slug, tags } =
-          article;
+        const { title, brief, dateAdded, coverImage, slug } = article;
         return (
           <div className="blogCard" key={index}>
             <img src={coverImage} alt={title} className="blogCard__cover" />

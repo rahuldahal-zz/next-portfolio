@@ -67,7 +67,7 @@ export function validate([nameValue, emailValue, messageValue]) {
 export default function ContactForm() {
   const [formState, setFormState] = useState("default");
   const [resetForm, setResetForm] = useState(false);
-  const [fieldFocused, setFieldFocused] = useState(null);
+  const [setFieldFocused] = useState(null);
 
   const name = useRef(null);
   const email = useRef(null);

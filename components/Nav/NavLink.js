@@ -1,6 +1,6 @@
 import React from "react";
 import NextLink from "next/link";
-import { showLoader } from "utils/loader";
+import { showLoader } from "@utils/loader";
 
 export default function NavLink({ to, textContent, isActive, children }) {
   const className = isActive ? "nav__link nav__link--active" : "nav__link";

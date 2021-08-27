@@ -11,7 +11,6 @@ export default function ProjectsList({ works }) {
       {sortedWorks.map((work) => {
         const {
           name,
-          icon,
           techstack,
           features,
           learnings,

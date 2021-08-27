@@ -3,16 +3,15 @@ import marked from "marked";
 import isScreenLargerThan from "@utils/screenSize";
 
 const prism = require("prismjs");
-const loadLanguages = require("prismjs/components/");
+require("prismjs/components/");
 
 marked.setOptions({
   gfm: true,
-  highlight: function (code, lang) {
+  highlight: function highlight(code, lang) {
     if (prism.languages[lang]) {
       return prism.highlight(code, prism.languages[lang], lang);
-    } else {
-      return code;
     }
+    return code;
   },
 });
 
@@ -38,18 +37,8 @@ export default function Article({ article }) {
     }
   }, []);
 
-  const {
-    _id,
-    title,
-    type,
-    contentMarkdown,
-    coverImage,
-    cuid,
-    dateAdded,
-    dateUpdated,
-    isFeatured,
-    tags,
-  } = article;
+  const { title, contentMarkdown, coverImage, dateAdded, dateUpdated, tags } =
+    article;
 
   function minutesToRead() {
     const words = contentMarkdown.split(" ").length;

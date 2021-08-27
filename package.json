@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3333",
+    "lint": "eslint components",
     "build": "next build",
     "start": "next start",
     "export": "next export"

@@ -6,6 +6,9 @@
       "no-console": 1,
       "react/prop-types": 0,
       "no-restricted-globals": 1,
+      "react/button-has-type": 1,
+      "default-case": 0,
+      "react/no-array-index-key": 1,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "jsx-a11y/label-has-associated-control": [2, {
         "depth": 2
