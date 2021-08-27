@@ -7,6 +7,11 @@
   background: var(--primary-gradient-horizontal);
   clip-path: var(--clip-path);
 
+  &__heading {
+    margin-top: 4rem;
+    color: var(--white);
+  }
+
   &__wrap {
     padding: var(--padding-400);
   }
