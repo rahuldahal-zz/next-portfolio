@@ -89,7 +89,7 @@ export default function ExpertiseExpand({ focused, setIsExpertiseFocused }) {
       <div className="expertiseExpand__cover">
         <Image />
       </div>
-      <h5 className="expertiseExpand__title">{title}</h5>
+      <h3 className="expertiseExpand__title">{title}</h3>
       <div className="expertiseExpand__content">
         <p className="expertiseExpand__details">{description}</p>
         <hr />
