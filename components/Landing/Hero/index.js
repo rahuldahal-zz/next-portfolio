@@ -12,24 +12,9 @@ export default function Hero() {
     default: "images/thatsme.png",
   };
 
-  const tagline = (
-    <>
-      I Write <span className="hero__highlight">JavaScript</span> <br />
-      To Build <br /> Software Applications.
-    </>
-  );
-  const [heading, setHeading] = useState(
-    <h4 className="hero__heading">{tagline}</h4>
-  );
   const [illustration, setIllustration] = useState("small");
 
   useEffect(() => {
-    if (isScreenLargerThan(481)) {
-      setHeading(<h3 className="hero__heading">{tagline}</h3>);
-    }
-    if (isScreenLargerThan(1400)) {
-      setHeading(<h2 className="hero__heading">{tagline}</h2>);
-    }
     if (isScreenLargerThan(1201)) {
       setIllustration("large");
     }
@@ -42,7 +27,10 @@ export default function Hero() {
 
         <div className="contentsWrap">
           <div className="headingAndCTA">
-            {heading}
+            <h1 className="hero__heading">
+              I Write <span className="hero__highlight">JavaScript</span> <br />
+              To Build <br /> Software Applications.
+            </h1>
 
             <p className="hero__subheading subheading">
               MERN/JAM stack developer
