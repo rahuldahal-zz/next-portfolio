@@ -22,7 +22,7 @@ export default function ProjectsList({ works }) {
         return (
           <div className="project" key={work.id}>
             <div className="project__info">
-              <h4 className="project__name">{name}</h4>
+              <h2 className="project__name">{name}</h2>
               <span className="project__stack">{stack}</span>
             </div>
             <div className="project__body">

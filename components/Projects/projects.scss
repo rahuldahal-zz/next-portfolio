@@ -10,6 +10,7 @@
   &__heading {
     margin-top: 4rem;
     color: var(--white);
+    padding: var(--padding-300);
   }
 
   &__wrap {
@@ -117,17 +118,21 @@
   &__attributesContent {
     padding: var(--padding-400);
     width: 100%;
+    box-sizing: border-box;
 
     ul {
       margin: 0;
       width: 100%;
       max-height: 173px;
       overflow-y: auto;
+      padding-left: 0;
 
       li {
         list-style: none;
         width: max-content;
         margin-right: 1rem;
+        list-style-position: inside;
+        margin-bottom: 0.5rem;
 
         &::before {
           content: "\f058";
@@ -154,11 +159,15 @@
     position: relative;
     background: var(--primary-clr-500);
     color: var(--white);
+    padding: var(--padding-300);
+    border-radius: var(--border-radius);
+    border-width: 0;
     border-color: var(--primary-clr-500);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     transition: transform 0.3s ease-in-out;
     transform-origin: bottom;
+    cursor: pointer;
 
     &::after {
       border-bottom-left-radius: 0;
