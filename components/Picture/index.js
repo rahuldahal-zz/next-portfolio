@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useEffect } from "react/cjs/react.development";
 
 export default function Picture({
   source,
@@ -11,8 +12,15 @@ export default function Picture({
   delete source.default;
   const srcs = Object.keys(source);
 
+  const pictureRef = useRef(null);
+
+  useEffect(() => {
+    pictureRef.current.style.width = width;
+    pictureRef.current.style.height = height;
+  }, []);
+
   return (
-    <picture className={className}>
+    <picture ref={pictureRef} className={className}>
       {srcs.map((src, index) => (
         <source key={index} srcSet={source[src]} type={`image/${src}`} />
       ))}
