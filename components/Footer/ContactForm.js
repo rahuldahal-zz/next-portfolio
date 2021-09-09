@@ -199,7 +199,7 @@ export default function ContactForm() {
 
   return (
     <div className="contact">
-      <h4>Contact Me</h4>
+      <h3>Contact Me</h3>
       <form
         action=""
         className="contact__form"

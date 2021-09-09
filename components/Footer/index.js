@@ -7,9 +7,9 @@ export default function Footer() {
     <>
       <footer className="footer stacked" id="contact">
         <div className="contentsWrap">
-          <h3 className="footer__title">
+          <h2 className="footer__title">
             Let's team up and create something amazing.
-          </h3>
+          </h2>
           <div className="footer__columns">
             <ContactForm />
             <SocialLinks />
@@ -26,7 +26,7 @@ export default function Footer() {
 function SocialLinks() {
   return (
     <div className="footer__socialLinks">
-      <h5>Also, connect with me on:</h5>
+      <h3>Also, connect with me on:</h3>
       <Link
         to="https://github.com/rahuldahal"
         textContent="/rahuldahal"
