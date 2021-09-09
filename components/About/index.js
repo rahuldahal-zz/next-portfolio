@@ -14,13 +14,13 @@ export default function About() {
       <AnimatedParticles />
       <div className="contentsWrap">
         <div className="aboutHeader__hook">
-          <h3>Building Software Applications with JavaScript.</h3>
+          <h2>Building Software Applications with JavaScript.</h2>
           <p>
             Application development is not just about making the functionalities
             &ldquo;work&rdquo;. But, also about delivering a great user
             experience while interacting with the application.
           </p>
-          <h5>I use JavaScript and its tools to create,</h5>
+          <h3>I use JavaScript and its tools to create,</h3>
           <p>
             usable, accessible, functional,
             <span> as well as</span>
