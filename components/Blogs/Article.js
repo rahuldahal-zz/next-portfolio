@@ -54,11 +54,7 @@ export default function Article({ article }) {
       <div className="contentsWrap">
         <img src={coverImage} alt="title" className="blog__cover" />
         <div className="blog__contentContainer">
-          {widerThan1200 ? (
-            <h2 className="blog__title">{title}</h2>
-          ) : (
-            <h3 className="blog__title">{title}</h3>
-          )}
+          <h1 className="blog__title">{title}</h1>
           <p className="blog__updated">
             <em>{new Date(dateUpdated || dateAdded).toDateString()}</em>
             <em>{`${minutesToRead()} min read`}</em>
