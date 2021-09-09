@@ -1,5 +1,5 @@
 import { useEffect, useState, React } from "react";
-import "extended-normalize.css";
+import "normalize.css";
 import "@styles/styles.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
 
