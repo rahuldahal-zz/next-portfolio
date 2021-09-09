@@ -15,13 +15,13 @@ export default function BlogCards({ cardDetails }) {
           <div className="blogCard" key={index}>
             <img src={coverImage} alt={title} className="blogCard__cover" />
             <div className="blogCard__content">
-              <h4 className="blogCard__title">
+              <h2 className="blogCard__title">
                 <Link
                   to={getLink(slug)}
                   textContent={title}
                   onClick={() => showLoader()}
                 />
-              </h4>
+              </h2>
               <p className="blogCard__tags">
                 <em>#javascript</em>
               </p>

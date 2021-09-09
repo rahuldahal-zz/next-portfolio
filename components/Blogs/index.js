@@ -8,7 +8,7 @@ export default function Blogs({ blogDetails, handle }) {
     <main className="blogCards">
       <AnimatedParticles />
       <div className="contentsWrap">
-        <h2 className="blogCards__heading">
+        <h1 className="blogCards__heading">
           I post articles on{" "}
           <Link
             to={`https://${handle}.hashnode.dev`}
@@ -16,7 +16,7 @@ export default function Blogs({ blogDetails, handle }) {
             className="blogCards__handle"
             newTab
           />
-        </h2>
+        </h1>
         <BlogCards cardDetails={blogDetails} />
       </div>
     </main>
