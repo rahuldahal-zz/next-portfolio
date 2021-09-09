@@ -23,7 +23,7 @@ export default function LoaderOverlay() {
     <div className="loaderOverlay">
       <div className="loaderOverlay__content">
         <blockquote>{content}</blockquote>
-        <mark> - {credit}</mark>
+        <em> - {credit}</em>
       </div>
     </div>
   );
