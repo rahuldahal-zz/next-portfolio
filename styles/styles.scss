@@ -153,6 +153,43 @@ pre {
   overflow-x: auto;
 }
 
+/*making the typography consistent for inputFields, buttons, tables*/
+input,
+button,
+table,
+select,
+textarea {
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/*making the input, button, and other form fields look neat and easy to grab "focus"*/
+input,
+select,
+textarea {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--black);
+  border-radius: 0.3rem;
+}
+
+[type="radio"],
+[type="checkbox"] {
+  display: inline-block;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid var(--primary-clr-400);
+}
+
 @import "./_common.scss";
 @import "../components/Button/button.scss";
 @import "../components/Link/link.scss";
